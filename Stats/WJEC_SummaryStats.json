@@ -1,0 +1,337 @@
+{
+    "subjects": {
+        "physics": {
+            "concept": {
+                "male": 26,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
+        "chemistry": {
+            "concept": {
+                "male": 10,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
+        "biology": {
+            "concept": {
+                "male": 18,
+                "female": 0
+            },
+            "scientist": {
+                "male": 2,
+                "female": 0
+            }
+        }
+    },
+    "overall": {
+        "concept": {
+            "male": 54,
+            "female": 0
+        },
+        "scientist": {
+            "male": 2,
+            "female": 0
+        },
+        "unique": {
+            "male": 47,
+            "female": 0,
+            "region": {
+                "europe": 41,
+                "north america": 5,
+                "europe-north america": 1
+            }
+        }
+    },
+    "names": {
+        "sir isaac newton": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 5
+        },
+        "charles-augustin de coulomb": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "thomas young": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "christian doppler": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "edwin hubble": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "albert einstein": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "peter higgs": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes kepler": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "max planck": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "wilhelm carl werner otto fritz franz wien": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "ludwig boltzmann": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "robert hooke": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "amedeo avogadro": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "louis de broglie": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "josef stefan and ludwig boltzmann": {
+            "gender": "male",
+            "nationality": "asutrian and austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "archimedes of syracuse": {
+            "gender": "male",
+            "nationality": "greek",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "michael faraday": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "heinrich friedrich emil lenz": {
+            "gender": "male",
+            "nationality": "estonian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "willebrord snellius": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "daniel bernoulli": {
+            "gender": "male",
+            "nationality": "swiss",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "matthew meselson and franklin stahl": {
+            "gender": "male",
+            "nationality": "ameriacan and american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "franklin stahl": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "matthew stanley meselson": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "guillaume-benjamin-amand duchenne": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "hans krebs": {
+            "gender": "male",
+            "nationality": "german and british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "stanley rossiter benedict": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "camillo golgi": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "gregor mendel": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "edward h. simpson": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "john langdon down": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles darwin": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "george huntington": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "g. h. hardy and wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "english and german",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "jan evangelista purkyn?": {
+            "gender": "male",
+            "nationality": "czech",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "christian bohr.": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "hans christian gram": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "clopton havers": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "william sealy gosset": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "germain hess": {
+            "gender": "male",
+            "nationality": "swiss-russian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "henry louis le chatelier": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "hermann von fehling": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "bernhard tollens": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "max born and fritz haber": {
+            "gender": "male",
+            "nationality": "german and british and german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "fritz haber": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+            "gender": "male",
+            "nationality": "danish and english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles friedel\u00a0and\u00a0james crafts": {
+            "gender": "male",
+            "nationality": "french and american",
+            "region": "europe-north america",
+            "number of mentions": 1
+        },
+        "svante arrhenius": {
+            "gender": "male",
+            "nationality": "swedish",
+            "region": "europe",
+            "number of mentions": 1
+        }
+    }
+}
