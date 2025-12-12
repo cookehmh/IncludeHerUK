@@ -2,6 +2,9 @@ import pandas as pd
 import json
 from pathlib import Path
 
+#qual = 'A_Level'
+qual = 'GCSE'
+
 
 def load_csv(fname):
     try:
@@ -116,7 +119,7 @@ def process_file(fname):
     }
 
     out_path = "../Stats/"
-    out_name = f"{label}_SummaryStats.json"
+    out_name = f"{label}_SummaryStats_A_Level.json"
     out = out_path + out_name
     with open(out, 'w') as f:
         json.dump(output, f, indent=4)
@@ -124,10 +127,20 @@ def process_file(fname):
 
 
 # Run the function on your file
-if __name__ == "__main__":
+if __name__ == "__main__" and qual == 'A_Level':
     process_file("../A_Level/CCEA.csv")
     process_file("../A_Level/AQA.csv")
     process_file("../A_Level/Edexcel.csv")
     process_file("../A_Level/Scottish_highers.csv")
     process_file("../A_Level/WJEC.csv")
     process_file("../A_Level/OCR.csv")
+    
+    
+if __name__ == "__main__" and qual == 'GCSE':
+    #process_file("../GCSE/CCEA_GCSE.csv")
+    #process_file("../GCSE/AQA_GCSE.csv")
+    #process_file("../GCSE/Edexcel_GCSE.csv")
+    process_file("../GCSE/Scottish_NQ5.csv")
+    #process_file("../GCSE/WJEC_GCSE.csv")
+    process_file("../GCSE/OCR_A_GCSE.csv")
+    process_file("../GCSE/OCR_B_GCSE.csv")
