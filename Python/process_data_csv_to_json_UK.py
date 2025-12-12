@@ -119,7 +119,7 @@ def process_file(fname):
     }
 
     out_path = "../Stats/"
-    out_name = f"{label}_SummaryStats_A_Level.json"
+    out_name = f"{label}_SummaryStats_{qual}.json"
     out = out_path + out_name
     with open(out, 'w') as f:
         json.dump(output, f, indent=4)
