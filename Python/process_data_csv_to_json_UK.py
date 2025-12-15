@@ -103,7 +103,7 @@ def process_file(fname):
 
     df = clean_and_explode(df)
 
-    subjects = ["physics", "chemistry", "biology"]
+    subjects = ["physics", "chemistry", "biology", "environmental science", "geology"]
     label = Path(fname).stem
 
     subject_stats, overall_stats = compute_subject_stats(df, subjects)
@@ -137,10 +137,10 @@ if __name__ == "__main__" and qual == 'A_Level':
     
     
 if __name__ == "__main__" and qual == 'GCSE':
-    #process_file("../GCSE/CCEA_GCSE.csv")
-    #process_file("../GCSE/AQA_GCSE.csv")
-    #process_file("../GCSE/Edexcel_GCSE.csv")
+    process_file("../GCSE/CCEA_GCSE.csv")
+    process_file("../GCSE/AQA_GCSE.csv")
+    process_file("../GCSE/Edexcel_GCSE.csv")
     process_file("../GCSE/Scottish_NQ5.csv")
-    #process_file("../GCSE/WJEC_GCSE.csv")
+    process_file("../GCSE/WJEC_GCSE.csv")
     process_file("../GCSE/OCR_A_GCSE.csv")
     process_file("../GCSE/OCR_B_GCSE.csv")

@@ -29,6 +29,16 @@
                 "male": 3,
                 "female": 0
             }
+        },
+        "geology": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {

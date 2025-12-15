@@ -2,11 +2,11 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 9,
+                "male": 6,
                 "female": 0
             },
             "scientist": {
-                "male": 1,
+                "male": 0,
                 "female": 0
             }
         },
@@ -16,17 +16,17 @@
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 1,
                 "female": 0
             }
         },
         "biology": {
             "concept": {
-                "male": 0,
+                "male": 2,
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 1,
                 "female": 0
             }
         },
@@ -43,18 +43,20 @@
     },
     "overall": {
         "concept": {
-            "male": 12,
+            "male": 11,
             "female": 0
         },
         "scientist": {
-            "male": 1,
+            "male": 2,
             "female": 0
         },
         "unique": {
-            "male": 10,
+            "male": 11,
             "female": 0,
             "region": {
-                "europe": 10
+                "europe": 9,
+                "oceania": 1,
+                "africa": 1
             }
         }
     },
@@ -63,57 +65,63 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 4
+            "number of mentions": 3
         },
-        "jacques charles": {
+        "ernest rutherford": {
             "gender": "male",
-            "nationality": "french",
-            "region": "europe",
+            "nationality": "new zealand",
+            "region": "oceania",
             "number of mentions": 1
         },
-        "joseph louis gay-lussac": {
-            "gender": "male",
-            "nationality": "french",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "georg ohm": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "robert boyle": {
+        "john ambrose fleming": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
-        "robert brown": {
+        "niels bohr": {
             "gender": "male",
-            "nationality": "scottish",
+            "nationality": "danish",
             "region": "europe",
             "number of mentions": 1
         },
-        "lord kelvin": {
+        "reginald punnett": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
-        "bunsen burners": {
+        "charles darwin": {
             "gender": "male",
-            "nationality": "german",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
-        "haber process": {
+        "richard leaky": {
             "gender": "male",
-            "nationality": "german",
+            "nationality": "kenya",
+            "region": "africa",
+            "number of mentions": 1
+        },
+        "john dalton": {
+            "gender": "male",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
-        "ostwald process": {
+        "dmitri mendeleev": {
+            "gender": "male",
+            "nationality": "russian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "amedeo avogadro": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "fritz haber": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",

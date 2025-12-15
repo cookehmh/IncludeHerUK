@@ -2,27 +2,27 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 6,
+                "male": 9,
                 "female": 0
             },
             "scientist": {
-                "male": 10,
+                "male": 0,
                 "female": 0
             }
         },
         "chemistry": {
             "concept": {
-                "male": 2,
+                "male": 5,
                 "female": 0
             },
             "scientist": {
-                "male": 6,
+                "male": 2,
                 "female": 0
             }
         },
         "biology": {
             "concept": {
-                "male": 1,
+                "male": 4,
                 "female": 0
             },
             "scientist": {
@@ -43,20 +43,20 @@
     },
     "overall": {
         "concept": {
-            "male": 9,
+            "male": 18,
             "female": 0
         },
         "scientist": {
-            "male": 19,
+            "male": 5,
             "female": 0
         },
         "unique": {
             "male": 17,
             "female": 0,
             "region": {
-                "europe": 15,
-                "oceania": 1,
-                "europe and oceania": 1,
+                "europe": 13,
+                "oceania": 2,
+                "america": 2,
                 "nan": 1
             }
         }
@@ -64,97 +64,49 @@
     "names": {
         "sir isaac newton": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
-            "number of mentions": 5
+            "number of mentions": 3
         },
         "robert hooke": {
             "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "galileo": {
-            "gender": "male",
-            "nationality": "italian",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "robert boyle": {
-            "gender": "male",
-            "nationality": "irish",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "john ambrose fleming": {
-            "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "john dalton": {
-            "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 3
-        },
-        "sir joseph john \"j. j.\" thomson": {
-            "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 2
         },
-        "ernest rutherford": {
-            "gender": "male",
-            "nationality": "new-zealand",
-            "region": "oceania",
-            "number of mentions": 3
-        },
-        "niels bohr": {
-            "gender": "male",
-            "nationality": "denmark",
-            "region": "europe",
-            "number of mentions": 2
-        },
-        "hans geiger": {
+        "georg simon ohm": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
-        "ernest marsden": {
+        "ernest rutherford": {
             "gender": "male",
-            "nationality": "new-zealand english",
-            "region": "europe and oceania",
-            "number of mentions": 1
+            "nationality": "new zealand",
+            "region": "oceania",
+            "number of mentions": 3
         },
-        "charles darwin": {
+        "niels bohr": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "danish",
             "region": "europe",
             "number of mentions": 1
         },
-        "alfred russel wallace": {
+        "james chadwick": {
             "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "gregor mendel": {
-            "gender": "male",
-            "nationality": "austrian",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "reginald punnett": {
-            "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         },
         "amedeo avogadro": {
             "gender": "male",
-            "nationality": "italy",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "fritz haber": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
@@ -164,11 +116,59 @@
             "region": "europe",
             "number of mentions": 2
         },
+        "johannes diderik van der waals": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "john langdon down": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "george huntington": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "america",
+            "number of mentions": 1
+        },
+        "gregor mendel": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "stanley rossiter benedict": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "america",
+            "number of mentions": 1
+        },
+        "alexander fleming": {
+            "gender": "male",
+            "nationality": "scottish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "howard florey": {
+            "gender": "male",
+            "nationality": "australian",
+            "region": "oceania",
+            "number of mentions": 1
+        },
+        "ernst chain": {
+            "gender": "male",
+            "nationality": "german-british",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "nan": {
             "gender": "nan",
             "nationality": "nan",
             "region": "nan",
-            "number of mentions": 10
+            "number of mentions": 5
         }
     }
 }
