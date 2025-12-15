@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 10,
+                "male": 12,
                 "female": 0
             },
             "scientist": {
@@ -29,11 +29,31 @@
                 "male": 2,
                 "female": 0
             }
+        },
+        "environmental science": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
+        "geology": {
+            "concept": {
+                "male": 7,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {
         "concept": {
-            "male": 54,
+            "male": 63,
             "female": 0
         },
         "scientist": {
@@ -41,11 +61,11 @@
             "female": 0
         },
         "unique": {
-            "male": 47,
+            "male": 55,
             "female": 0,
             "region": {
-                "europe": 41,
-                "north america": 5,
+                "europe": 47,
+                "north america": 7,
                 "europe-north america": 1
             }
         }
@@ -315,22 +335,70 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+        "johannes nicolaus br\u00f8nsted": {
             "gender": "male",
-            "nationality": "danish and english",
+            "nationality": "danish",
             "region": "europe",
             "number of mentions": 1
         },
-        "charles friedel\u00a0and\u00a0james crafts": {
+        "thomas martin lowry": {
             "gender": "male",
-            "nationality": "french and american",
-            "region": "europe-north america",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles friedel": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james crafts": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "svante arrhenius": {
             "gender": "male",
             "nationality": "swedish",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "andrija mohorovi?i?": {
+            "gender": "male",
+            "nationality": "croatian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "friedrich mohs": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "henry darcy": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles spearman": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "henry mann": {
+            "gender": "male",
+            "nationality": "austrian-american",
+            "region": "europe-north america",
+            "number of mentions": 1
+        },
+        "donald ransom whitney": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         }
     }

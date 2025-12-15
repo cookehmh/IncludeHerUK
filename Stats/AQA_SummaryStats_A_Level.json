@@ -29,11 +29,31 @@
                 "male": 0,
                 "female": 0
             }
+        },
+        "environmental science": {
+            "concept": {
+                "male": 9,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
+        "geology": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {
         "concept": {
-            "male": 77,
+            "male": 86,
             "female": 0
         },
         "scientist": {
@@ -41,14 +61,14 @@
             "female": 0
         },
         "unique": {
-            "male": 67,
+            "male": 73,
             "female": 0,
             "region": {
                 "europe": 56,
                 "north america": 8,
+                "nan": 6,
                 "europe-north america": 2,
-                "oceania": 1,
-                "nan": 1
+                "oceania": 1
             }
         }
     },
@@ -339,7 +359,7 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "g. h. hardy and wilhelm weinberg": {
             "gender": "male",
@@ -405,7 +425,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
             "gender": "male",
@@ -455,11 +475,41 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "nan": {
-            "gender": "nan",
+        "samuel g lasky": {
+            "gender": "male",
             "nationality": "nan",
             "region": "nan",
-            "number of mentions": 5
+            "number of mentions": 1
+        },
+        "lincoln index": {
+            "gender": "male",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 2
+        },
+        "nikolai vavilov": {
+            "gender": "male",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 1
+        },
+        "charles spearman": {
+            "gender": "male",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 1
+        },
+        "mann-whitney u test": {
+            "gender": "male",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 1
+        },
+        "t\u00fcllgren funnel": {
+            "gender": "male",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 1
         }
     }
 }

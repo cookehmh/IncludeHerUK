@@ -29,11 +29,31 @@
                 "male": 6,
                 "female": 1
             }
+        },
+        "environmental science": {
+            "concept": {
+                "male": 6,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
+        "geology": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {
         "concept": {
-            "male": 35,
+            "male": 41,
             "female": 0
         },
         "scientist": {
@@ -41,13 +61,12 @@
             "female": 1
         },
         "unique": {
-            "male": 38,
+            "male": 44,
             "female": 1,
             "region": {
-                "europe": 30,
-                "north america": 8,
-                "oceania-europe": 1,
-                "nan": 1
+                "europe": 34,
+                "north america": 10,
+                "oceania-europe": 1
             }
         }
     },
@@ -286,11 +305,41 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 3
+        "george hadley": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "william ferrel": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "milutin milankovitch": {
+            "gender": "male",
+            "nationality": "serbian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "gaspard-gustave de coriolis": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "frederick lincoln": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "edward hugh simpson": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
         }
     }
 }
