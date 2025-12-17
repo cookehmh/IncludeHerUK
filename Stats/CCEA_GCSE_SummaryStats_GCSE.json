@@ -30,6 +30,16 @@
                 "female": 0
             }
         },
+        "environmental science": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
+        },
         "geology": {
             "concept": {
                 "male": 0,
@@ -56,7 +66,7 @@
             "region": {
                 "europe": 13,
                 "oceania": 2,
-                "america": 2,
+                "north america": 2,
                 "nan": 1
             }
         }
@@ -131,7 +141,7 @@
         "george huntington": {
             "gender": "male",
             "nationality": "american",
-            "region": "america",
+            "region": "north america",
             "number of mentions": 1
         },
         "gregor mendel": {
@@ -143,7 +153,7 @@
         "stanley rossiter benedict": {
             "gender": "male",
             "nationality": "american",
-            "region": "america",
+            "region": "north america",
             "number of mentions": 1
         },
         "alexander fleming": {

@@ -151,6 +151,82 @@
             }
         }
     },
+    "environmental science": {
+        "concept": {
+            "AQA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "CCEA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Edexcel": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "OCR A": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "OCR B": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Scottish NQ5": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "WJEC": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            }
+        },
+        "scientist": {
+            "AQA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "CCEA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Edexcel": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "OCR A": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "OCR B": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Scottish NQ5": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "WJEC": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            }
+        }
+    },
     "geology": {
         "concept": {
             "AQA": {
@@ -320,6 +396,14 @@
                 "% of total mentions": 27.33,
                 "% of total concept mentions": 23.16,
                 "% of total scientist mentions": 34.55
+            },
+            "environmental science": {
+                "concept": 0,
+                "scientist": 0,
+                "total": 0,
+                "% of total mentions": 0.0,
+                "% of total concept mentions": 0.0,
+                "% of total scientist mentions": 0.0
             },
             "geology": {
                 "concept": 7,
