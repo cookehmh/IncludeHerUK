@@ -26,8 +26,8 @@
                 "female": 0
             },
             "scientist": {
-                "male": 3,
-                "female": 0
+                "male": 6,
+                "female": 1
             }
         },
         "environmental science": {
@@ -57,17 +57,18 @@
             "female": 0
         },
         "scientist": {
-            "male": 19,
-            "female": 0
+            "male": 22,
+            "female": 1
         },
         "unique": {
-            "male": 17,
-            "female": 0,
+            "male": 20,
+            "female": 1,
             "region": {
-                "europe": 15,
+                "europe": 17,
                 "oceania": 1,
                 "europe-oceania": 1,
-                "nan": 1
+                "north america": 1,
+                "oceania-europe": 1
             }
         }
     },
@@ -138,6 +139,30 @@
             "region": "europe-oceania",
             "number of mentions": 1
         },
+        "rosalind franklin": {
+            "gender": "female",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james watson": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "francis crick": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "maurice wilkins": {
+            "gender": "male",
+            "nationality": "new-zealand and british",
+            "region": "oceania-europe",
+            "number of mentions": 1
+        },
         "charles darwin": {
             "gender": "male",
             "nationality": "english",
@@ -173,12 +198,6 @@
             "nationality": "russian",
             "region": "europe",
             "number of mentions": 2
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 10
         }
     }
 }
