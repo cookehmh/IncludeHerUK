@@ -65,7 +65,7 @@
             "female": 0,
             "region": {
                 "europe": 16,
-                "europe and oceania": 2,
+                "europe-oceania": 2,
                 "oceania": 1
             }
         }
@@ -116,7 +116,7 @@
         "marsden": {
             "gender": "male",
             "nationality": "english-new zealand",
-            "region": "europe and oceania",
+            "region": "europe-oceania",
             "number of mentions": 1
         },
         "walther m\u00fcller": {
@@ -170,7 +170,7 @@
         "ernest marsden": {
             "gender": "male",
             "nationality": "english-new zealand",
-            "region": "europe and oceania",
+            "region": "europe-oceania",
             "number of mentions": 1
         },
         "amedeo avogadro": {

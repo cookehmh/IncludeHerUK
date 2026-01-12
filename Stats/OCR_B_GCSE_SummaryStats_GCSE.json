@@ -66,7 +66,7 @@
             "region": {
                 "europe": 15,
                 "oceania": 1,
-                "europe and oceania": 1,
+                "europe-oceania": 1,
                 "nan": 1
             }
         }
@@ -135,7 +135,7 @@
         "ernest marsden": {
             "gender": "male",
             "nationality": "new-zealand english",
-            "region": "europe and oceania",
+            "region": "europe-oceania",
             "number of mentions": 1
         },
         "charles darwin": {
