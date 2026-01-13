@@ -61,10 +61,10 @@
             "female": 0
         },
         "unique": {
-            "male": 80,
+            "male": 81,
             "female": 0,
             "region": {
-                "europe": 63,
+                "europe": 64,
                 "north america": 15,
                 "oceania": 1,
                 "europe-north america": 1
@@ -376,7 +376,7 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
         },
         "g. h. hardy": {
             "gender": "male",
@@ -527,6 +527,12 @@
             "nationality": "american",
             "region": "north america",
             "number of mentions": 2
+        },
+        "edward hugh simpson": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
         },
         "nikolai vavilov": {
             "gender": "male",

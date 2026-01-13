@@ -138,11 +138,11 @@ if __name__ == "__main__" and qual == 'A_Level':
     
     
 if __name__ == "__main__" and qual == 'GCSE':
-    process_file("../GCSE/CCEA_GCSE.csv")
-    process_file("../GCSE/AQA_GCSE.csv")
-    process_file("../GCSE/Edexcel_GCSE.csv")
-    process_file("../GCSE/Scottish_NQ5.csv")
-    process_file("../GCSE/WJEC_GCSE.csv")
-    process_file("../GCSE/OCR_A_GCSE.csv")
-    process_file("../GCSE/OCR_B_GCSE.csv")
+    process_file("../GCSE/CCEA.csv")
+    process_file("../GCSE/AQA.csv")
+    process_file("../GCSE/Edexcel.csv")
+    process_file("../GCSE/Scottish.csv")
+    process_file("../GCSE/WJEC.csv")
+    process_file("../GCSE/OCR_A.csv")
+    process_file("../GCSE/OCR_B.csv")
 

@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 14,
+                "male": 19,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 63,
+            "male": 68,
             "female": 0
         },
         "scientist": {
@@ -61,13 +61,13 @@
             "female": 0
         },
         "unique": {
-            "male": 61,
+            "male": 66,
             "female": 0,
             "region": {
-                "europe": 52,
-                "north america": 6,
-                "europe-north america": 2,
-                "asia-north america": 1
+                "europe": 57,
+                "north america": 7,
+                "asia-north america": 1,
+                "europe-north america": 1
             }
         }
     },
@@ -324,9 +324,21 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "r. s. cahn, c. k. ingold, v. prelog": {
+        "robert sidney cahn": {
             "gender": "male",
-            "nationality": "english and engish and croatian-swiss",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "christopher kelk ingold": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "vladimir prelog": {
+            "gender": "male",
+            "nationality": "croatian-swiss",
             "region": "europe",
             "number of mentions": 1
         },
@@ -336,15 +348,27 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "max born and fritz haber": {
+        "max born": {
             "gender": "male",
-            "nationality": "german-british and german",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
-        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+        "fritz haber": {
             "gender": "male",
-            "nationality": "danish and english",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "thomas martin lowry": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes nicolaus br\u00f8nsted": {
+            "gender": "male",
+            "nationality": "danish",
             "region": "europe",
             "number of mentions": 1
         },
@@ -360,10 +384,16 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "charles friedel and james crafts": {
+        "charles friedel": {
             "gender": "male",
-            "nationality": "french and american",
-            "region": "europe-north america",
+            "nationality": "french",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "james crafts": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "europe",
             "number of mentions": 1
         },
         "bernhard tollens": {

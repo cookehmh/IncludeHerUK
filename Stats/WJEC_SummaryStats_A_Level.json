@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 26,
+                "male": 27,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 12,
+                "male": 13,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 18,
+                "male": 17,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 63,
+            "male": 64,
             "female": 0
         },
         "scientist": {
@@ -64,8 +64,8 @@
             "male": 55,
             "female": 0,
             "region": {
-                "europe": 47,
-                "north america": 7,
+                "europe": 48,
+                "north america": 6,
                 "europe-north america": 1
             }
         }
@@ -135,7 +135,7 @@
             "gender": "male",
             "nationality": "austrian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "robert hooke": {
             "gender": "male",
@@ -155,9 +155,9 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "josef stefan and ludwig boltzmann": {
+        "josef stefan": {
             "gender": "male",
-            "nationality": "asutrian and austrian",
+            "nationality": "austrian",
             "region": "europe",
             "number of mentions": 1
         },
@@ -191,19 +191,13 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "matthew meselson and franklin stahl": {
-            "gender": "male",
-            "nationality": "ameriacan and american",
-            "region": "north america",
-            "number of mentions": 1
-        },
-        "franklin stahl": {
+        "matthew meselson": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
             "number of mentions": 1
         },
-        "matthew stanley meselson": {
+        "franklin stahl": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
@@ -263,11 +257,17 @@
             "region": "north america",
             "number of mentions": 1
         },
-        "g. h. hardy and wilhelm weinberg": {
+        "g. h. hardy": {
             "gender": "male",
-            "nationality": "english and german",
+            "nationality": "english",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
+        },
+        "wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
         },
         "jan evangelista purkyn?": {
             "gender": "male",
@@ -275,7 +275,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "christian bohr.": {
+        "christian bohr": {
             "gender": "male",
             "nationality": "danish",
             "region": "europe",
@@ -323,15 +323,15 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "max born and fritz haber": {
-            "gender": "male",
-            "nationality": "german and british and german",
-            "region": "europe",
-            "number of mentions": 1
-        },
         "fritz haber": {
             "gender": "male",
             "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "max born": {
+            "gender": "male",
+            "nationality": "british and german",
             "region": "europe",
             "number of mentions": 1
         },
