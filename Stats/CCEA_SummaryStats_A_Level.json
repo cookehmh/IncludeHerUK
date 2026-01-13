@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 9,
+                "male": 12,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 15,
+                "male": 16,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 47,
+            "male": 51,
             "female": 0
         },
         "scientist": {
@@ -61,12 +61,11 @@
             "female": 0
         },
         "unique": {
-            "male": 38,
+            "male": 41,
             "female": 0,
             "region": {
-                "europe": 34,
-                "north america": 3,
-                "eruope": 1
+                "europe": 37,
+                "north america": 4
             }
         }
     },
@@ -129,7 +128,7 @@
             "gender": "male",
             "nationality": "austrian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "robert hooke": {
             "gender": "male",
@@ -197,9 +196,9 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "max born and fritz haber": {
+        "max born": {
             "gender": "male",
-            "nationality": "german and british and german",
+            "nationality": "british and german",
             "region": "europe",
             "number of mentions": 1
         },
@@ -207,17 +206,23 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
+            "number of mentions": 2
+        },
+        "johannes nicolaus br\u00f8nsted": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
             "number of mentions": 1
         },
-        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+        "thomas martin lowry": {
             "gender": "male",
-            "nationality": "danish and english",
-            "region": "eruope",
+            "nationality": "english",
+            "region": "europe",
             "number of mentions": 1
         },
-        "james clerk maxwell and ludwig boltzmann": {
+        "james clerk maxwell": {
             "gender": "male",
-            "nationality": "scottish and austrian",
+            "nationality": "scottish",
             "region": "europe",
             "number of mentions": 1
         },
@@ -227,9 +232,15 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "matthew meselson and franklin stahl": {
+        "matthew meselson": {
             "gender": "male",
-            "nationality": "ameriacan and american",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "franklin stahl": {
+            "gender": "male",
+            "nationality": "american",
             "region": "north america",
             "number of mentions": 1
         },
@@ -275,11 +286,17 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "g. h. hardy and wilhelm weinberg": {
+        "g. h. hardy": {
             "gender": "male",
-            "nationality": "english and german",
+            "nationality": "english",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
+        },
+        "wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
         },
         "jan evangelista purkyn?": {
             "gender": "male",

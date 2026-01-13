@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 24,
+                "male": 26,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 13,
+                "male": 16,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 10,
+                "male": 11,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 47,
+            "male": 53,
             "female": 0
         },
         "scientist": {
@@ -61,13 +61,11 @@
             "female": 0
         },
         "unique": {
-            "male": 43,
+            "male": 48,
             "female": 0,
             "region": {
-                "europe": 37,
-                "north america": 4,
-                "eruope": 1,
-                "europe-north america": 1
+                "europe": 42,
+                "north america": 6
             }
         }
     },
@@ -132,21 +130,21 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "ludwig boltzmann and  josef stefan": {
+        "ludwig boltzmann": {
             "gender": "male",
-            "nationality": "asutrian and austrian",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "josef stefan": {
+            "gender": "male",
+            "nationality": "austrian",
             "region": "europe",
             "number of mentions": 1
         },
         "wilhelm carl werner otto fritz franz wien": {
             "gender": "male",
             "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "ludwig boltzmann": {
-            "gender": "male",
-            "nationality": "austrian",
             "region": "europe",
             "number of mentions": 1
         },
@@ -186,10 +184,16 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "hertzsprung and russell": {
+        "ejnar hertzsprung": {
             "gender": "male",
-            "nationality": "danish and american",
+            "nationality": "danish",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "henry norris russell": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "friedrich gustav jakob henle": {
@@ -216,9 +220,15 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "g. h. hardy and wilhelm weinberg": {
+        "g. h. hardy": {
             "gender": "male",
-            "nationality": "english and german",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
@@ -240,13 +250,13 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "turner": {
+        "henry turner": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
             "number of mentions": 1
         },
-        "gram": {
+        "hans christian gram": {
             "gender": "male",
             "nationality": "danish",
             "region": "europe",
@@ -288,22 +298,40 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "max born and fritz haber": {
+        "max born": {
             "gender": "male",
-            "nationality": "german-british and german",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
-        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+        "fritz haber": {
             "gender": "male",
-            "nationality": "danish and english",
-            "region": "eruope",
+            "nationality": "german",
+            "region": "europe",
             "number of mentions": 1
         },
-        "charles friedel\u00a0and\u00a0james crafts": {
+        "johannes nicolaus br\u00f8nsted": {
             "gender": "male",
-            "nationality": "french and american",
-            "region": "europe-north america",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "thomas martin lowry": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james crafts": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "charles friedel": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
             "number of mentions": 1
         },
         "svante arrhenius": {

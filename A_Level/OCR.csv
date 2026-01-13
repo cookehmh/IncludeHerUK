@@ -22,7 +22,8 @@ Physics,Wien's Displacement Law,Wilhelm Wien,male,concept,german,Europe,,,,,,,,,
 Physics,Stefan's Law,Josef Stefan,male,concept,austrian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Hubble's Law,Edwin Hubble,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Chandrasekhar limit,Subrahmanyan Chandrasekhar,male,concept,indian-american,Asia-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Physics,Hertzsprung–Russell (HR) diagram,Ejnar Hertzsprung and Henry Norris Russell,male,concept,danish and american,Europe-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,Hertzsprung-Russell (HR) diagram,Henry Norris Russell,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,Hertzsprung-Russell (HR) diagram,Ejnar Hertzsprung,male,concept,danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Doppler Effect,Christian Doppler,male,concept,austrian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Coloumb's Law,Charles-Augustin de Coulomb,male,concept,french,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Lenz's Law,Heinrich Lenz,male,concept,estonian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -30,16 +31,23 @@ Physics,Faraday's Law,Michael Faraday,male,concept,english,Europe,,,,,,,,,,,,,,,
 Physics,Fleming's Left Hand Rule,John Ambrose Fleming,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Einstein's Mass Energy Equation,Albert Einstein,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Compton Effect,Arthur Holly Compton,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Biology,,Robert Hooke,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,Since Robert Hooke coined the phrase 'cells' in 1665,Robert Hooke,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Golgi Apparatus,Camillo Golgi,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Benedict's Test,Stanley Rossiter Benedict,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Biology,Hardy-Weinberg Principle,G. H. Hardy & Wilhelm Weinberg,male,concept,english and german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,Hardy-Weinberg Principle,G. H. Hardy,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,Hardy-Weinberg Principle,Wilhelm Weinberg,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Pacinian Corpuscles,Filippo Pacini ,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Purkyne tissue,Jan Evangelista Purkyn?,male,concept,czech ,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Simpson’s Index of Diversity,Edward Hugh Simpson,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Biology,,Charles Darwin,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Biology,,Alfred Russel Wallace,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,"To include the contributions of Darwin and Wallace
+in formulating the theory of evolution by natural
+selection""",Charles Darwin,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,"To include the contributions of Darwin and Wallace
+in formulating the theory of evolution by natural
+selection""",Alfred Russel Wallace,male,scientist,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Calvin Cycle,Melvin Calvin,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,Student's t-test,William Sealy Gosset,male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,Spearman's rank,"	Charles Edward Spearman",male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,The Bohr Model,Niels Bohr,male,concept,danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,the Avogadro constant,Amedeo Avogadro,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Pauling electronegativity values,Linus Pauling,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -54,3 +62,34 @@ Chemistry,The Gibbs' Equations,Josiah Willard Gibbs,male,concept,american,Europe
 Chemistry,The Kekule model of Benzene,Friedrich August Kekulé,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Friedel-Crafts reaction,Charles Friedel and James Crafts,male,concept,french and american,Europe-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Tollens' reagent,Bernhard Tollens,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘The best geologist is the one who has seen the most
+rocks.’ – Prof. H. H. Read",Herbert Harold Read,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Spearman’s Rank Correlation Coefficient,Charles Spearman,male,concept,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Mann–Witney U test,Henry Mann,male,concept,Austrian-American,Europe-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Mann–Witney U test,Donald Ransom Whitney,male,concept,American,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Mohs hardness test,Friedrich Mohs,male,concept,German,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Darcy's Law,Henry Darcy,male,concept,French,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Stokes' Law,George Stokes,male,concept,Irish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘The present is the key to the past.’ – Charles Lyell, 1833",Charles Lyell,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"Hutton based his assertion on the field evidence for
+multiple rock cycles that he and his correspondents
+observed. ",James Hutton,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘…we find no vestige of a beginning, – no prospect of
+an end.’ – James Hutton, 1795",James Hutton,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"The discovery of the rock cycle and the principle of
+uniformitarianism by James Hutton demonstrated the
+importance of reviewing theory in the light of
+fieldwork.",James Hutton,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"how uniformitarianism and the rock cycle model
+developed over time, including ideas of
+catastrophism, mass extinctions, and changing
+conditions and rates of processes through
+geological time including the contributions of
+James Hutton and William Smith",James Hutton,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"how uniformitarianism and the rock cycle model
+developed over time, including ideas of
+catastrophism, mass extinctions, and changing
+conditions and rates of processes through
+geological time including the contributions of
+James Hutton and William Smith",William Smith,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,The Goldschmidt classification of elements ,Victor Moritz Goldschmidt,male,concept,Norwegian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

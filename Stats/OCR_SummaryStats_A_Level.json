@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 31,
+                "male": 32,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 7,
+                "male": 10,
                 "female": 0
             },
             "scientist": {
@@ -42,30 +42,30 @@
         },
         "geology": {
             "concept": {
-                "male": 0,
+                "male": 7,
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 7,
                 "female": 0
             }
         }
     },
     "overall": {
         "concept": {
-            "male": 52,
+            "male": 63,
             "female": 0
         },
         "scientist": {
-            "male": 3,
+            "male": 10,
             "female": 0
         },
         "unique": {
-            "male": 46,
+            "male": 61,
             "female": 0,
             "region": {
-                "europe": 39,
-                "north america": 4,
+                "europe": 52,
+                "north america": 6,
                 "europe-north america": 2,
                 "asia-north america": 1
             }
@@ -186,10 +186,16 @@
             "region": "asia-north america",
             "number of mentions": 1
         },
-        "ejnar hertzsprung and henry norris russell": {
+        "henry norris russell": {
             "gender": "male",
-            "nationality": "danish and american",
-            "region": "europe-north america",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "ejnar hertzsprung": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
             "number of mentions": 1
         },
         "christian doppler": {
@@ -234,9 +240,15 @@
             "region": "north america",
             "number of mentions": 1
         },
-        "g. h. hardy & wilhelm weinberg": {
+        "g. h. hardy": {
             "gender": "male",
-            "nationality": "english and german",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
@@ -274,6 +286,18 @@
             "gender": "male",
             "nationality": "american",
             "region": "north america",
+            "number of mentions": 1
+        },
+        "william sealy gosset": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles edward spearman": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
             "number of mentions": 1
         },
         "niels bohr": {
@@ -345,6 +369,72 @@
         "bernhard tollens": {
             "gender": "male",
             "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "herbert harold read": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles spearman": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "henry mann": {
+            "gender": "male",
+            "nationality": "austrian-american",
+            "region": "europe-north america",
+            "number of mentions": 1
+        },
+        "donald ransom whitney": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "friedrich mohs": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "henry darcy": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "george stokes": {
+            "gender": "male",
+            "nationality": "irish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles lyell": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james hutton": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 4
+        },
+        "william smith": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "victor moritz goldschmidt": {
+            "gender": "male",
+            "nationality": "norwegian",
             "region": "europe",
             "number of mentions": 1
         }

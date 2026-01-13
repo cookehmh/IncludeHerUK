@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 47,
+                "male": 49,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 16,
+                "male": 22,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 14,
+                "male": 15,
                 "female": 0
             },
             "scientist": {
@@ -32,7 +32,7 @@
         },
         "environmental science": {
             "concept": {
-                "male": 9,
+                "male": 10,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 86,
+            "male": 96,
             "female": 0
         },
         "scientist": {
@@ -61,14 +61,13 @@
             "female": 0
         },
         "unique": {
-            "male": 73,
+            "male": 80,
             "female": 0,
             "region": {
-                "europe": 56,
-                "north america": 8,
-                "nan": 6,
-                "europe-north america": 2,
-                "oceania": 1
+                "europe": 63,
+                "north america": 15,
+                "oceania": 1,
+                "europe-north america": 1
             }
         }
     },
@@ -161,7 +160,7 @@
             "gender": "male",
             "nationality": "austrian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "robert hooke": {
             "gender": "male",
@@ -181,10 +180,16 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "albert a. michelson and edward w. morley": {
+        "albert a. michelson": {
             "gender": "male",
-            "nationality": "american and american",
-            "region": "europe",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "edward w. morley": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "michael faraday": {
@@ -245,7 +250,7 @@
             "gender": "male",
             "nationality": "scottish",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "j.j.\u00a0thomson": {
             "gender": "male",
@@ -307,9 +312,15 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "hertzsprung and russell": {
+        "henry norris russell": {
             "gender": "male",
-            "nationality": "danish and american",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "ejnar hertzsprung": {
+            "gender": "male",
+            "nationality": "danish",
             "region": "europe",
             "number of mentions": 1
         },
@@ -331,10 +342,16 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "francis crick and james watson": {
+        "francis crick": {
             "gender": "male",
-            "nationality": "english and american",
-            "region": "europe-north america",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james watson": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "hans krebs": {
@@ -361,11 +378,17 @@
             "region": "europe",
             "number of mentions": 2
         },
-        "g. h. hardy and wilhelm weinberg": {
+        "g. h. hardy": {
             "gender": "male",
-            "nationality": "english and german",
+            "nationality": "english",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
+        },
+        "wilhelm weinberg": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
         },
         "jan evangelista purkyn?": {
             "gender": "male",
@@ -415,39 +438,45 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "max born and fritz haber": {
-            "gender": "male",
-            "nationality": "german and british and german",
-            "region": "europe",
-            "number of mentions": 1
-        },
         "fritz haber": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 3
         },
-        "johannes nicolaus br\u00f8nsted and thomas martin lowry": {
+        "max born": {
             "gender": "male",
-            "nationality": "danish and english",
+            "nationality": "british and german",
             "region": "europe",
             "number of mentions": 1
         },
-        "charles friedel\u00a0and\u00a0james crafts": {
+        "johannes nicolaus br\u00f8nsted": {
             "gender": "male",
-            "nationality": "french and american",
-            "region": "europe-north america",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "thomas martin lowry": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "charles friedel": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "james crafts": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "svante arrhenius": {
             "gender": "male",
             "nationality": "swedish",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "james clerk maxwell and ludwig boltzmann": {
-            "gender": "male",
-            "nationality": "scottish and austrian",
             "region": "europe",
             "number of mentions": 1
         },
@@ -463,9 +492,21 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "robert sidney cahn,\u00a0christopher kelk ingold, and\u00a0vladimir prelog": {
+        "robert sidney cahn": {
             "gender": "male",
-            "nationality": "english and eglish and croatian-swiss",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "christopher kelk ingold": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "vladimir prelog": {
+            "gender": "male",
+            "nationality": "croatian-swiss",
             "region": "europe",
             "number of mentions": 1
         },
@@ -477,38 +518,38 @@
         },
         "samuel g lasky": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "lincoln index": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 2
         },
         "nikolai vavilov": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "russian",
+            "region": "europe",
             "number of mentions": 1
         },
         "charles spearman": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "british",
+            "region": "europe",
             "number of mentions": 1
         },
         "mann-whitney u test": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 1
+            "nationality": "austrian-american",
+            "region": "europe-north america",
+            "number of mentions": 2
         },
         "t\u00fcllgren funnel": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "swedish",
+            "region": "europe",
             "number of mentions": 1
         }
     }
