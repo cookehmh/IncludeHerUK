@@ -61,10 +61,10 @@
             "female": 0
         },
         "unique": {
-            "male": 81,
+            "male": 80,
             "female": 0,
             "region": {
-                "europe": 64,
+                "europe": 63,
                 "north america": 15,
                 "oceania": 1,
                 "europe-north america": 1
@@ -300,7 +300,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "robert royce johnson,": {
+        "robert royce johnson": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
@@ -372,11 +372,11 @@
             "region": "europe",
             "number of mentions": 2
         },
-        "edward h. simpson": {
+        "edward hugh simpson": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "g. h. hardy": {
             "gender": "male",
@@ -527,12 +527,6 @@
             "nationality": "american",
             "region": "north america",
             "number of mentions": 2
-        },
-        "edward hugh simpson": {
-            "gender": "male",
-            "nationality": "british",
-            "region": "europe",
-            "number of mentions": 1
         },
         "nikolai vavilov": {
             "gender": "male",
