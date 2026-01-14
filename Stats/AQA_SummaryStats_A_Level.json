@@ -61,11 +61,11 @@
             "female": 0
         },
         "unique": {
-            "male": 80,
+            "male": 81,
             "female": 0,
             "region": {
                 "europe": 63,
-                "north america": 15,
+                "north america": 16,
                 "oceania": 1,
                 "europe-north america": 1
             }
@@ -522,7 +522,7 @@
             "region": "north america",
             "number of mentions": 1
         },
-        "lincoln index": {
+        "frederick charles lincoln": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
@@ -540,13 +540,19 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "mann-whitney u test": {
+        "henry mann": {
             "gender": "male",
             "nationality": "austrian-american",
             "region": "europe-north america",
-            "number of mentions": 2
+            "number of mentions": 1
         },
-        "t\u00fcllgren funnel": {
+        "donald ransom whitney": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "albert tullgren": {
             "gender": "male",
             "nationality": "swedish",
             "region": "europe",

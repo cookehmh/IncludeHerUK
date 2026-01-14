@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 16,
+                "male": 17,
                 "female": 0
             },
             "scientist": {
@@ -53,7 +53,7 @@
     },
     "overall": {
         "concept": {
-            "male": 53,
+            "male": 54,
             "female": 0
         },
         "scientist": {
@@ -134,7 +134,7 @@
             "gender": "male",
             "nationality": "austrian",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 3
         },
         "josef stefan": {
             "gender": "male",
@@ -340,9 +340,9 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "james clerk maxwell and ludwig boltzmann": {
+        "james clerk maxwell": {
             "gender": "male",
-            "nationality": "scottish and austrian",
+            "nationality": "scottish",
             "region": "europe",
             "number of mentions": 1
         },
