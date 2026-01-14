@@ -66,7 +66,7 @@
             "region": {
                 "europe": 13,
                 "oceania": 2,
-                "america": 2
+                "north america": 2
             }
         }
     },
@@ -140,7 +140,7 @@
         "george huntington": {
             "gender": "male",
             "nationality": "american",
-            "region": "america",
+            "region": "north america",
             "number of mentions": 1
         },
         "gregor mendel": {
@@ -152,7 +152,7 @@
         "stanley rossiter benedict": {
             "gender": "male",
             "nationality": "american",
-            "region": "america",
+            "region": "north america",
             "number of mentions": 1
         },
         "alexander fleming": {
