@@ -2,21 +2,21 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 14,
+                "male": 6,
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 10,
                 "female": 0
             }
         },
         "chemistry": {
             "concept": {
-                "male": 3,
+                "male": 2,
                 "female": 0
             },
             "scientist": {
-                "male": 8,
+                "male": 6,
                 "female": 0
             }
         },
@@ -26,8 +26,8 @@
                 "female": 0
             },
             "scientist": {
-                "male": 3,
-                "female": 0
+                "male": 6,
+                "female": 1
             }
         },
         "environmental science": {
@@ -53,20 +53,23 @@
     },
     "overall": {
         "concept": {
-            "male": 18,
+            "male": 9,
             "female": 0
         },
         "scientist": {
-            "male": 11,
-            "female": 0
+            "male": 22,
+            "female": 1
         },
         "unique": {
-            "male": 17,
-            "female": 0,
+            "male": 20,
+            "female": 1,
             "region": {
-                "europe": 15,
+                "europe": 17,
                 "oceania": 1,
-                "europe-oceania": 1
+                "europe-oceania": 1,
+                "north america": 1,
+                "oceania-europe": 1,
+                "nan": 1
             }
         }
     },
@@ -75,11 +78,23 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 4
+            "number of mentions": 5
         },
         "robert hooke": {
             "gender": "male",
             "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "galileo galilei": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "robert boyle": {
+            "gender": "male",
+            "nationality": "irish",
             "region": "europe",
             "number of mentions": 1
         },
@@ -89,11 +104,11 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "ernest rutherford": {
+        "john dalton": {
             "gender": "male",
-            "nationality": "new zealand",
-            "region": "oceania",
-            "number of mentions": 2
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 3
         },
         "sir joseph john \"j. j.\" thomson": {
             "gender": "male",
@@ -101,9 +116,15 @@
             "region": "europe",
             "number of mentions": 2
         },
+        "ernest rutherford": {
+            "gender": "male",
+            "nationality": "new-zealand",
+            "region": "oceania",
+            "number of mentions": 3
+        },
         "niels bohr": {
             "gender": "male",
-            "nationality": "danish",
+            "nationality": "denmark",
             "region": "europe",
             "number of mentions": 2
         },
@@ -111,24 +132,12 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 3
+            "number of mentions": 1
         },
         "ernest marsden": {
             "gender": "male",
-            "nationality": "english-new zealand",
+            "nationality": "new-zealand english",
             "region": "europe-oceania",
-            "number of mentions": 2
-        },
-        "walther m\u00fcller": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "archimedes of syracuse": {
-            "gender": "male",
-            "nationality": "greek",
-            "region": "europe",
             "number of mentions": 1
         },
         "charles darwin": {
@@ -155,23 +164,47 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "john dalton": {
+        "james watson": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "francis crick": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
+        },
+        "rosalind franklin": {
+            "gender": "female",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "maurice wilkins": {
+            "gender": "male",
+            "nationality": "new zealand-british",
+            "region": "oceania-europe",
+            "number of mentions": 1
         },
         "amedeo avogadro": {
             "gender": "male",
             "nationality": "italy",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
         },
         "dmitri mendeleev": {
             "gender": "male",
             "nationality": "russian",
             "region": "europe",
             "number of mentions": 2
+        },
+        "nan": {
+            "gender": "nan",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 10
         }
     }
 }
