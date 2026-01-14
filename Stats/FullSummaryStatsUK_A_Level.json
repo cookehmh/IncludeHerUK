@@ -200,9 +200,9 @@
     "environmental science": {
         "concept": {
             "AQA": {
-                "male": 10,
+                "male": 9,
                 "female": 0,
-                "both": 10
+                "both": 9
             },
             "CCEA": {
                 "male": 0,
@@ -335,95 +335,95 @@
                 "concept": 77,
                 "scientist": 12,
                 "total": 89,
-                "% of total mentions": 22.47,
-                "% of total concept mentions": 20.59,
+                "% of total mentions": 22.53,
+                "% of total concept mentions": 20.64,
                 "% of total scientist mentions": 54.55
             },
             "physics": {
                 "concept": 175,
                 "scientist": 3,
                 "total": 178,
-                "% of total mentions": 44.95,
-                "% of total concept mentions": 46.79,
+                "% of total mentions": 45.06,
+                "% of total concept mentions": 46.92,
                 "% of total scientist mentions": 13.64
             },
             "geology": {
                 "concept": 14,
                 "scientist": 7,
                 "total": 21,
-                "% of total mentions": 5.3,
-                "% of total concept mentions": 3.74,
+                "% of total mentions": 5.32,
+                "% of total concept mentions": 3.75,
                 "% of total scientist mentions": 31.82
             },
             "environmental science": {
-                "concept": 16,
+                "concept": 15,
                 "scientist": 0,
-                "total": 16,
-                "% of total mentions": 4.04,
-                "% of total concept mentions": 4.28,
+                "total": 15,
+                "% of total mentions": 3.8,
+                "% of total concept mentions": 4.02,
                 "% of total scientist mentions": 0.0
             },
             "chemistry": {
                 "concept": 92,
                 "scientist": 0,
                 "total": 92,
-                "% of total mentions": 23.23,
-                "% of total concept mentions": 24.6,
+                "% of total mentions": 23.29,
+                "% of total concept mentions": 24.66,
                 "% of total scientist mentions": 0.0
             }
         },
         "exam_boards": {
             "AQA": {
-                "concept": 96,
+                "concept": 95,
                 "scientist": 0,
-                "total": 96,
-                "% of total mentions": 24.24,
-                "% of total concept mentions": 25.67,
+                "total": 95,
+                "% of total mentions": 24.05,
+                "% of total concept mentions": 25.47,
                 "% of total scientist mentions": 0.0
             },
             "CCEA": {
                 "concept": 51,
                 "scientist": 0,
                 "total": 51,
-                "% of total mentions": 12.88,
-                "% of total concept mentions": 13.64,
+                "% of total mentions": 12.91,
+                "% of total concept mentions": 13.67,
                 "% of total scientist mentions": 0.0
             },
             "Edexcel": {
                 "concept": 54,
                 "scientist": 0,
                 "total": 54,
-                "% of total mentions": 13.64,
-                "% of total concept mentions": 14.44,
+                "% of total mentions": 13.67,
+                "% of total concept mentions": 14.48,
                 "% of total scientist mentions": 0.0
             },
             "OCR": {
                 "concept": 68,
                 "scientist": 10,
                 "total": 78,
-                "% of total mentions": 19.7,
-                "% of total concept mentions": 18.18,
+                "% of total mentions": 19.75,
+                "% of total concept mentions": 18.23,
                 "% of total scientist mentions": 45.45
             },
             "Scottish highers": {
                 "concept": 41,
                 "scientist": 10,
                 "total": 51,
-                "% of total mentions": 12.88,
-                "% of total concept mentions": 10.96,
+                "% of total mentions": 12.91,
+                "% of total concept mentions": 10.99,
                 "% of total scientist mentions": 45.45
             },
             "WJEC": {
                 "concept": 64,
                 "scientist": 2,
                 "total": 66,
-                "% of total mentions": 16.67,
-                "% of total concept mentions": 17.11,
+                "% of total mentions": 16.71,
+                "% of total concept mentions": 17.16,
                 "% of total scientist mentions": 9.09
             }
         },
-        "total mentions": 396,
-        "total concept mentions": 374,
+        "total mentions": 395,
+        "total concept mentions": 373,
         "total scientist mentions": 22
     }
 }

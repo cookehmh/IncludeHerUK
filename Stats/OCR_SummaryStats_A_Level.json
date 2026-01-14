@@ -61,10 +61,10 @@
             "female": 0
         },
         "unique": {
-            "male": 66,
+            "male": 65,
             "female": 0,
             "region": {
-                "europe": 57,
+                "europe": 56,
                 "north america": 7,
                 "asia-north america": 1,
                 "europe-north america": 1
@@ -162,7 +162,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "wilhelm wien": {
+        "wilhelm carl werner otto fritz franz wien": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
@@ -294,11 +294,11 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "charles edward spearman": {
+        "charles spearman": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "niels bohr": {
             "gender": "male",
@@ -408,12 +408,6 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "charles spearman": {
-            "gender": "male",
-            "nationality": "british",
-            "region": "europe",
-            "number of mentions": 1
-        },
         "henry mann": {
             "gender": "male",
             "nationality": "austrian-american",
@@ -438,7 +432,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "george stokes": {
+        "sir george stokes": {
             "gender": "male",
             "nationality": "irish",
             "region": "europe",

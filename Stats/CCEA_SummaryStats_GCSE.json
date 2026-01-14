@@ -66,8 +66,7 @@
             "region": {
                 "europe": 13,
                 "oceania": 2,
-                "north america": 2,
-                "nan": 1
+                "america": 2
             }
         }
     },
@@ -84,7 +83,7 @@
             "region": "europe",
             "number of mentions": 2
         },
-        "georg simon ohm": {
+        "georg ohm": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
@@ -141,7 +140,7 @@
         "george huntington": {
             "gender": "male",
             "nationality": "american",
-            "region": "north america",
+            "region": "america",
             "number of mentions": 1
         },
         "gregor mendel": {
@@ -153,7 +152,7 @@
         "stanley rossiter benedict": {
             "gender": "male",
             "nationality": "american",
-            "region": "north america",
+            "region": "america",
             "number of mentions": 1
         },
         "alexander fleming": {
@@ -173,12 +172,6 @@
             "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 5
         }
     }
 }

@@ -61,12 +61,12 @@
             "female": 0
         },
         "unique": {
-            "male": 19,
+            "male": 17,
             "female": 0,
             "region": {
-                "europe": 16,
-                "europe-oceania": 2,
-                "oceania": 1
+                "europe": 15,
+                "oceania": 1,
+                "europe-oceania": 1
             }
         }
     },
@@ -95,11 +95,11 @@
             "region": "oceania",
             "number of mentions": 2
         },
-        "thomson": {
+        "sir joseph john \"j. j.\" thomson": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "niels bohr": {
             "gender": "male",
@@ -113,11 +113,11 @@
             "region": "europe",
             "number of mentions": 3
         },
-        "marsden": {
+        "ernest marsden": {
             "gender": "male",
             "nationality": "english-new zealand",
             "region": "europe-oceania",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "walther m\u00fcller": {
             "gender": "male",
@@ -160,18 +160,6 @@
             "nationality": "english",
             "region": "europe",
             "number of mentions": 2
-        },
-        "sir joseph john \"j. j.\" thomson": {
-            "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "ernest marsden": {
-            "gender": "male",
-            "nationality": "english-new zealand",
-            "region": "europe-oceania",
-            "number of mentions": 1
         },
         "amedeo avogadro": {
             "gender": "male",

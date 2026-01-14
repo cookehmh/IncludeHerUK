@@ -2,17 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 6,
-                "female": 0
-            },
-            "scientist": {
-                "male": 0,
-                "female": 0
-            }
-        },
-        "chemistry": {
-            "concept": {
-                "male": 4,
+                "male": 9,
                 "female": 0
             },
             "scientist": {
@@ -20,13 +10,23 @@
                 "female": 0
             }
         },
-        "biology": {
+        "chemistry": {
             "concept": {
-                "male": 2,
+                "male": 3,
                 "female": 0
             },
             "scientist": {
-                "male": 3,
+                "male": 0,
+                "female": 0
+            }
+        },
+        "biology": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
                 "female": 0
             }
         },
@@ -57,86 +57,73 @@
             "female": 0
         },
         "scientist": {
-            "male": 4,
+            "male": 1,
             "female": 0
         },
         "unique": {
-            "male": 12,
+            "male": 10,
             "female": 0,
             "region": {
-                "europe": 11,
-                "north america": 1
+                "europe": 10
             }
         }
     },
     "names": {
-        "hans geiger": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "walther m\u00fcller": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
         "sir isaac newton": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
             "number of mentions": 4
         },
-        "alfred russel wallace": {
-            "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "charles darwin": {
-            "gender": "male",
-            "nationality": "english",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "stanley rossiter benedict": {
-            "gender": "male",
-            "nationality": "american",
-            "region": "north america",
-            "number of mentions": 1
-        },
-        "gregor mendel": {
-            "gender": "male",
-            "nationality": "austrian",
-            "region": "europe",
-            "number of mentions": 2
-        },
-        "dmitri mendeleev": {
-            "gender": "male",
-            "nationality": "russian",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "henry louis le chatelier": {
+        "jacques charles": {
             "gender": "male",
             "nationality": "french",
             "region": "europe",
             "number of mentions": 1
         },
-        "hermann von fehling": {
+        "joseph louis gay-lussac": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "georg ohm": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
-        "amedeo avogadro": {
+        "robert boyle": {
             "gender": "male",
-            "nationality": "italian",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
-        "fritz haber": {
+        "robert brown": {
+            "gender": "male",
+            "nationality": "scottish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "lord kelvin": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "bunsen burners": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "haber process": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "ostwald process": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",

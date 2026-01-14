@@ -65,9 +65,8 @@
             "female": 0,
             "region": {
                 "europe": 17,
-                "north america": 5,
-                "europe-north america": 1,
-                "nan": 1
+                "north america": 6,
+                "europe-north america": 1
             }
         }
     },
@@ -168,10 +167,10 @@
             "region": "north america",
             "number of mentions": 1
         },
-        "hess": {
+        "harry hammond hess": {
             "gender": "male",
-            "nationality": "nan",
-            "region": "nan",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "frederick john vine": {
@@ -198,7 +197,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "william thomson, 1st baron kelvin": {
+        "lord kelvin": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
