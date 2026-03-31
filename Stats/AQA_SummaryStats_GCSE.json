@@ -49,6 +49,16 @@
                 "male": 0,
                 "female": 0
             }
+        },
+        "astronomy": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {

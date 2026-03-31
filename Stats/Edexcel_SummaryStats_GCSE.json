@@ -49,24 +49,37 @@
                 "male": 0,
                 "female": 0
             }
+        },
+        "astronomy": {
+            "concept": {
+                "male": 22,
+                "female": 0
+            },
+            "scientist": {
+                "male": 10,
+                "female": 0
+            }
         }
     },
     "overall": {
         "concept": {
-            "male": 11,
+            "male": 33,
             "female": 0
         },
         "scientist": {
-            "male": 2,
+            "male": 12,
             "female": 0
         },
         "unique": {
-            "male": 11,
+            "male": 33,
             "female": 0,
             "region": {
-                "europe": 9,
+                "europe": 24,
+                "north america": 4,
+                "africa": 2,
                 "oceania": 1,
-                "africa": 1
+                "north-america": 1,
+                "asia-north america": 1
             }
         }
     },
@@ -75,7 +88,7 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 3
+            "number of mentions": 6
         },
         "ernest rutherford": {
             "gender": "male",
@@ -135,6 +148,138 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "eratosthenes of cyrene": {
+            "gender": "male",
+            "nationality": "greek",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "aristarchus of samos": {
+            "gender": "male",
+            "nationality": "greek",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "claudius ptolemy": {
+            "gender": "male",
+            "nationality": "egypt",
+            "region": "africa",
+            "number of mentions": 1
+        },
+        "tycho brahe": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "copernicus": {
+            "gender": "male",
+            "nationality": "polish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "galileo galilei": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "johannes kepler": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 4
+        },
+        "edmund halley": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "edwin hubble": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 4
+        },
+        "james van allen": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north-america",
+            "number of mentions": 1
+        },
+        "gerard kuiper": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "jan oort": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "laurent cassegrain": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "joseph-louis lagrange": {
+            "gender": "male",
+            "nationality": "italian-french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "\u00e9douard roche": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "frank drake": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "ejnar hertzsprung": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "henry norris russell": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "charles messier": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johann bayer": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "subrahmanyan chandrasekhar": {
+            "gender": "male",
+            "nationality": "indian-american",
+            "region": "asia-north america",
+            "number of mentions": 1
+        },
+        "carl seyfert": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         }
     }

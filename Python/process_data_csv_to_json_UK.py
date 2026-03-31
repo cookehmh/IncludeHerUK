@@ -4,7 +4,7 @@ from pathlib import Path
 
 #qual = 'A_Level'
 qual = 'GCSE'
-qual = 'A_Level'
+#qual = 'A_Level'
 
 
 def load_csv(fname):
@@ -104,7 +104,7 @@ def process_file(fname):
 
     df = clean_and_explode(df)
 
-    subjects = ["physics", "chemistry", "biology", "environmental science", "geology"]
+    subjects = ["physics", "chemistry", "biology", "environmental science", "geology","astronomy"]
     label = Path(fname).stem
 
     subject_stats, overall_stats = compute_subject_stats(df, subjects)
