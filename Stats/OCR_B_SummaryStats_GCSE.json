@@ -78,8 +78,7 @@
                 "oceania": 1,
                 "europe-oceania": 1,
                 "north america": 1,
-                "oceania-europe": 1,
-                "nan": 1
+                "oceania-europe": 1
             }
         }
     },
@@ -209,12 +208,6 @@
             "nationality": "russian",
             "region": "europe",
             "number of mentions": 2
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 10
         }
     }
 }

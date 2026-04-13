@@ -75,10 +75,9 @@
             "female": 0,
             "region": {
                 "europe": 24,
-                "north america": 4,
+                "north america": 5,
                 "africa": 2,
                 "oceania": 1,
-                "north-america": 1,
                 "asia-north america": 1
             }
         }
@@ -207,7 +206,7 @@
         "james van allen": {
             "gender": "male",
             "nationality": "american",
-            "region": "north-america",
+            "region": "north america",
             "number of mentions": 1
         },
         "gerard kuiper": {

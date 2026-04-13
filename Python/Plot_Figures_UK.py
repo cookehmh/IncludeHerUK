@@ -247,8 +247,8 @@ ks5_pct = to_pct(regions_A, vals_A, all_regions)
 
 fig, ax = plt.subplots(figsize=(14, 10))
 h = 0.35
-bars1 = ax.barh(y_pos - h/2, ks4_pct, h, label="KS4", color=PURPLE,       alpha=0.9)
-bars2 = ax.barh(y_pos + h/2, ks5_pct, h, label="KS5", color=PURPLE_LIGHT, alpha=0.9)
+bars1 = ax.barh(y_pos + h/2, ks4_pct, h, label="KS4", color=PURPLE,       alpha=0.9)
+bars2 = ax.barh(y_pos - h/2, ks5_pct, h, label="KS5", color=PURPLE_LIGHT, alpha=0.9)
 
 for bar, pct in [(b, p) for pair in zip(bars1, bars2) for b, p in zip(pair, [ks4_pct, ks5_pct])]:
     w = bar.get_width()
@@ -269,4 +269,4 @@ ax.legend(loc="lower right", frameon=False, fontsize=17, labelspacing=1).set_zor
 
 plt.tight_layout()
 plt.savefig(os.path.join(BASE_DIR, "Figures/summary_region_all_UK_combined_grouped_bar.png"), dpi=400, bbox_inches="tight")
-plt.close()
+#plt.close()

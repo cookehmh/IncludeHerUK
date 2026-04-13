@@ -49,6 +49,16 @@
                 "male": 0,
                 "female": 0
             }
+        },
+        "astronomy": {
+            "concept": {
+                "male": 0,
+                "female": 0
+            },
+            "scientist": {
+                "male": 0,
+                "female": 0
+            }
         }
     },
     "overall": {
@@ -61,10 +71,10 @@
             "female": 1
         },
         "unique": {
-            "male": 78,
+            "male": 77,
             "female": 1,
             "region": {
-                "europe": 60,
+                "europe": 59,
                 "north america": 17,
                 "oceania-europe": 1,
                 "europe-north america": 1
@@ -106,7 +116,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "heinrich wilhelm matthias olbers": {
             "gender": "male",
@@ -222,13 +232,13 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "robert andrews millikan": {
+        "robert millikan": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
             "number of mentions": 1
         },
-        "edwin herbert hall": {
+        "edwin hall": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",
@@ -483,12 +493,6 @@
         "amedeo avogadro": {
             "gender": "male",
             "nationality": "italian",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "einstein": {
-            "gender": "male",
-            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
