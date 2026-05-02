@@ -158,7 +158,7 @@ def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_
             axs[ii, col].set_xlim(0, xlim)
 
         bars(0, "concept",   50)
-        bars(1, "scientist", 11)
+        bars(1, "scientist", 14)
 
         axs[ii, 0].set_yticks(y)
         axs[ii, 0].set_yticklabels([SUBJECT_LABELS.get(sb, sb) for sb in subs])
@@ -182,7 +182,7 @@ def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_
                   bbox_transform=fig.transFigure, ncol=2, handletextpad=0.5, loc="upper center")
     plt.subplots_adjust(wspace=0.1, left=0.15, right=0.9, top=0.92, bottom=0.08)
     plt.savefig(out_path, dpi=100, bbox_inches="tight")
-    plt.close()
+    #plt.close()
     print(f"Saved: {out_path}")
 
 

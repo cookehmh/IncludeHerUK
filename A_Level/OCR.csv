@@ -1,4 +1,6 @@
 Subject,Mention,Name of Scientist,Gender,Type of Mention,Nationality,Region,Notes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,"HSW7 Internet research on the ideas of Newton and
+Huygens about the nature of light.",Christiaan Huygens,male,concept,dutch,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,The Newton,Sir Isaac Newton,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Archimedes' Principle,Archimedes of Syracuse,male,concept,greek,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Hooke's Law,Robert Hooke,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -6,7 +8,7 @@ Physics,Young Modulus,Thomas Young,male,concept,english,Europe,,,,,,,,,,,,,,,,,,
 Physics,Newton's Laws of Motion,Sir Isaac Newton,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Kirchoff's First Law,Gustav Kirchhoff,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Ohm's Law,Georg Simon Ohm,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Physics,The Coloumb,Charles-Augustin de Coulomb,male,concept,french,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,The Coulomb,Charles-Augustin de Coulomb,male,concept,french,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Planck Constant,Max Planck,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,Einstein's Photoelectric Effect,Albert Einstein,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,The de Broglie Equation,Louis de Broglie,male,concept,french,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -98,3 +100,27 @@ conditions and rates of processes through
 geological time including the contributions of
 James Hutton and William Smith",William Smith,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,The Goldschmidt classification of elements ,Victor Moritz Goldschmidt,male,concept,Norwegian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘I think our maps contributed to a revolution in geological thinking, which in some ways compares to the Copernican revolution. … You could see the worldwide mid-ocean ridge and you could see that it coincided with earthquakes. The borders of the plates took shape, leading rapidly to the more comprehensive theory of plate tectonics.’ – Marie Tharp, 1999",Marie Tharp,female,scientist,American,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"To include evidence from rocks and seismology:
+deep mines and boreholes, ophiolites, kimberlite
+pipes, mantle xenoliths, and the Lehmann,
+Gutenberg and Moho discontinuities.",Inge Lehmann,male,scientist,Danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"To include evidence from rocks and seismology:
+deep mines and boreholes, ophiolites, kimberlite
+pipes, mantle xenoliths, and the Lehmann,
+Gutenberg and Moho discontinuities.",Beno Gutenberg,male,scientist,German-American,Europe-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"To include evidence from rocks and seismology:
+deep mines and boreholes, ophiolites, kimberlite
+pipes, mantle xenoliths, and the Lehmann,
+Gutenberg and Moho discontinuities.",Andrija Mohorovi?i?,male,scientist,Croatian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘the considerations which have been advanced …
+suggest that these special features may after all be
+due to the depth in the Earth’s crust at which the
+metamorphism took place, rather than to any
+physical conditions peculiar to early geological time.’
+– George Barrow, 1893",George Barrow,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘Basin analysis requires an understanding of many diverse geological specialities and an ability to assess the relationships between varied types of evidence ... [these skills] are demanded by the nature of the work performed by many professionals in the petroleum and mining industry and by those engaged in government surveys.’ – Andrew Miall, 1990",Andrew Miall,male,scientist,British-Canadian,Europe-North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Hjulström curve,Filip Hjulström,male,concept,Swedish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Benioff zone,Hugo Benioff,male,concept,American,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Bowen’s reaction series,Norman Levi Bowen,male,concept,Canadian,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Mercalli intensity scale,Giuseppe Mercalli,male,concept,Italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
