@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 49,
+                "male": 50,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 95,
+            "male": 96,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 81,
+            "male": 82,
             "female": 0,
             "region": {
-                "europe": 63,
+                "europe": 64,
                 "north america": 16,
                 "oceania": 1,
                 "europe-north america": 1
@@ -82,6 +82,12 @@
         }
     },
     "names": {
+        "john william strutt, lord rayleigh": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "hipparchus": {
             "gender": "male",
             "nationality": "greek",

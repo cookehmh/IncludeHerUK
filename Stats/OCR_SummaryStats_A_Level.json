@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 32,
+                "male": 33,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 19,
+                "male": 23,
                 "female": 0
             },
             "scientist": {
@@ -46,8 +46,8 @@
                 "female": 0
             },
             "scientist": {
-                "male": 12,
-                "female": 1
+                "male": 11,
+                "female": 2
             }
         },
         "astronomy": {
@@ -63,18 +63,18 @@
     },
     "overall": {
         "concept": {
-            "male": 72,
+            "male": 77,
             "female": 0
         },
         "scientist": {
-            "male": 15,
-            "female": 1
+            "male": 14,
+            "female": 2
         },
         "unique": {
-            "male": 74,
-            "female": 1,
+            "male": 77,
+            "female": 2,
             "region": {
-                "europe": 61,
+                "europe": 65,
                 "north america": 10,
                 "europe-north america": 3,
                 "asia-north america": 1
@@ -82,6 +82,12 @@
         }
     },
     "names": {
+        "christiaan huygens": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "sir isaac newton": {
             "gender": "male",
             "nationality": "english",
@@ -368,7 +374,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "thomas martin lowry": {
             "gender": "male",
@@ -407,6 +413,24 @@
             "number of mentions": 1
         },
         "bernhard tollens": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "svante arrhenius": {
+            "gender": "male",
+            "nationality": "swedish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes diderik van der waals": {
+            "gender": "male",
+            "nationality": "dutch",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "fritz london": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
@@ -479,7 +503,7 @@
             "number of mentions": 1
         },
         "inge lehmann": {
-            "gender": "male",
+            "gender": "female",
             "nationality": "danish",
             "region": "europe",
             "number of mentions": 1

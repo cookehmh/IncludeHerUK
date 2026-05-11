@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 27,
+                "male": 28,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 13,
+                "male": 15,
                 "female": 0
             },
             "scientist": {
@@ -42,11 +42,11 @@
         },
         "geology": {
             "concept": {
-                "male": 7,
+                "male": 16,
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 2,
                 "female": 0
             }
         },
@@ -63,24 +63,30 @@
     },
     "overall": {
         "concept": {
-            "male": 64,
+            "male": 76,
             "female": 0
         },
         "scientist": {
-            "male": 2,
+            "male": 4,
             "female": 0
         },
         "unique": {
-            "male": 55,
+            "male": 68,
             "female": 0,
             "region": {
-                "europe": 48,
-                "north america": 6,
+                "europe": 56,
+                "north america": 11,
                 "europe-north america": 1
             }
         }
     },
     "names": {
+        "pythagoras of samos": {
+            "gender": "male",
+            "nationality": "greek",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "sir isaac newton": {
             "gender": "male",
             "nationality": "english",
@@ -375,6 +381,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "josiah willard gibbs": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 2
+        },
         "andrija mohorovi?i?": {
             "gender": "male",
             "nationality": "croatian",
@@ -406,6 +418,72 @@
             "number of mentions": 1
         },
         "donald ransom whitney": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "james hutton": {
+            "gender": "male",
+            "nationality": "scottish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "william smith": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "norman levi bowen": {
+            "gender": "male",
+            "nationality": "canadian",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "john tuzo wilson": {
+            "gender": "male",
+            "nationality": "canadian",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "pierre bougue": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "filip hjulstr\u00f6m": {
+            "gender": "male",
+            "nationality": "swedish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "victor moritz goldschmidt": {
+            "gender": "male",
+            "nationality": "norwegian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "pierre curie": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes walther": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "luis alvarez": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "walter alvarez": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",

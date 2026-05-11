@@ -51,7 +51,7 @@ Biology,Calvin Cycle,Melvin Calvin,male,concept,american,North America,,,,,,,,,,
 Biology,Student's t-test,William Sealy Gosset,male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Spearman's rank,"	Charles Spearman",male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,The Bohr Model,Niels Bohr,male,concept,danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Chemistry,the Avogadro constant,Amedeo Avogadro,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,The Avogadro constant,Amedeo Avogadro,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Pauling electronegativity values,Linus Pauling,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,the Boltzmann distribution,Ludwig Boltzmann,male,concept,austrian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Hess' Law,Germain Hess,male,concept,swiss-russian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -62,13 +62,17 @@ Chemistry,Cahn-Ingold-Prelog Priority,Vladimir Prelog,male,concept,Croatian-Swis
 Chemistry,Markownikoff's Rule,Vladimir Markovnikov,male,concept,Russian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Born-Haber Cycles,Max Born,male,concept,german-british,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Born-Haber Cycles,Fritz Haber,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,Haber process,Fritz Haber,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Bronsted-Lowry acids and bases,Thomas Martin Lowry,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Bronsted-Lowry acids and bases,Johannes Nicolaus Brønsted,male,concept,danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Chemistry,The Gibbs' Equations,Josiah Willard Gibbs,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,The Gibbs' Equation,Josiah Willard Gibbs,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,The Kekule model of Benzene,Friedrich August Kekulé,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Friedel-Crafts reaction,Charles Friedel,male,concept,french,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Friedel-Crafts reaction,James Crafts,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Tollens' reagent,Bernhard Tollens,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,Arrhenius constant,Svante Arrhenius ,male,concept,swedish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,van der Waals forces,Johannes Diderik van der Waals,male,concept,dutch,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Chemistry,London forces,Fritz London,male,concept,german,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,"‘The best geologist is the one who has seen the most
 rocks.’ – Prof. H. H. Read",Herbert Harold Read,male,scientist,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,Spearman’s Rank Correlation Coefficient,Charles Spearman,male,concept,British,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -104,7 +108,7 @@ Geology,"‘I think our maps contributed to a revolution in geological thinking, w
 Geology,"To include evidence from rocks and seismology:
 deep mines and boreholes, ophiolites, kimberlite
 pipes, mantle xenoliths, and the Lehmann,
-Gutenberg and Moho discontinuities.",Inge Lehmann,male,scientist,Danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Gutenberg and Moho discontinuities.",Inge Lehmann,female,scientist,Danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,"To include evidence from rocks and seismology:
 deep mines and boreholes, ophiolites, kimberlite
 pipes, mantle xenoliths, and the Lehmann,

@@ -157,8 +157,8 @@ def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_
             axs[ii, col].barh(y, fs, left=ms, color=TEAL, alpha=0.9, height=0.7)
             axs[ii, col].set_xlim(0, xlim)
 
-        bars(0, "concept",   50)
-        bars(1, "scientist", 14)
+        bars(0, "concept",   52)
+        bars(1, "scientist", 15)
 
         axs[ii, 0].set_yticks(y)
         axs[ii, 0].set_yticklabels([SUBJECT_LABELS.get(sb, sb) for sb in subs])
@@ -270,3 +270,47 @@ ax.legend(loc="lower right", frameon=False, fontsize=17, labelspacing=1).set_zor
 plt.tight_layout()
 plt.savefig(os.path.join(BASE_DIR, "Figures/summary_region_all_UK_combined_grouped_bar.png"), dpi=400, bbox_inches="tight")
 #plt.close()
+#%% Overall mentions plot
+import matplotlib.gridspec as gridspec
+plt.figure(figsize=(14, 7))
+gs = gridspec.GridSpec(1, 2)
+
+# Subplot 1: GCSE
+plt.subplot(gs[0, 0])
+plt.title('Ages 14 - 16 (GCSE / NQ5)', fontsize=15, weight = 'bold')
+bars1 = plt.bar(['Women', 'Men'], [1, 76], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
+plt.ylabel('Number of scientists', fontsize=15, weight = 'bold')
+plt.xticks(fontsize=15)  # Set x-axis fontsize
+plt.ylim(0, 80)          # Increased slightly to fit labels
+plt.grid(False)
+
+
+# Add labels to GCSE bars
+counter = 0
+for bar in bars1:
+    counter = counter +1
+    yval = bar.get_height()
+    if (counter == 1):
+        plt.text(bar.get_x() + bar.get_width()/2, 3 , yval, ha='center', va='bottom', fontsize=15)
+    else:
+        plt.text(bar.get_x() + bar.get_width()/2, yval/2, yval, ha='center', va='bottom', fontsize=15)
+#thick_axes(top = True)
+# Subplot 2: A-Level
+plt.subplot(gs[0, 1])
+plt.title('Ages 16 - 18 (A-Level / Scottish Highers)', fontsize=15, weight = 'bold')
+bars2 = plt.bar(['Women', 'Men'], [3, 162], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
+plt.xticks(fontsize=15)  # Set x-axis fontsize
+plt.ylim(0, 170)         # Increased slightly to fit labels
+plt.grid(False)
+# Add labels to A-Level bars
+counter = 0
+for bar in bars2:
+    counter = counter +1
+    yval = bar.get_height()
+    if (counter == 1):
+        plt.text(bar.get_x() + bar.get_width()/2, 3 , yval, ha='center', va='bottom', fontsize=15)
+    else:
+        plt.text(bar.get_x() + bar.get_width()/2, yval/2, yval, ha='center', va='bottom', fontsize=15)
+#thick_axes(top = True)
+# Save the complete figure
+plt.savefig('/Users/gregcooke/python_output/A-Level_Number_of_Scientists.png', bbox_inches = 'tight')
