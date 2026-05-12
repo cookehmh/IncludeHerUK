@@ -1,4 +1,6 @@
 Subject,Mention,Name of Scientist,Gender,Type of Mention,Nationality,Region,Notes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,Maxwell-Boltzmann distribution,James Clerk Maxwell,male,concept,scottish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Physics,Maxwell-Boltzmann distribution,Ludwig Boltzmann,male,concept,austrian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,"HSW7 Internet research on the ideas of Newton and
 Huygens about the nature of light.",Christiaan Huygens,male,concept,dutch,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Physics,The Newton,Sir Isaac Newton,male,concept,english,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -50,6 +52,8 @@ selection""",Alfred Russel Wallace,male,scientist,english,Europe,,,,,,,,,,,,,,,,
 Biology,Calvin Cycle,Melvin Calvin,male,concept,american,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Student's t-test,William Sealy Gosset,male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Biology,Spearman's rank,"	Charles Spearman",male,concept,english ,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,the process and site of the Krebs cycle,Hans Krebs,male,concept,german-british,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Biology,the Bohr effect,Christian Bohr,male,concept,danish,europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,The Bohr Model,Niels Bohr,male,concept,danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,The Avogadro constant,Amedeo Avogadro,male,concept,italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chemistry,Pauling electronegativity values,Linus Pauling,male,concept,american,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -108,7 +112,7 @@ Geology,"‘I think our maps contributed to a revolution in geological thinking, w
 Geology,"To include evidence from rocks and seismology:
 deep mines and boreholes, ophiolites, kimberlite
 pipes, mantle xenoliths, and the Lehmann,
-Gutenberg and Moho discontinuities.",Inge Lehmann,female,scientist,Danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Gutenberg and Moho discontinuities.",Inge Lehmann,female,concept,Danish,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,"To include evidence from rocks and seismology:
 deep mines and boreholes, ophiolites, kimberlite
 pipes, mantle xenoliths, and the Lehmann,
@@ -128,3 +132,17 @@ Geology,Hjulström curve,Filip Hjulström,male,concept,Swedish,Europe,,,,,,,,,,,,,
 Geology,Benioff zone,Hugo Benioff,male,concept,American,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,Bowen’s reaction series,Norman Levi Bowen,male,concept,Canadian,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Geology,Mercalli intensity scale,Giuseppe Mercalli,male,concept,Italian,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,"‘…it is a basic statement of far reaching significance
+that only those facies … can be superimposed
+primarily which can be observed beside each other at
+the present time.’ – Johannes Walther, 1894",Johannes Walther,male,scientist,German,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,Bouguer anomalies,Pierre Bouguer,male,concept,French,Europe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Geology,John Tuzo Wilson,Wilson cycle,male,concept,Canadian,North America,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
