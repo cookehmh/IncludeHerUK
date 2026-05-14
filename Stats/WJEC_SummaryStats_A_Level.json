@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 15,
+                "male": 16,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 17,
+                "male": 18,
                 "female": 0
             },
             "scientist": {
@@ -42,7 +42,7 @@
         },
         "geology": {
             "concept": {
-                "male": 16,
+                "male": 19,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 76,
+            "male": 81,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 68,
+            "male": 71,
             "female": 0,
             "region": {
-                "europe": 56,
+                "europe": 59,
                 "north america": 11,
                 "europe-north america": 1
             }
@@ -151,13 +151,13 @@
             "gender": "male",
             "nationality": "austrian",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 3
         },
         "robert hooke": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "amedeo avogadro": {
             "gender": "male",
@@ -312,6 +312,12 @@
         "william sealy gosset": {
             "gender": "male",
             "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "friedrich gustav jakob henle": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },
@@ -487,6 +493,18 @@
             "gender": "male",
             "nationality": "american",
             "region": "north america",
+            "number of mentions": 1
+        },
+        "milutin milankovi?": {
+            "gender": "male",
+            "nationality": "serbian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "giuseppe mercalli": {
+            "gender": "male",
+            "nationality": "italian",
+            "region": "europe",
             "number of mentions": 1
         }
     }

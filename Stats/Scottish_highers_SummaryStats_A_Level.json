@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 34,
+                "male": 37,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 23,
+                "male": 25,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 18,
+                "male": 19,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 81,
+            "male": 87,
             "female": 0
         },
         "scientist": {
@@ -71,13 +71,14 @@
             "female": 1
         },
         "unique": {
-            "male": 77,
+            "male": 79,
             "female": 1,
             "region": {
-                "europe": 59,
+                "europe": 61,
                 "north america": 17,
                 "oceania-europe": 1,
-                "europe-north america": 1
+                "europe-north america": 1,
+                "nan": 1
             }
         }
     },
@@ -242,6 +243,18 @@
             "gender": "male",
             "nationality": "american",
             "region": "north america",
+            "number of mentions": 2
+        },
+        "robert bunsen": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
+        "emil lenz": {
+            "gender": "male",
+            "nationality": "russian",
+            "region": "europe",
             "number of mentions": 1
         },
         "erwin chargraff": {
@@ -400,6 +413,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "fritz london": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
         "germain hess": {
             "gender": "male",
             "nationality": "swiss-russian",
@@ -429,12 +448,6 @@
             "nationality": "german",
             "region": "europe",
             "number of mentions": 2
-        },
-        "robert bunsen": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
         },
         "pierre seignette, of la rochelle, france": {
             "gender": "male",
@@ -494,7 +507,7 @@
             "gender": "male",
             "nationality": "italian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "josiah willard gibbs": {
             "gender": "male",
@@ -549,6 +562,12 @@
             "nationality": "english",
             "region": "europe",
             "number of mentions": 1
+        },
+        "nan": {
+            "gender": "nan",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 26
         }
     }
 }

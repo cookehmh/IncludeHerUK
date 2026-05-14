@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 23,
+                "male": 22,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 51,
+            "male": 50,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 41,
+            "male": 40,
             "female": 0,
             "region": {
-                "europe": 37,
+                "europe": 36,
                 "north america": 4
             }
         }
@@ -179,12 +179,6 @@
         "pythagoras of samos": {
             "gender": "male",
             "nationality": "greece",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "john ambrose fleming": {
-            "gender": "male",
-            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },

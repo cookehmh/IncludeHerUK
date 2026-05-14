@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 50,
+                "male": 51,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 15,
+                "male": 17,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 96,
+            "male": 99,
             "female": 0
         },
         "scientist": {
@@ -71,11 +71,11 @@
             "female": 0
         },
         "unique": {
-            "male": 82,
+            "male": 84,
             "female": 0,
             "region": {
-                "europe": 64,
-                "north america": 16,
+                "europe": 65,
+                "north america": 17,
                 "oceania": 1,
                 "europe-north america": 1
             }
@@ -106,9 +106,9 @@
             "region": "europe",
             "number of mentions": 2
         },
-        "\u00e9tienne-louis malus": {
+        "sir george stokes": {
             "gender": "male",
-            "nationality": "french",
+            "nationality": "irish",
             "region": "europe",
             "number of mentions": 1
         },
@@ -340,6 +340,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "john ambrose fleming": {
+            "gender": "male",
+            "nationality": "british",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "friedrich gustav jakob henle": {
             "gender": "male",
             "nationality": "german",
@@ -356,7 +362,7 @@
             "gender": "male",
             "nationality": "italian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "francis crick": {
             "gender": "male",
@@ -422,6 +428,12 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "melvin calvin": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         },
         "fritz london": {

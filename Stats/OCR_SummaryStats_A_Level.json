@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 33,
+                "male": 35,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 10,
+                "male": 12,
                 "female": 0
             },
             "scientist": {
@@ -42,12 +42,12 @@
         },
         "geology": {
             "concept": {
-                "male": 11,
-                "female": 0
+                "male": 13,
+                "female": 1
             },
             "scientist": {
-                "male": 11,
-                "female": 2
+                "male": 12,
+                "female": 1
             }
         },
         "astronomy": {
@@ -63,25 +63,37 @@
     },
     "overall": {
         "concept": {
-            "male": 77,
-            "female": 0
+            "male": 83,
+            "female": 1
         },
         "scientist": {
-            "male": 14,
-            "female": 2
+            "male": 15,
+            "female": 1
         },
         "unique": {
-            "male": 77,
+            "male": 83,
             "female": 2,
             "region": {
-                "europe": 65,
-                "north america": 10,
+                "europe": 70,
+                "north america": 11,
                 "europe-north america": 3,
                 "asia-north america": 1
             }
         }
     },
     "names": {
+        "james clerk maxwell": {
+            "gender": "male",
+            "nationality": "scottish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "ludwig boltzmann": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 3
+        },
         "christiaan huygens": {
             "gender": "male",
             "nationality": "dutch",
@@ -165,12 +177,6 @@
             "nationality": "irish",
             "region": "europe",
             "number of mentions": 1
-        },
-        "ludwig boltzmann": {
-            "gender": "male",
-            "nationality": "austrian",
-            "region": "europe",
-            "number of mentions": 2
         },
         "johannes kepler": {
             "gender": "male",
@@ -315,6 +321,18 @@
             "nationality": "english",
             "region": "europe",
             "number of mentions": 2
+        },
+        "hans krebs": {
+            "gender": "male",
+            "nationality": "german-british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "christian bohr": {
+            "gender": "male",
+            "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
         },
         "niels bohr": {
             "gender": "male",
@@ -554,6 +572,24 @@
             "gender": "male",
             "nationality": "italian",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "johannes walther": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "pierre bouguer": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "john tuzo wilson": {
+            "gender": "male",
+            "nationality": "canadian",
+            "region": "north america",
             "number of mentions": 1
         }
     }
