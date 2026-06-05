@@ -2,9 +2,25 @@ import pandas as pd
 import json
 from pathlib import Path
 
-#qual = 'A_Level'
-qual = 'GCSE'
-#qual = 'A_Level'
+QUALIFICATIONS = {
+    "A_Level": [
+        "../A_Level/CCEA.csv",
+        "../A_Level/AQA.csv",
+        "../A_Level/Edexcel.csv",
+        "../A_Level/Scottish_highers.csv",
+        "../A_Level/WJEC.csv",
+        "../A_Level/OCR.csv",
+    ],
+    "GCSE": [
+        "../GCSE/CCEA.csv",
+        "../GCSE/AQA.csv",
+        "../GCSE/Edexcel.csv",
+        "../GCSE/Scottish.csv",
+        "../GCSE/WJEC.csv",
+        "../GCSE/OCR_A.csv",
+        "../GCSE/OCR_B.csv",
+    ],
+}
 
 
 def load_csv(fname):
@@ -98,13 +114,13 @@ def append_examinable_counts(df, overall):
     return overall
 
 
-def process_file(fname):
+def process_file(fname, qual):
     df = load_csv(fname)
     df.columns = df.columns.str.strip()
 
     df = clean_and_explode(df)
 
-    subjects = ["physics", "chemistry", "biology", "environmental science", "geology","astronomy"]
+    subjects = ["physics", "chemistry", "biology", "environmental science", "geology", "astronomy"]
     label = Path(fname).stem
 
     subject_stats, overall_stats = compute_subject_stats(df, subjects)
@@ -127,22 +143,12 @@ def process_file(fname):
     print(f"Saved stats to {out}")
 
 
-# Run the function on your file
-if __name__ == "__main__" and qual == 'A_Level':
-    process_file("../A_Level/CCEA.csv")
-    process_file("../A_Level/AQA.csv")
-    process_file("../A_Level/Edexcel.csv")
-    process_file("../A_Level/Scottish_highers.csv")
-    process_file("../A_Level/WJEC.csv")
-    process_file("../A_Level/OCR.csv")
-    
-    
-if __name__ == "__main__" and qual == 'GCSE':
-    process_file("../GCSE/CCEA.csv")
-    process_file("../GCSE/AQA.csv")
-    process_file("../GCSE/Edexcel.csv")
-    process_file("../GCSE/Scottish.csv")
-    process_file("../GCSE/WJEC.csv")
-    process_file("../GCSE/OCR_A.csv")
-    process_file("../GCSE/OCR_B.csv")
+def process_qualification(qual, files):
+    print(f"\nProcessing {qual}...")
+    for fname in files:
+        process_file(fname, qual)
 
+
+if __name__ == "__main__":
+    for qual, files in QUALIFICATIONS.items():
+        process_qualification(qual, files)

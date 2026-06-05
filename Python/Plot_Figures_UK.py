@@ -862,10 +862,10 @@ def _run_script():
     # Subplot 1: GCSE
     plt.subplot(gs[0, 0])
     plt.title('Ages 14 - 16 (GCSE / NQ5)', fontsize=15, weight = 'bold')
-    bars1 = plt.bar(['Women', 'Men'], [1, 76], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
+    bars1 = plt.bar(['Women', 'Men'], [1, 88], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
     plt.ylabel('Number of scientists', fontsize=15, weight = 'bold')
     plt.xticks(fontsize=15)  # Set x-axis fontsize
-    plt.ylim(0, 80)          # Increased slightly to fit labels
+    plt.ylim(0, 90)          # Increased slightly to fit labels
     plt.grid(False)
 
 
@@ -882,7 +882,7 @@ def _run_script():
     # Subplot 2: A-Level
     plt.subplot(gs[0, 1])
     plt.title('Ages 16 - 18 (A-Level / Scottish Highers)', fontsize=15, weight = 'bold')
-    bars2 = plt.bar(['Women', 'Men'], [3, 162], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
+    bars2 = plt.bar(['Women', 'Men'], [3, 168], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
     plt.xticks(fontsize=15)  # Set x-axis fontsize
     plt.ylim(0, 170)         # Increased slightly to fit labels
     plt.grid(False)
