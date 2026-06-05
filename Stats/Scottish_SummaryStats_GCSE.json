@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 0,
+                "male": 1,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 12,
+            "male": 13,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 10,
+            "male": 11,
             "female": 0,
             "region": {
-                "europe": 10
+                "europe": 11
             }
         }
     },
@@ -136,6 +136,12 @@
         "wilhelm ostwald": {
             "gender": "male",
             "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "reginald punnett": {
+            "gender": "male",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         }

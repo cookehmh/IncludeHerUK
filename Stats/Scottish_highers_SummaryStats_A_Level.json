@@ -77,8 +77,7 @@
                 "europe": 61,
                 "north america": 17,
                 "oceania-europe": 1,
-                "europe-north america": 1,
-                "nan": 1
+                "europe-north america": 1
             }
         }
     },
@@ -562,12 +561,6 @@
             "nationality": "english",
             "region": "europe",
             "number of mentions": 1
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 26
         }
     }
 }

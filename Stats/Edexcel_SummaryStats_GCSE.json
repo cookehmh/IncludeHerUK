@@ -2,21 +2,21 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 6,
+                "male": 9,
                 "female": 0
             },
             "scientist": {
-                "male": 0,
+                "male": 2,
                 "female": 0
             }
         },
         "chemistry": {
             "concept": {
-                "male": 3,
+                "male": 4,
                 "female": 0
             },
             "scientist": {
-                "male": 1,
+                "male": 2,
                 "female": 0
             }
         },
@@ -26,7 +26,7 @@
                 "female": 0
             },
             "scientist": {
-                "male": 1,
+                "male": 6,
                 "female": 0
             }
         },
@@ -52,8 +52,8 @@
         },
         "astronomy": {
             "concept": {
-                "male": 22,
-                "female": 0
+                "male": 30,
+                "female": 1
             },
             "scientist": {
                 "male": 10,
@@ -63,22 +63,24 @@
     },
     "overall": {
         "concept": {
-            "male": 33,
-            "female": 0
+            "male": 45,
+            "female": 1
         },
         "scientist": {
-            "male": 12,
+            "male": 20,
             "female": 0
         },
         "unique": {
-            "male": 33,
-            "female": 0,
+            "male": 45,
+            "female": 1,
             "region": {
-                "europe": 24,
-                "north america": 5,
+                "europe": 35,
+                "north america": 6,
                 "africa": 2,
                 "oceania": 1,
-                "asia-north america": 1
+                "north american": 1,
+                "asia-north america": 1,
+                "asia": 1
             }
         }
     },
@@ -107,6 +109,36 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "william herschel": {
+            "gender": "male",
+            "nationality": "german-british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "johann ritter": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "robert bunsen": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 3
+        },
+        "hans geiger": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "walther m\u00fcller": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "reginald punnett": {
             "gender": "male",
             "nationality": "english",
@@ -117,12 +149,30 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 4
         },
-        "richard leaky": {
+        "richard leakey": {
             "gender": "male",
             "nationality": "kenya",
             "region": "africa",
+            "number of mentions": 1
+        },
+        "stanley rossiter benedict": {
+            "gender": "nan",
+            "nationality": "american",
+            "region": "north american",
+            "number of mentions": 1
+        },
+        "alfred russel wallace": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "gregor mendel": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
             "number of mentions": 1
         },
         "john dalton": {
@@ -135,7 +185,7 @@
             "gender": "male",
             "nationality": "russian",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "amedeo avogadro": {
             "gender": "male",
@@ -171,13 +221,13 @@
             "gender": "male",
             "nationality": "danish",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
-        "copernicus": {
+        "nicolaus copernicus": {
             "gender": "male",
             "nationality": "polish",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "galileo galilei": {
             "gender": "male",
@@ -189,7 +239,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 4
+            "number of mentions": 5
         },
         "edmund halley": {
             "gender": "male",
@@ -279,6 +329,42 @@
             "gender": "male",
             "nationality": "american",
             "region": "north america",
+            "number of mentions": 1
+        },
+        "john harrison": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "klim churyumov": {
+            "gender": "male",
+            "nationality": "ukranian",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "svetlana gerasimenko": {
+            "gender": "female",
+            "nationality": "uzbek",
+            "region": "asia",
+            "number of mentions": 1
+        },
+        "wilhelm tempel": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "david wilkinson": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "max planck": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
             "number of mentions": 1
         }
     }

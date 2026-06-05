@@ -12,9 +12,9 @@
                 "both": 0
             },
             "Edexcel": {
-                "male": 22,
-                "female": 0,
-                "both": 22
+                "male": 30,
+                "female": 1,
+                "both": 31
             },
             "OCR A": {
                 "male": 0,
@@ -78,14 +78,14 @@
     "biology": {
         "concept": {
             "AQA": {
-                "male": 2,
+                "male": 5,
                 "female": 0,
-                "both": 2
+                "both": 5
             },
             "CCEA": {
-                "male": 4,
+                "male": 7,
                 "female": 0,
-                "both": 4
+                "both": 7
             },
             "Edexcel": {
                 "male": 2,
@@ -93,19 +93,19 @@
                 "both": 2
             },
             "OCR A": {
-                "male": 1,
+                "male": 2,
                 "female": 0,
-                "both": 1
+                "both": 2
             },
             "OCR B": {
+                "male": 2,
+                "female": 0,
+                "both": 2
+            },
+            "Scottish NQ5": {
                 "male": 1,
                 "female": 0,
                 "both": 1
-            },
-            "Scottish NQ5": {
-                "male": 0,
-                "female": 0,
-                "both": 0
             },
             "WJEC": {
                 "male": 1,
@@ -115,9 +115,9 @@
         },
         "scientist": {
             "AQA": {
-                "male": 3,
+                "male": 7,
                 "female": 0,
-                "both": 3
+                "both": 7
             },
             "CCEA": {
                 "male": 3,
@@ -125,9 +125,9 @@
                 "both": 3
             },
             "Edexcel": {
-                "male": 1,
+                "male": 6,
                 "female": 0,
-                "both": 1
+                "both": 6
             },
             "OCR A": {
                 "male": 3,
@@ -145,38 +145,38 @@
                 "both": 0
             },
             "WJEC": {
-                "male": 2,
+                "male": 4,
                 "female": 0,
-                "both": 2
+                "both": 4
             }
         }
     },
     "chemistry": {
         "concept": {
             "AQA": {
-                "male": 4,
-                "female": 0,
-                "both": 4
-            },
-            "CCEA": {
                 "male": 5,
                 "female": 0,
                 "both": 5
             },
-            "Edexcel": {
-                "male": 3,
+            "CCEA": {
+                "male": 8,
                 "female": 0,
-                "both": 3
+                "both": 8
+            },
+            "Edexcel": {
+                "male": 4,
+                "female": 0,
+                "both": 4
             },
             "OCR A": {
-                "male": 3,
+                "male": 6,
                 "female": 0,
-                "both": 3
+                "both": 6
             },
             "OCR B": {
-                "male": 2,
+                "male": 4,
                 "female": 0,
-                "both": 2
+                "both": 4
             },
             "Scottish NQ5": {
                 "male": 3,
@@ -191,9 +191,9 @@
         },
         "scientist": {
             "AQA": {
-                "male": 1,
+                "male": 3,
                 "female": 0,
-                "both": 1
+                "both": 3
             },
             "CCEA": {
                 "male": 2,
@@ -201,9 +201,9 @@
                 "both": 2
             },
             "Edexcel": {
-                "male": 1,
+                "male": 2,
                 "female": 0,
-                "both": 1
+                "both": 2
             },
             "OCR A": {
                 "male": 8,
@@ -336,9 +336,9 @@
                 "both": 0
             },
             "WJEC": {
-                "male": 7,
+                "male": 2,
                 "female": 0,
-                "both": 7
+                "both": 2
             }
         },
         "scientist": {
@@ -373,33 +373,33 @@
                 "both": 0
             },
             "WJEC": {
-                "male": 9,
+                "male": 10,
                 "female": 0,
-                "both": 9
+                "both": 10
             }
         }
     },
     "physics": {
         "concept": {
             "AQA": {
-                "male": 6,
+                "male": 8,
                 "female": 0,
-                "both": 6
+                "both": 8
             },
             "CCEA": {
+                "male": 10,
+                "female": 0,
+                "both": 10
+            },
+            "Edexcel": {
                 "male": 9,
                 "female": 0,
                 "both": 9
             },
-            "Edexcel": {
-                "male": 6,
-                "female": 0,
-                "both": 6
-            },
             "OCR A": {
-                "male": 14,
+                "male": 15,
                 "female": 0,
-                "both": 14
+                "both": 15
             },
             "OCR B": {
                 "male": 6,
@@ -419,9 +419,9 @@
         },
         "scientist": {
             "AQA": {
-                "male": 0,
+                "male": 2,
                 "female": 0,
-                "both": 0
+                "both": 2
             },
             "CCEA": {
                 "male": 0,
@@ -429,9 +429,9 @@
                 "both": 0
             },
             "Edexcel": {
-                "male": 0,
+                "male": 2,
                 "female": 0,
-                "both": 0
+                "both": 2
             },
             "OCR A": {
                 "male": 0,
@@ -458,28 +458,28 @@
     "overall": {
         "subjects": {
             "astronomy": {
-                "concept": 22,
+                "concept": 31,
                 "scientist": 10,
-                "total": 32,
-                "% of total mentions": 17.11,
-                "% of total concept mentions": 18.64,
-                "% of total scientist mentions": 14.49
+                "total": 41,
+                "% of total mentions": 17.37,
+                "% of total concept mentions": 20.95,
+                "% of total scientist mentions": 11.36
             },
             "biology": {
-                "concept": 11,
-                "scientist": 19,
-                "total": 30,
-                "% of total mentions": 16.04,
-                "% of total concept mentions": 9.32,
-                "% of total scientist mentions": 27.54
+                "concept": 20,
+                "scientist": 30,
+                "total": 50,
+                "% of total mentions": 21.19,
+                "% of total concept mentions": 13.51,
+                "% of total scientist mentions": 34.09
             },
             "chemistry": {
-                "concept": 22,
-                "scientist": 19,
-                "total": 41,
-                "% of total mentions": 21.93,
-                "% of total concept mentions": 18.64,
-                "% of total scientist mentions": 27.54
+                "concept": 32,
+                "scientist": 22,
+                "total": 54,
+                "% of total mentions": 22.88,
+                "% of total concept mentions": 21.62,
+                "% of total scientist mentions": 25.0
             },
             "environmental science": {
                 "concept": 0,
@@ -490,82 +490,82 @@
                 "% of total scientist mentions": 0.0
             },
             "geology": {
-                "concept": 7,
-                "scientist": 9,
-                "total": 16,
-                "% of total mentions": 8.56,
-                "% of total concept mentions": 5.93,
-                "% of total scientist mentions": 13.04
+                "concept": 2,
+                "scientist": 10,
+                "total": 12,
+                "% of total mentions": 5.08,
+                "% of total concept mentions": 1.35,
+                "% of total scientist mentions": 11.36
             },
             "physics": {
-                "concept": 56,
-                "scientist": 12,
-                "total": 68,
-                "% of total mentions": 36.36,
-                "% of total concept mentions": 47.46,
-                "% of total scientist mentions": 17.39
+                "concept": 63,
+                "scientist": 16,
+                "total": 79,
+                "% of total mentions": 33.47,
+                "% of total concept mentions": 42.57,
+                "% of total scientist mentions": 18.18
             }
         },
         "exam_boards": {
             "AQA": {
-                "concept": 12,
-                "scientist": 4,
-                "total": 16,
-                "% of total mentions": 8.56,
-                "% of total concept mentions": 10.17,
-                "% of total scientist mentions": 5.8
+                "concept": 18,
+                "scientist": 12,
+                "total": 30,
+                "% of total mentions": 12.71,
+                "% of total concept mentions": 12.16,
+                "% of total scientist mentions": 13.64
             },
             "CCEA": {
-                "concept": 18,
+                "concept": 25,
                 "scientist": 5,
-                "total": 23,
-                "% of total mentions": 12.3,
-                "% of total concept mentions": 15.25,
-                "% of total scientist mentions": 7.25
+                "total": 30,
+                "% of total mentions": 12.71,
+                "% of total concept mentions": 16.89,
+                "% of total scientist mentions": 5.68
             },
             "Edexcel": {
-                "concept": 33,
-                "scientist": 12,
-                "total": 45,
-                "% of total mentions": 24.06,
-                "% of total concept mentions": 27.97,
-                "% of total scientist mentions": 17.39
+                "concept": 46,
+                "scientist": 20,
+                "total": 66,
+                "% of total mentions": 27.97,
+                "% of total concept mentions": 31.08,
+                "% of total scientist mentions": 22.73
             },
             "OCR A": {
-                "concept": 18,
+                "concept": 23,
                 "scientist": 11,
-                "total": 29,
-                "% of total mentions": 15.51,
-                "% of total concept mentions": 15.25,
-                "% of total scientist mentions": 15.94
+                "total": 34,
+                "% of total mentions": 14.41,
+                "% of total concept mentions": 15.54,
+                "% of total scientist mentions": 12.5
             },
             "OCR B": {
-                "concept": 9,
+                "concept": 12,
                 "scientist": 23,
-                "total": 32,
-                "% of total mentions": 17.11,
-                "% of total concept mentions": 7.63,
-                "% of total scientist mentions": 33.33
+                "total": 35,
+                "% of total mentions": 14.83,
+                "% of total concept mentions": 8.11,
+                "% of total scientist mentions": 26.14
             },
             "Scottish NQ5": {
-                "concept": 12,
+                "concept": 13,
                 "scientist": 1,
-                "total": 13,
-                "% of total mentions": 6.95,
-                "% of total concept mentions": 10.17,
-                "% of total scientist mentions": 1.45
+                "total": 14,
+                "% of total mentions": 5.93,
+                "% of total concept mentions": 8.78,
+                "% of total scientist mentions": 1.14
             },
             "WJEC": {
-                "concept": 16,
-                "scientist": 13,
-                "total": 29,
-                "% of total mentions": 15.51,
-                "% of total concept mentions": 13.56,
-                "% of total scientist mentions": 18.84
+                "concept": 11,
+                "scientist": 16,
+                "total": 27,
+                "% of total mentions": 11.44,
+                "% of total concept mentions": 7.43,
+                "% of total scientist mentions": 18.18
             }
         },
-        "total mentions": 187,
-        "total concept mentions": 118,
-        "total scientist mentions": 69
+        "total mentions": 236,
+        "total concept mentions": 148,
+        "total scientist mentions": 88
     }
 }

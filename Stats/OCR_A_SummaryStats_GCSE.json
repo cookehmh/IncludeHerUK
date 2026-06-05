@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 14,
+                "male": 15,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 3,
+                "male": 6,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 1,
+                "male": 2,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 18,
+            "male": 23,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 17,
+            "male": 21,
             "female": 0,
             "region": {
-                "europe": 15,
+                "europe": 19,
                 "oceania": 1,
                 "europe-oceania": 1
             }
@@ -141,6 +141,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "christian doppler": {
+            "gender": "male",
+            "nationality": "austrian",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "charles darwin": {
             "gender": "male",
             "nationality": "english",
@@ -165,6 +171,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "robert bunsen": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 2
+        },
         "john dalton": {
             "gender": "male",
             "nationality": "english",
@@ -182,6 +194,18 @@
             "nationality": "russian",
             "region": "europe",
             "number of mentions": 2
+        },
+        "henry louis le chatelier": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "fritz haber": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
         }
     }
 }

@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 9,
+                "male": 10,
                 "female": 0
             },
             "scientist": {
@@ -12,7 +12,7 @@
         },
         "chemistry": {
             "concept": {
-                "male": 5,
+                "male": 8,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 4,
+                "male": 7,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 18,
+            "male": 25,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 17,
+            "male": 22,
             "female": 0,
             "region": {
-                "europe": 13,
+                "europe": 18,
                 "oceania": 2,
                 "north america": 2
             }
@@ -111,6 +111,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "john ambrose fleming": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "james chadwick": {
             "gender": "male",
             "nationality": "british",
@@ -127,7 +133,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 1
+            "number of mentions": 2
         },
         "dmitri mendeleev": {
             "gender": "male",
@@ -140,6 +146,18 @@
             "nationality": "dutch",
             "region": "europe",
             "number of mentions": 1
+        },
+        "henry louis le chatelier": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "robert bunsen": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 2
         },
         "john langdon down": {
             "gender": "male",
@@ -180,6 +198,18 @@
         "ernst chain": {
             "gender": "male",
             "nationality": "german-british",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "reginald punnett": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "julius richard petri": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         }

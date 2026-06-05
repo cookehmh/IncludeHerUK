@@ -4,7 +4,7 @@ from pathlib import Path
 
 #qual = 'A_Level'
 qual = 'GCSE'
-qual = 'A_Level'
+#qual = 'A_Level'
 
 
 def load_csv(fname):

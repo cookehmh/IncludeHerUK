@@ -26,7 +26,7 @@
                 "female": 0
             },
             "scientist": {
-                "male": 2,
+                "male": 4,
                 "female": 0
             }
         },
@@ -42,11 +42,11 @@
         },
         "geology": {
             "concept": {
-                "male": 7,
+                "male": 2,
                 "female": 0
             },
             "scientist": {
-                "male": 9,
+                "male": 10,
                 "female": 0
             }
         },
@@ -63,20 +63,19 @@
     },
     "overall": {
         "concept": {
-            "male": 16,
+            "male": 11,
             "female": 0
         },
         "scientist": {
-            "male": 13,
+            "male": 16,
             "female": 0
         },
         "unique": {
-            "male": 24,
+            "male": 23,
             "female": 0,
             "region": {
                 "europe": 17,
-                "north america": 6,
-                "europe-north america": 1
+                "north america": 6
             }
         }
     },
@@ -105,6 +104,12 @@
             "region": "north america",
             "number of mentions": 1
         },
+        "john ambrose fleming": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "stanley rossiter benedict": {
             "gender": "male",
             "nationality": "american",
@@ -118,6 +123,18 @@
             "number of mentions": 1
         },
         "alfred russel wallace": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "reginald punnett": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "sir william bowman": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
@@ -141,41 +158,11 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "andrija mohorovi?i?": {
-            "gender": "male",
-            "nationality": "croatian",
-            "region": "europe",
-            "number of mentions": 1
-        },
         "friedrich mohs": {
             "gender": "male",
             "nationality": "german",
             "region": "europe",
             "number of mentions": 2
-        },
-        "henry darcy": {
-            "gender": "male",
-            "nationality": "french",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "charles spearman": {
-            "gender": "male",
-            "nationality": "british",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "henry mann": {
-            "gender": "male",
-            "nationality": "austrian-american",
-            "region": "europe-north america",
-            "number of mentions": 1
-        },
-        "donald ransom whitney": {
-            "gender": "male",
-            "nationality": "american",
-            "region": "north america",
-            "number of mentions": 1
         },
         "harry hammond hess": {
             "gender": "male",
@@ -223,6 +210,12 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "victor hugo benioff": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         }
     }
