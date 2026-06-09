@@ -52,8 +52,8 @@
         },
         "astronomy": {
             "concept": {
-                "male": 30,
-                "female": 1
+                "male": 26,
+                "female": 0
             },
             "scientist": {
                 "male": 10,
@@ -63,24 +63,24 @@
     },
     "overall": {
         "concept": {
-            "male": 45,
-            "female": 1
+            "male": 41,
+            "female": 0
         },
         "scientist": {
             "male": 20,
             "female": 0
         },
         "unique": {
-            "male": 45,
-            "female": 1,
+            "male": 41,
+            "female": 0,
             "region": {
-                "europe": 35,
-                "north america": 6,
+                "europe": 32,
+                "north america": 5,
                 "africa": 2,
                 "oceania": 1,
                 "north american": 1,
                 "asia-north america": 1,
-                "asia": 1
+                "nan": 1
             }
         }
     },
@@ -337,35 +337,11 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "klim churyumov": {
-            "gender": "male",
-            "nationality": "ukranian",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "svetlana gerasimenko": {
-            "gender": "female",
-            "nationality": "uzbek",
-            "region": "asia",
-            "number of mentions": 1
-        },
-        "wilhelm tempel": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
-        },
-        "david wilkinson": {
-            "gender": "male",
-            "nationality": "american",
-            "region": "north america",
-            "number of mentions": 1
-        },
-        "max planck": {
-            "gender": "male",
-            "nationality": "german",
-            "region": "europe",
-            "number of mentions": 1
+        "nan": {
+            "gender": "nan",
+            "nationality": "nan",
+            "region": "nan",
+            "number of mentions": 5
         }
     }
 }
