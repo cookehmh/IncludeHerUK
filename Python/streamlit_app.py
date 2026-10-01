@@ -236,10 +236,10 @@ def pie_figure(labels, counts, display_labels, hover, title, colours=None):
     )
     fig.update_layout(
         title=dict(text=title, x=0.02, xanchor="left"),
-        height=560,
-        margin=dict(t=80, b=40, l=40, r=40),
-        legend=dict(orientation="v", yanchor="middle", y=0.5, x=1.02),
-        uniformtext_minsize=11,
+        height=600,
+        margin=dict(t=80, b=100, l=60, r=160),
+        legend=dict(orientation="v", yanchor="middle", y=0.5, x=1.02, xanchor="left"),
+        uniformtext_minsize=10,
         uniformtext_mode="hide",
     )
     return fig
@@ -342,11 +342,23 @@ def subject_figure(data, stage_key, board_display):
             x=0.02,
             xanchor="left",
         ),
-        height=max(420, 60 * len(subjects) + 140),
-        margin=dict(t=90, l=160, r=40, b=50),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
+        height=max(460, 60 * len(subjects) + 180),
+        margin=dict(t=110, l=160, r=40, b=90),
+        # Keep Men/Women clear of the subplot titles ("Concept mentions", etc.).
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.14,
+            x=0.5,
+            xanchor="center",
+            bgcolor="rgba(255,255,255,0.9)",
+        ),
     )
     fig.update_xaxes(title_text="Mentions")
+    # Give subplot titles a bit more room under the main title.
+    for annotation in fig.layout.annotations:
+        if annotation.text in ("Concept mentions", "Scientist mentions"):
+            annotation.update(yshift=8)
     return fig
 
 
@@ -413,7 +425,7 @@ def region_figure(data, stage_key, board_display=None):
 
 def nationality_figure(data, stage_key, board_display=None):
     scientists = merge_scientists(data, stage_key, board_display)
-    labels, counts, display_labels, hover, _ = demographic_counts(
+    labels, counts, display_labels, hover, total = demographic_counts(
         scientists, "nationality"
     )
     scope = (
@@ -421,9 +433,39 @@ def nationality_figure(data, stage_key, board_display=None):
         if board_display is None
         else display_board_name(data, stage_key, board_display)
     )
-    return pie_figure(
-        labels, counts, display_labels, hover, f"Scientists by nationality — {scope}"
+    # Many nationalities: a horizontal bar chart avoids clipped pie labels.
+    colours = [REGION_COLOURS[i % len(REGION_COLOURS)] for i in range(len(counts))]
+    # Plot largest at top (demographic_counts is already largest-first).
+    fig = go.Figure(
+        data=[
+            go.Bar(
+                y=display_labels[::-1],
+                x=counts[::-1],
+                orientation="h",
+                marker_color=colours[::-1],
+                hovertext=hover[::-1],
+                hoverinfo="text",
+                customdata=labels[::-1],
+                text=[
+                    f"{c} ({c / total * 100:.1f}%)" for c in counts[::-1]
+                ],
+                textposition="outside",
+                cliponaxis=False,
+            )
+        ]
     )
+    fig.update_layout(
+        title=dict(
+            text=f"Scientists by nationality — {scope}",
+            x=0.02,
+            xanchor="left",
+        ),
+        xaxis_title="Unique scientists",
+        height=max(480, 28 * len(counts) + 140),
+        margin=dict(l=160, r=90, t=70, b=50),
+        showlegend=False,
+    )
+    return fig
 
 
 def region_comparison_figure(data):
