@@ -64,6 +64,7 @@ st.set_page_config(
     page_title="IncludeHer UK",
     page_icon="🔬",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
 
@@ -220,7 +221,7 @@ def pie_figure(labels, counts, display_labels, hover, title, colours=None):
             go.Pie(
                 labels=display_labels,
                 values=counts,
-                hole=0.45,
+                hole=0.42,
                 marker=dict(
                     colors=[colours[i % len(colours)] for i in range(len(counts))]
                 ),
@@ -229,10 +230,18 @@ def pie_figure(labels, counts, display_labels, hover, title, colours=None):
                 hovertext=hover,
                 hoverinfo="text",
                 customdata=labels,
+                sort=False,
             )
         ]
     )
-    fig.update_layout(title=title, height=480, margin=dict(t=70, b=20, l=20, r=20))
+    fig.update_layout(
+        title=dict(text=title, x=0.02, xanchor="left"),
+        height=560,
+        margin=dict(t=80, b=40, l=40, r=40),
+        legend=dict(orientation="v", yanchor="middle", y=0.5, x=1.02),
+        uniformtext_minsize=11,
+        uniformtext_mode="hide",
+    )
     return fig
 
 
@@ -328,9 +337,14 @@ def subject_figure(data, stage_key, board_display):
     )
     fig.update_layout(
         barmode="stack",
-        title=f"Subject breakdown — {display_board_name(data, stage_key, board_display)}",
-        height=max(360, 55 * len(subjects) + 120),
-        margin=dict(t=80, l=140),
+        title=dict(
+            text=f"Subject breakdown — {display_board_name(data, stage_key, board_display)}",
+            x=0.02,
+            xanchor="left",
+        ),
+        height=max(420, 60 * len(subjects) + 140),
+        margin=dict(t=90, l=160, r=40, b=50),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
     fig.update_xaxes(title_text="Mentions")
     return fig
@@ -468,10 +482,15 @@ def region_comparison_figure(data):
     )
     fig.update_layout(
         barmode="group",
-        title="Regional representation — KS4 vs KS5 (% of unique scientists)",
+        title=dict(
+            text="Regional representation — KS4 vs KS5 (% of unique scientists)",
+            x=0.02,
+            xanchor="left",
+        ),
         xaxis_title="Percentage (%)",
-        height=max(420, 42 * len(all_regions) + 140),
-        margin=dict(l=160, t=70),
+        height=max(480, 48 * len(all_regions) + 160),
+        margin=dict(l=180, t=80, r=40, b=50),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
     return fig
 
@@ -500,58 +519,25 @@ def main() -> None:
     )
 
     data = load_data()
-
     comparison_label = "KS4 vs KS5 region comparison"
-    c1, c2, c3 = st.columns(3)
-    with c1:
+
+    # Desktop / laptop layout: filters in the sidebar, chart + table in the main pane.
+    with st.sidebar:
+        st.header("Filters")
         stage_label = st.selectbox("Key stage", list(KEY_STAGE_OPTIONS.keys()))
         stage_key = KEY_STAGE_OPTIONS[stage_label]
-    with c2:
         boards = stage_cfg(data, stage_key)["boards_display"]
         board = st.selectbox("Exam board", boards)
-    with c3:
         view_name = st.selectbox("Chart view", VIEW_OPTIONS)
+        comparison = view_name == comparison_label
+        if comparison:
+            st.caption("Exam board is ignored for the KS4 vs KS5 comparison view.")
 
-    comparison = view_name == comparison_label
-    if comparison:
-        st.info("Comparing regional representation across both key stages.")
-        board_for_chart = None
-    else:
-        board_for_chart = board
-
-    scientists = merge_scientists(
-        data, stage_key, None if comparison else board
-    )
-    total = len(scientists)
-    women = sum(
-        1 for s in scientists.values() if str(s.get("gender", "")).lower() == "female"
-    )
-    men = sum(
-        1 for s in scientists.values() if str(s.get("gender", "")).lower() == "male"
-    )
-    pct_women = women / total * 100 if total else 0
-    if not comparison:
-        st.markdown(
-            f"**{display_board_name(data, stage_key, board)}** · "
-            f"{total} unique scientists · "
-            f"{women} women ({pct_women:.1f}%) · {men} men"
-        )
-
-    fig = build_figure(
-        data,
-        stage_key,
-        board if not comparison else boards[0],
-        view_name,
-    )
-    st.plotly_chart(fig, use_container_width=True)
-
-    st.subheader("Demographic explorer")
-    st.caption("List every named scientist in a demographic group.")
-    d1, d2 = st.columns(2)
-    with d1:
+        st.divider()
+        st.header("Demographic explorer")
+        st.caption("List every named scientist in a group.")
         demo_label = st.selectbox("Explore by", list(DEMOGRAPHIC_OPTIONS.keys()))
         dimension = DEMOGRAPHIC_OPTIONS[demo_label]
-    with d2:
         values = demographic_values(
             merge_scientists(data, stage_key, None if comparison else board),
             dimension,
@@ -563,39 +549,94 @@ def main() -> None:
         )
         raw_value = dict(demo_options)[demo_display]
 
+    scientists = merge_scientists(data, stage_key, None if comparison else board)
+    total = len(scientists)
+    women = sum(
+        1 for s in scientists.values() if str(s.get("gender", "")).lower() == "female"
+    )
+    men = sum(
+        1 for s in scientists.values() if str(s.get("gender", "")).lower() == "male"
+    )
+    pct_women = women / total * 100 if total else 0
+
     if comparison:
-        # Show both key stages for the selected region/demographic.
-        tabs = st.tabs(["KS4", "KS5", "Combined filter on current stage"])
+        st.info("Comparing regional representation across both key stages.")
+        m1, m2, m3 = st.columns(3)
+        m1.metric("View", "KS4 vs KS5")
+        m2.metric("KS4 unique scientists", len(merge_scientists(data, "ks4")))
+        m3.metric("KS5 unique scientists", len(merge_scientists(data, "ks5")))
+    else:
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Exam board", display_board_name(data, stage_key, board))
+        m2.metric("Unique scientists", total)
+        m3.metric("Women", f"{women} ({pct_women:.1f}%)")
+        m4.metric("Men", men)
+
+    fig = build_figure(
+        data,
+        stage_key,
+        board if not comparison else boards[0],
+        view_name,
+    )
+    st.plotly_chart(
+        fig,
+        use_container_width=True,
+        config={
+            "displayModeBar": True,
+            "displaylogo": False,
+            "responsive": True,
+            "toImageButtonOptions": {"format": "png", "scale": 2},
+        },
+    )
+
+    st.subheader("Scientists in selected group")
+    if comparison:
+        tabs = st.tabs(["KS4", "KS5", "Current key stage"])
         for tab, sk in zip(tabs[:2], ("ks4", "ks5")):
             with tab:
                 rows = filter_scientists(
                     merge_scientists(data, sk),
                     **{dimension: raw_value},
                 )
+                st.caption(
+                    f"{demo_display} ({demo_label.lower()}) — {len(rows)} "
+                    f"scientist{'s' if len(rows) != 1 else ''}"
+                )
                 st.dataframe(
                     scientists_table(rows),
                     use_container_width=True,
                     hide_index=True,
+                    height=420,
                 )
         with tabs[2]:
             rows = filter_scientists(scientists, **{dimension: raw_value})
+            st.caption(
+                f"{demo_display} ({demo_label.lower()}) — {len(rows)} "
+                f"scientist{'s' if len(rows) != 1 else ''}"
+            )
             st.dataframe(
                 scientists_table(rows),
                 use_container_width=True,
                 hide_index=True,
+                height=420,
             )
     else:
         rows = filter_scientists(scientists, **{dimension: raw_value})
-        st.markdown(
+        st.caption(
             f"**{demo_display}** ({demo_label.lower()}) — "
             f"{len(rows)} scientist{'s' if len(rows) != 1 else ''}"
         )
-        st.dataframe(scientists_table(rows), use_container_width=True, hide_index=True)
+        st.dataframe(
+            scientists_table(rows),
+            use_container_width=True,
+            hide_index=True,
+            height=420,
+        )
 
     st.divider()
     st.caption(
-        "Data from the IncludeHer UK study. Interactive explorer for UK science "
-        "exam-board specifications (KS4 and KS5)."
+        "Data from the IncludeHer UK study. Best viewed on a laptop or desktop. "
+        "Interactive explorer for UK science exam-board specifications (KS4 and KS5)."
     )
 
 
