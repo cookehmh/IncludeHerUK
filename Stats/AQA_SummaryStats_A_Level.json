@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 51,
+                "male": 52,
                 "female": 0
             },
             "scientist": {
@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 17,
+                "male": 16,
                 "female": 0
             },
             "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 84,
+            "male": 85,
             "female": 0,
             "region": {
-                "europe": 65,
+                "europe": 66,
                 "north america": 17,
                 "oceania": 1,
                 "europe-north america": 1
@@ -346,6 +346,12 @@
             "region": "europe",
             "number of mentions": 1
         },
+        "laurent cassegrain": {
+            "gender": "male",
+            "nationality": "french",
+            "region": "europe",
+            "number of mentions": 1
+        },
         "friedrich gustav jakob henle": {
             "gender": "male",
             "nationality": "german",
@@ -362,7 +368,7 @@
             "gender": "male",
             "nationality": "italian",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
         },
         "francis crick": {
             "gender": "male",

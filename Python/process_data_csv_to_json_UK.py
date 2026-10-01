@@ -1,24 +1,33 @@
-import pandas as pd
+"""Process IncludeHer UK CSV files into per-board JSON summary statistics."""
+
 import json
 from pathlib import Path
 
+import pandas as pd
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+BASE_DIR = SCRIPT_DIR.parent
+STATS_DIR = BASE_DIR / "Stats"
+
+INVALID_SCIENTIST_NAMES = frozenset({"", "nan", "none", "null"})
+
 QUALIFICATIONS = {
     "A_Level": [
-        "../A_Level/CCEA.csv",
-        "../A_Level/AQA.csv",
-        "../A_Level/Edexcel.csv",
-        "../A_Level/Scottish_highers.csv",
-        "../A_Level/WJEC.csv",
-        "../A_Level/OCR.csv",
+        BASE_DIR / "A_Level/CCEA.csv",
+        BASE_DIR / "A_Level/AQA.csv",
+        BASE_DIR / "A_Level/Edexcel.csv",
+        BASE_DIR / "A_Level/Scottish_highers.csv",
+        BASE_DIR / "A_Level/WJEC.csv",
+        BASE_DIR / "A_Level/OCR.csv",
     ],
     "GCSE": [
-        "../GCSE/CCEA.csv",
-        "../GCSE/AQA.csv",
-        "../GCSE/Edexcel.csv",
-        "../GCSE/Scottish.csv",
-        "../GCSE/WJEC.csv",
-        "../GCSE/OCR_A.csv",
-        "../GCSE/OCR_B.csv",
+        BASE_DIR / "GCSE/CCEA.csv",
+        BASE_DIR / "GCSE/AQA.csv",
+        BASE_DIR / "GCSE/Edexcel.csv",
+        BASE_DIR / "GCSE/Scottish.csv",
+        BASE_DIR / "GCSE/WJEC.csv",
+        BASE_DIR / "GCSE/OCR_A.csv",
+        BASE_DIR / "GCSE/OCR_B.csv",
     ],
 }
 
@@ -55,7 +64,7 @@ def compute_subject_stats(df, subjects):
     }
 
     for subject in subjects:
-        df_subj = df[df["Subject"].str.lower().str.strip() == subject]
+        df_subj = df[df["Subject"].str.lower().str.strip() == subject].copy()
         df_subj['Type of Mention'] = df_subj['Type of Mention'].str.strip().str.lower()
         df_subj['Gender'] = df_subj['Gender'].str.strip().str.lower()
 
@@ -119,6 +128,7 @@ def process_file(fname, qual):
     df.columns = df.columns.str.strip()
 
     df = clean_and_explode(df)
+    df = df[~df["Name of Scientist"].str.strip().str.lower().isin(INVALID_SCIENTIST_NAMES)]
 
     subjects = ["physics", "chemistry", "biology", "environmental science", "geology", "astronomy"]
     label = Path(fname).stem
@@ -135,10 +145,10 @@ def process_file(fname, qual):
         "names": name_data,
     }
 
-    out_path = "../Stats/"
     out_name = f"{label}_SummaryStats_{qual}.json"
-    out = out_path + out_name
-    with open(out, 'w') as f:
+    out = STATS_DIR / out_name
+    STATS_DIR.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=4)
     print(f"Saved stats to {out}")
 

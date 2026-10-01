@@ -1,5 +1,12 @@
+"""IncludeHer UK analysis and plotting library.
+
+Loads per-board JSON statistics, computes cross-board summaries, generates
+paper figures, and provides optional PDF name search for specification documents.
+"""
+
 import numpy as np
 import json
+import re
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from collections import Counter, defaultdict
@@ -23,6 +30,9 @@ PURPLE, PURPLE_LIGHT = "#5B4492", "#9B7FD4"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR   = os.path.dirname(SCRIPT_DIR)
+FIGURES_DIR = os.path.join(BASE_DIR, "Figures")
+STATS_DIR = os.path.join(BASE_DIR, "Stats")
+SPECS_DIR = os.path.join(BASE_DIR, "Specs")
 
 SUBJECT_LABELS = {
     "environmental science": "Environmental",
@@ -32,13 +42,19 @@ SUBJECT_LABELS = {
 CATEGORIES = ["concept", "scientist"]
 
 
-# Helpers 
+# Helpers
+
+def _stats_path(board_key, suffix):
+    return os.path.join(STATS_DIR, f"{board_key}_SummaryStats_{suffix}.json")
+
+
+def load_board_stats(board_key, suffix):
+    with open(_stats_path(board_key, suffix), encoding="utf-8") as f:
+        return json.load(f)
+
 
 def load_datasets(boards_map, suffix):
-    return {
-        key: json.load(open(os.path.join(BASE_DIR, f"Stats/{key}_SummaryStats_{suffix}.json"), encoding="utf-8"))
-        for key in boards_map.values()
-    }
+    return {key: load_board_stats(key, suffix) for key in boards_map.values()}
 
 def get_counts(dataset, board_key, subject, category):
     subj = dataset[board_key]["subjects"].get(subject, {})
@@ -99,18 +115,57 @@ def compute_stats(boards_display, boards_map, dataset, subjects):
     })
     return stats
 
+INVALID_SCIENTIST_NAMES = frozenset({"", "nan", "none", "null"})
+
+
+def is_valid_scientist_name(name):
+    return str(name).strip().lower() not in INVALID_SCIENTIST_NAMES
+
+
+def _is_valid_scientist_name(name):
+    return is_valid_scientist_name(name)
+
+
 def collect_unique_scientists(board_keys, suffix):
     scientists = {}
     for board in board_keys:
-        data = json.load(open(os.path.join(BASE_DIR, f"Stats/{board}_SummaryStats_{suffix}.json"), encoding="utf-8"))
-        for name, info in data["names"].items():
-            scientists.setdefault(name, {"gender": info.get("gender", "unknown"), "region": info.get("region", "unknown")})
+        for name, info in load_board_stats(board, suffix)["names"].items():
+            if not _is_valid_scientist_name(name):
+                continue
+            scientists.setdefault(name, {
+                "gender": info.get("gender", "unknown"),
+                "region": info.get("region", "unknown"),
+            })
     return scientists
+
+
+def merge_unique_scientists(*scientist_dicts):
+    """Deduplicate named individuals across key stages.
+
+    The same person (exact Name of Scientist string) counts once even if they
+    appear in both GCSE / KS4 and A-Level / KS5. The first dict supplies
+    gender and region when a name is repeated.
+    """
+    merged = {}
+    for scientists in scientist_dicts:
+        for name, info in (scientists or {}).items():
+            if not _is_valid_scientist_name(name):
+                continue
+            key = str(name).strip().lower()
+            if key not in merged:
+                merged[key] = {
+                    "gender": (info or {}).get("gender", "unknown"),
+                    "region": (info or {}).get("region", "unknown"),
+                    "display": name,
+                }
+    return merged
 
 def collect_region_data(boards_display, boards_map, dataset):
     name_region = {}
     for board in boards_display:
         for name, info in dataset[boards_map[board]]["names"].items():
+            if not _is_valid_scientist_name(name):
+                continue
             r = info.get("region", "")
             if isinstance(r, str):
                 r = r.strip().title().replace("Eruope", "Europe")
@@ -187,8 +242,16 @@ def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_
 
 
 
-FIGURES_DIR = os.path.join(BASE_DIR, "Figures")
-STATS_DIR = os.path.join(BASE_DIR, "Stats")
+# Extra surnames/names to look for in specification PDFs. These are never
+# merged into the counted scientist list used for the paper statistics.
+DEFAULT_EXTRA_SEARCH_NAMES = [
+    "Curie", "Lovelace", "Meitner", "Solomon", "Cannon", "Rubin", "Burnell",
+    "Hodgkin", "McClintock", "Carson", "Goodall", "Herschel", "Leakey", "Wu",
+    "Anning", "Cori", "Punnett", "Dalton", "Mendeleev", "Lewis",
+    "Lussac", "Lavoisier", "Volta", "Joule",
+    "Chadwick", "Linnaeus", "Leeuwenhoek", "Jenner", "Pasteur",
+    "Wegener", "Richter",
+]
 
 # Notebook colour palette (used by Plot_Figures_UK.ipynb)
 COLOURS = [
@@ -286,9 +349,7 @@ def print_mention_report(board_keys, suffix):
     concept_mentions_by_board_subject = defaultdict(lambda: defaultdict(int))
 
     for board in board_keys:
-        path = os.path.join(BASE_DIR, f"Stats/{board}_SummaryStats_{suffix}.json")
-        with open(path, encoding="utf-8") as f:
-            data = json.load(f)
+        data = load_board_stats(board, suffix)
         for subject, subject_data in data["subjects"].items():
             sci = subject_data.get("scientist", {})
             con = subject_data.get("concept", {})
@@ -299,14 +360,26 @@ def print_mention_report(board_keys, suffix):
             scientist_mentions_by_board[board] += sci_mentions
             concept_mentions_by_board[board] += con_mentions
         for name, info in data["names"].items():
+            if not _is_valid_scientist_name(name):
+                continue
             if name not in global_scientists:
                 global_scientists[name] = {
                     "gender": info.get("gender", "unknown"),
                     "region": info.get("region", "unknown"),
                 }
 
+    n_female, n_male = _gender_totals(global_scientists)
+    n_other = len(global_scientists) - n_female - n_male
+    extra = f", {n_other} other/unknown" if n_other else ""
     print("\n=== UNIQUE SCIENTISTS (GLOBAL, DEDUPLICATED ACROSS ALL EXAM BOARDS) ===")
     print(f"Total unique scientists (distinct named individuals): {len(global_scientists)}")
+    print(f"  {n_male} male, {n_female} female{extra}")
+    women = sorted(
+        name for name, info in global_scientists.items()
+        if str(info.get("gender", "")).lower() == "female"
+    )
+    if women:
+        print(f"  Women named: {', '.join(women)}")
     print(f"Unique scientists by gender: {dict(Counter(s['gender'] for s in global_scientists.values()))}")
     print(f"Unique scientists by region: {dict(Counter(s['region'] for s in global_scientists.values()))}")
     print("\n=== TOTAL SCIENTIST-CATEGORY MENTIONS PER EXAM BOARD ===")
@@ -336,19 +409,77 @@ def print_mention_report(board_keys, suffix):
     )
     return global_scientists
 
+def _scientist_display_name(name, info):
+    if isinstance(info, dict) and info.get("display"):
+        return info["display"]
+    return name
+
+
 def print_distinct_scientist_names(scientists, label):
     """Print the count and alphabetised list of distinct named individuals."""
-    print(f"\n=== {label} — distinct individual names ===", flush=True)
-    print(f"Total unique scientists: {len(scientists)}\n", flush=True)
-    for name in sorted(scientists.keys()):
-        print(name, flush=True)
+    names = sorted(
+        (_scientist_display_name(name, info) for name, info in scientists.items()),
+        key=str.lower,
+    )
+    print(f"\n=== {label} — distinct individual names ===")
+    print(f"Total unique scientists: {len(scientists)}\n")
+    print("\n".join(names))
+
+
+def _unique_count_line(label, scientists):
+    n_female, n_male = _gender_totals(scientists)
+    n_other = len(scientists) - n_female - n_male
+    extra = f", {n_other} other/unknown" if n_other else ""
+    return (
+        f"{label}: {len(scientists)} unique scientists "
+        f"({n_male} male, {n_female} female{extra})"
+    )
+
+
+def unique_scientist_summary(scientists_a, scientists_g):
+    """Unique counts and named women for each key stage and the KS4+KS5 union."""
+    combined = merge_unique_scientists(scientists_a, scientists_g)
+
+    def women_names(scientists):
+        return sorted(
+            _scientist_display_name(name, info)
+            for name, info in scientists.items()
+            if str(info.get("gender", "")).lower() == "female"
+        )
+
+    def pack(scientists):
+        n_female, n_male = _gender_totals(scientists)
+        return {
+            "total": len(scientists),
+            "male": n_male,
+            "female": n_female,
+            "women": women_names(scientists),
+            "scientists": scientists,
+        }
+
+    return {
+        "ks5": pack(scientists_a),
+        "ks4": pack(scientists_g),
+        "combined": pack(combined),
+    }
 
 
 def print_all_distinct_scientists(scientists_a, scientists_g):
-    """Print unique counts and name lists for both key stages."""
-    print("\n=== Unique scientist counts ===", flush=True)
-    print(f"A-Level / KS5: {len(scientists_a)} unique scientists", flush=True)
-    print(f"GCSE / KS4: {len(scientists_g)} unique scientists", flush=True)
+    """Print unique counts for each key stage and the KS4+KS5 union."""
+    summary = unique_scientist_summary(scientists_a, scientists_g)
+    lines = [
+        "\n=== Unique scientist counts ===",
+        "Each person is counted once per key stage, then once across both stages "
+        "if the Name of Scientist string matches.",
+        _unique_count_line("A-Level / KS5", scientists_a),
+        _unique_count_line("GCSE / KS4", scientists_g),
+        _unique_count_line("KS4 + KS5 combined (each person counted once)", summary["combined"]["scientists"]),
+        f"KS5 women: {', '.join(summary['ks5']['women']) if summary['ks5']['women'] else '(none)'}",
+        f"KS4 women: {', '.join(summary['ks4']['women']) if summary['ks4']['women'] else '(none)'}",
+        f"Combined women: {', '.join(summary['combined']['women']) if summary['combined']['women'] else '(none)'}",
+    ]
+    print("\n".join(lines))
+    return summary["combined"]["scientists"]
 
 
 def prepare_key_stage(stage_key):
@@ -393,7 +524,7 @@ def plot_subjects_ks5(result, colours=None):
     plt.rcParams["xtick.major.width"] = 2
     plt.rcParams["ytick.major.width"] = 2
     plt.rcParams["axes.linewidth"] = 2
-    core_subjects = {"Physics", "Chemistry", "Biology"}
+    core_subjects = {"physics", "chemistry", "biology"}
     subject_counts, subjects_by_board = [], []
     for board in exam_boards:
         subjects_here = [
@@ -654,57 +785,187 @@ def plot_combined_regions_solid(regions_g, vals_g, labels_g, regions_a, vals_a, 
     ax[0].legend(wedges_g, labels_g, loc="upper left", bbox_to_anchor=(-0.65, 1), fontsize=18, frameon=False)
     ax[1].legend(wedges_a, labels_a, loc="upper right", bbox_to_anchor=(1.65, 0.95), fontsize=18, frameon=False)
     fig.suptitle("Nationality Regions of Scientists in UK Specifications", fontsize=20, y=1)
-    plt.savefig(os.path.join(FIGURES_DIR, "summary_region_all_UK_combined.png"), dpi=150, bbox_inches="tight")
+    plt.savefig(os.path.join(FIGURES_DIR, "summary_region_all_UK_combined_solid.png"), dpi=150, bbox_inches="tight")
 
 
 def plot_key_stage_figures(result, colours=None):
-    """All per-stage figures (notebook Figures section)."""
-    if result["cfg"]["suffix"] == "A_Level":
-        plot_subjects_ks5(result, colours)
-        plot_gender_pies(result, colours, suptitle="Ages 16-18 years (Key Stage 5)", pie_grid=(2, 3), legend_anchor=(1.1, 0.57))
-        plot_mention_type_pies(result, colours, suptitle="Ages 16-18 years (Key Stage 5)", pie_grid=(2, 3), legend_anchor=(1.1, 0.57))
+    """All per-stage figures used by the plotting notebook and `_run_script`."""
+    colours = colours or COLOURS
+    cfg = result["cfg"]
+    boards = result["EXAMBOARDS"]
+    plot_subject_breakdown(
+        list(boards), boards, result["dataset"],
+        os.path.join(FIGURES_DIR, cfg["figures"]["subjects"]),
+        cfg["suffix"],
+    )
+    if cfg["suffix"] == "A_Level":
+        plot_gender_pies(
+            result, colours,
+            suptitle="Ages 16-18 years (Key Stage 5)",
+            pie_grid=(2, 3), legend_anchor=(1.1, 0.57),
+        )
+        plot_mention_type_pies(
+            result, colours,
+            suptitle="Ages 16-18 years (Key Stage 5)",
+            pie_grid=(2, 3), legend_anchor=(1.1, 0.57),
+        )
     else:
-        plot_subjects_ks4(result, colours)
-        plot_gender_pies(result, colours, suptitle="Ages 14-16 years (GCSE / NQ5)", pie_grid=(2, 4), legend_anchor=(0.93, 0.33))
-        plot_mention_type_pies(result, colours, suptitle="Ages 14-16 years (GCSE / NQ5)", pie_grid=(2, 4), legend_anchor=(0.93, 0.33))
+        plot_gender_pies(
+            result, colours,
+            suptitle="Ages 14-16 years (GCSE / NQ5)",
+            pie_grid=(2, 4), legend_anchor=(0.93, 0.33),
+        )
+        plot_mention_type_pies(
+            result, colours,
+            suptitle="Ages 14-16 years (GCSE / NQ5)",
+            pie_grid=(2, 4), legend_anchor=(0.93, 0.33),
+        )
     plot_region_donut_notebook(result, colours)
 
 
-def search_names_in_pdfs(names, pdf_files):
-    """Notebook cell 10 – PDF surname search."""
-    import re
-    from collections import defaultdict
+def plot_combined_figures(ks4, ks5):
+    """KS4 vs KS5 comparison figures used by the plotting notebook and `_run_script`."""
+    plot_combined_grouped_bar(ks5["regions"], ks5["vals"], ks4["regions"], ks4["vals"])
+    plot_overall_gender_bar(ks4["scientists"], ks5["scientists"])
+    plot_combined_regions_donut(
+        ks4["regions"], ks4["vals"], ks4["labels"],
+        ks5["regions"], ks5["vals"], ks5["labels"],
+    )
+    plot_combined_regions_solid(
+        ks4["regions"], ks4["vals"], ks4["labels"],
+        ks5["regions"], ks5["vals"], ks5["labels"],
+    )
+
+
+def list_spec_pdfs(directory=None):
+    """Return sorted PDF paths in Specs/ (recursive). Missing folders yield []."""
+    directory = directory or SPECS_DIR
+    if not os.path.isdir(directory):
+        return []
+    pdfs = []
+    for root, _, files in os.walk(directory):
+        for name in files:
+            if name.lower().endswith(".pdf"):
+                pdfs.append(os.path.join(root, name))
+    return sorted(pdfs)
+
+
+def counted_scientist_names():
+    """Unique full names already counted in the KS4 and KS5 CSVs."""
+    names = set()
+    names.update(collect_unique_scientists(list(KEY_STAGES["ks5"]["boards_map"].values()), "A_Level"))
+    names.update(collect_unique_scientists(list(KEY_STAGES["ks4"]["boards_map"].values()), "GCSE"))
+    return sorted(names)
+
+
+def _surname(name):
+    parts = [p for p in str(name).strip().split() if p]
+    return parts[-1] if parts else ""
+
+
+def _match_name_in_text(name, content):
+    """Return 'full', 'surname', or None for the strongest hit in PDF text."""
+    parts = [p for p in str(name).strip().split() if p]
+    if not parts:
+        return None
+    surname = parts[-1]
+    surname_hit = bool(re.search(
+        r"\b" + re.escape(surname) + r"(?:['’]s|s)?\b",
+        content,
+        re.IGNORECASE,
+    ))
+    if len(parts) == 1:
+        return "surname" if surname_hit else None
+    full_hit = bool(re.search(
+        r"\b" + r"\s+".join(re.escape(p) for p in parts) + r"\b",
+        content,
+        re.IGNORECASE,
+    ))
+    if full_hit:
+        return "full"
+    if surname_hit:
+        return "surname"
+    return None
+
+
+def _extract_pdf_text(pdf_path):
     from pypdf import PdfReader
 
-    findings = defaultdict(lambda: {"full_matches": [], "surname_matches": []})
+    with open(pdf_path, "rb") as f:
+        reader = PdfReader(f)
+        if reader.is_encrypted:
+            try:
+                reader.decrypt("")
+                print("  -> PDF was encrypted but decrypted successfully")
+            except Exception as e:
+                print(f"  -> Could not decrypt PDF: {e}")
+                return None
+        pages = []
+        for page_number, page in enumerate(reader.pages):
+            try:
+                text = page.extract_text()
+                if text:
+                    pages.append(text)
+            except Exception as e:
+                print(f"  -> Error reading page {page_number}: {e}")
+        return " ".join(pages)
+
+
+def search_names_in_pdfs(pdf_files, counted_names=None, extra_names=None):
+    """Search specification PDFs for counted scientist names and extra names.
+
+    counted_names are the unique individuals already recorded in the CSVs.
+    extra_names are additional surnames or full names to look for; they are
+    never added to the counted list. Extra names whose surname already appears
+    in counted_names are skipped so they are not reported twice.
+    """
+    counted_names = list(counted_names or [])
+    extra_names = list(extra_names or [])
+    counted_surnames = {_surname(n).lower() for n in counted_names if _surname(n)}
+
+    skipped_extras = []
+    active_extras = []
+    seen_extra = set()
+    for name in extra_names:
+        key = _surname(name).lower()
+        if not key or key in seen_extra:
+            continue
+        seen_extra.add(key)
+        if key in counted_surnames:
+            skipped_extras.append(name)
+        else:
+            active_extras.append(name)
+
+    findings = defaultdict(lambda: {
+        "counted_full": [],
+        "counted_surname": [],
+        "extra_found": [],
+        "extra_missing": [],
+    })
+    findings["_meta"] = {
+        "n_counted": len(counted_names),
+        "n_extra": len(active_extras),
+        "skipped_extras": skipped_extras,
+        "active_extras": active_extras,
+    }
+
     for pdf_path in pdf_files:
-        print(f"\nScanning {pdf_path}...")
+        print(f"\nScanning {os.path.basename(pdf_path)}...")
         try:
-            with open(pdf_path, "rb") as f:
-                reader = PdfReader(f)
-                if reader.is_encrypted:
-                    try:
-                        reader.decrypt("")
-                        print("  -> PDF was encrypted but decrypted successfully")
-                    except Exception as e:
-                        print(f"  -> Could not decrypt PDF: {e}")
-                        continue
-                all_text = []
-                for page_number, page in enumerate(reader.pages):
-                    try:
-                        text = page.extract_text()
-                        if text:
-                            all_text.append(text)
-                    except Exception as e:
-                        print(f"  -> Error reading page {page_number}: {e}")
-                content = " ".join(all_text)
-                for full_name in names:
-                    if full_name.lower() in content.lower():
-                        findings[pdf_path]["full_matches"].append(full_name)
-                    surname = full_name.split()[-1]
-                    pattern = r"\b" + re.escape(surname) + r"(?:'s|s)?\b"
-                    if re.search(pattern, content, re.IGNORECASE):
-                        findings[pdf_path]["surname_matches"].append(full_name)
+            content = _extract_pdf_text(pdf_path)
+            if content is None:
+                continue
+            for full_name in counted_names:
+                hit = _match_name_in_text(full_name, content)
+                if hit == "full":
+                    findings[pdf_path]["counted_full"].append(full_name)
+                elif hit == "surname":
+                    findings[pdf_path]["counted_surname"].append(full_name)
+            for extra_name in active_extras:
+                if _match_name_in_text(extra_name, content):
+                    findings[pdf_path]["extra_found"].append(extra_name)
+                else:
+                    findings[pdf_path]["extra_missing"].append(extra_name)
         except Exception as e:
             print(f"Could not read {pdf_path}: {e}")
     return findings
@@ -750,154 +1011,129 @@ def plot_combined_grouped_bar(regions_a, vals_a, regions_g, vals_g):
     plt.savefig(os.path.join(FIGURES_DIR, "summary_region_all_UK_combined_grouped_bar.png"), dpi=400, bbox_inches="tight")
 
 
+def _print_name_list(title, names, indent="  "):
+    print(f"\n{indent}{title}")
+    if names:
+        for name in sorted(set(names), key=str.lower):
+            print(f"{indent}  {name}")
+    else:
+        print(f"{indent}  None")
+
+
+def _group_counted_by_surname(names):
+    grouped = defaultdict(list)
+    for name in names:
+        grouped[_surname(name)].append(name)
+    return grouped
+
+
+def _surnames_present(data):
+    surnames = {_surname(n) for n in data["counted_full"] + data["counted_surname"]}
+    surnames.update(data["extra_found"])
+    return sorted(surnames, key=str.lower)
+
+
 def report_pdf_search(results):
+    meta = results.get("_meta", {})
+    skipped = meta.get("skipped_extras", [])
+    n_counted = meta.get("n_counted", 0)
+    n_extra = meta.get("n_extra", 0)
+
     print("\n" + "=" * 60)
     print("PDF SEARCH RESULTS")
     print("=" * 60)
+    print(f"Counted names searched: {n_counted}")
+    print(f"Extra names searched (not in counted list): {n_extra}")
+    if skipped:
+        print(
+            "Extra names skipped because they are already in the counted list: "
+            + ", ".join(sorted(skipped, key=str.lower))
+        )
+
     for pdf, data in results.items():
-        print(f"\nDOCUMENT:\n{pdf}")
-        print("\n  FULL NAME MATCHES:")
-        if data["full_matches"]:
-            for match in sorted(set(data["full_matches"])):
-                print(match)
+        if pdf == "_meta":
+            continue
+        present = _surnames_present(data)
+        print(f"\nDOCUMENT: {os.path.basename(pdf)}")
+        print(f"  Path: {pdf}")
+        print(f"  Names present ({len(present)}): {', '.join(present) if present else 'None'}")
+        _print_name_list(
+            f"Counted names — full name found ({len(data['counted_full'])}):",
+            data["counted_full"],
+        )
+        grouped = _group_counted_by_surname(data["counted_surname"])
+        print(f"\n  Counted names — surname / eponym only ({len(grouped)}):")
+        if grouped:
+            for surname in sorted(grouped, key=str.lower):
+                people = "; ".join(sorted(set(grouped[surname]), key=str.lower))
+                print(f"    {surname}  [{people}]")
         else:
-            print("   None")
-        print("\n  SURNAME / EPONYM MATCHES:")
-        if data["surname_matches"]:
-            for match in sorted(set(data["surname_matches"])):
-                print(match)
-        else:
-            print("   None")
+            print("    None")
+        _print_name_list(
+            f"Extra names found ({len(data['extra_found'])}):",
+            data["extra_found"],
+        )
+        _print_name_list(
+            f"Extra names not found ({len(data['extra_missing'])}):",
+            data["extra_missing"],
+        )
+
     print("\nDone.")
 
 
 
 
-def _run_script():
-    """Original command-line pipeline (TEAL subject plots)."""
-
-    # KS5
-
-    BOARDS_A = KEY_STAGES["ks5"]["boards_map"]
-    SUBJECTS_A = {"physics", "chemistry", "biology", "environmental science", "geology", "astronomy"}
-
-    dataset_a  = load_datasets(BOARDS_A, "A_Level")
-    stats_a    = compute_stats(list(BOARDS_A), BOARDS_A, dataset_a, SUBJECTS_A)
-    scientists_a = collect_unique_scientists(list(BOARDS_A.values()), "A_Level")
-
-    json.dump(stats_a, open(os.path.join(BASE_DIR, "Stats/FullSummaryStatsUK_A_Level.json"), "w", encoding="utf-8"), indent=4)
-
-    plot_subject_breakdown(
-        list(BOARDS_A), BOARDS_A, dataset_a,
-        os.path.join(BASE_DIR, "Figures/summary_subjects_A_Level_UK.png"), "A_Level",
-    )
-
-    regions_A, vals_A, labels_A = collect_region_data(list(BOARDS_A), BOARDS_A, dataset_a)
+def _gender_totals(scientists):
+    """Return (female_count, male_count) for a scientists dict."""
+    females = sum(1 for s in scientists.values() if s.get("gender") == "female")
+    males = sum(1 for s in scientists.values() if s.get("gender") == "male")
+    return females, males
 
 
-    # KS4
-
-    BOARDS_G = KEY_STAGES["ks4"]["boards_map"]  # script uses Scottish_NQ5 file key
-
-    dataset_g  = load_datasets(BOARDS_G, "GCSE")
-    subjects_g = sorted({sb for bkey in BOARDS_G.values() for sb in dataset_g[bkey]["subjects"]})
-    stats_g    = compute_stats(list(BOARDS_G), BOARDS_G, dataset_g, subjects_g)
-    scientists_g = collect_unique_scientists(list(BOARDS_G.values()), "GCSE")
-
-    print_all_distinct_scientists(scientists_a, scientists_g)
-
-    json.dump(stats_g, open(os.path.join(BASE_DIR, "Stats/FullSummaryStatsUK_GCSE.json"), "w", encoding="utf-8"), indent=4)
-
-    plot_subject_breakdown(
-        list(BOARDS_G), BOARDS_G, dataset_g,
-        os.path.join(BASE_DIR, "Figures/summary_subjects_GCSE_UK.png"), "GCSE",
-    )
-
-    regions_G, vals_G, labels_G = collect_region_data(list(BOARDS_G), BOARDS_G, dataset_g)
-
-
-    # Combined region plot 
-
-    all_regions = sorted(set(regions_A) | set(regions_G), reverse=True)  # reversed for barh display
-    y_pos = np.arange(len(all_regions))
-
-    def to_pct(regions_src, vals_src, target):
-        raw   = [vals_src[list(regions_src).index(r)] if r in regions_src else 0 for r in target]
-        total = sum(raw)
-        return [(v / total * 100) if total else 0 for v in raw]
-
-    ks4_pct = to_pct(regions_G, vals_G, all_regions)
-    ks5_pct = to_pct(regions_A, vals_A, all_regions)
-
-    fig, ax = plt.subplots(figsize=(14, 10))
-    h = 0.35
-    bars1 = ax.barh(y_pos + h/2, ks4_pct, h, label="KS4", color=PURPLE,       alpha=0.9)
-    bars2 = ax.barh(y_pos - h/2, ks5_pct, h, label="KS5", color=PURPLE_LIGHT, alpha=0.9)
-
-    for bar, pct in [(b, p) for pair in zip(bars1, bars2) for b, p in zip(pair, [ks4_pct, ks5_pct])]:
-        w = bar.get_width()
-        ax.text(w + 1.5, bar.get_y() + bar.get_height() / 2, f"({w:.2f}%)",
-                ha="left", va="center", fontsize=16, color="#333",
-                bbox=dict(boxstyle="square,pad=0.2", fc="white", ec="none"), zorder=5)
-
-    ax.set_yticks(y_pos)
-    ax.set_yticklabels(all_regions, fontsize=16)
-    ax.set_xlabel("Percentage (%)", fontsize=18)
-    ax.set_xlim(0, max(max(ks4_pct), max(ks5_pct)) * 1.25)
-    for spine in ax.spines.values():
-        spine.set_linewidth(2)
-    ax.grid(True, axis='x', linewidth=2, alpha=0.6)
-    ax.grid(False, axis='y')
-    ax.set_axisbelow(True)
-    ax.legend(loc="lower right", frameon=False, fontsize=17, labelspacing=1).set_zorder(10)
-
-    plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "Figures/summary_region_all_UK_combined_grouped_bar.png"), dpi=400, bbox_inches="tight")
-    #plt.close()
-    #%% Overall mentions plot
+def plot_overall_gender_bar(scientists_ks4, scientists_ks5):
+    """Bar chart of unique male vs female scientists for each key stage."""
     import matplotlib.gridspec as gridspec
-    plt.figure(figsize=(14, 7))
+
+    panels = [
+        ("Ages 14 - 16 (GCSE / NQ5)", *_gender_totals(scientists_ks4)),
+        ("Ages 16 - 18 (A-Level / Scottish Highers)", *_gender_totals(scientists_ks5)),
+    ]
+
+    fig = plt.figure(figsize=(14, 7))
     gs = gridspec.GridSpec(1, 2)
+    for idx, (title, n_female, n_male) in enumerate(panels):
+        ax = fig.add_subplot(gs[0, idx])
+        ax.set_title(title, fontsize=15, weight="bold")
+        bars = ax.bar(["Women", "Men"], [n_female, n_male], color=[TEAL, TEAL_LIGHT], alpha=0.9)
+        if idx == 0:
+            ax.set_ylabel("Number of scientists", fontsize=15, weight="bold")
+        ax.set_xticks(range(2))
+        ax.set_xticklabels(["Women", "Men"], fontsize=15)
+        ax.set_ylim(0, max(n_female, n_male) * 1.1 + 5)
+        ax.grid(False)
+        for bar_idx, bar in enumerate(bars):
+            yval = bar.get_height()
+            label_y = 3 if bar_idx == 0 and yval > 0 else yval / 2
+            ax.text(
+                bar.get_x() + bar.get_width() / 2, label_y, int(yval),
+                ha="center", va="bottom", fontsize=15,
+            )
 
-    # Subplot 1: GCSE
-    plt.subplot(gs[0, 0])
-    plt.title('Ages 14 - 16 (GCSE / NQ5)', fontsize=15, weight = 'bold')
-    bars1 = plt.bar(['Women', 'Men'], [1, 88], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
-    plt.ylabel('Number of scientists', fontsize=15, weight = 'bold')
-    plt.xticks(fontsize=15)  # Set x-axis fontsize
-    plt.ylim(0, 90)          # Increased slightly to fit labels
-    plt.grid(False)
+    out_path = os.path.join(FIGURES_DIR, "summary_overall_gender_UK.png")
+    plt.savefig(out_path, bbox_inches="tight")
+    print(f"Saved: {out_path}")
 
 
-    # Add labels to GCSE bars
-    counter = 0
-    for bar in bars1:
-        counter = counter +1
-        yval = bar.get_height()
-        if (counter == 1):
-            plt.text(bar.get_x() + bar.get_width()/2, 3 , yval, ha='center', va='bottom', fontsize=15)
-        else:
-            plt.text(bar.get_x() + bar.get_width()/2, yval/2, yval, ha='center', va='bottom', fontsize=15)
-    #thick_axes(top = True)
-    # Subplot 2: A-Level
-    plt.subplot(gs[0, 1])
-    plt.title('Ages 16 - 18 (A-Level / Scottish Highers)', fontsize=15, weight = 'bold')
-    bars2 = plt.bar(['Women', 'Men'], [3, 168], color=[TEAL, TEAL_LIGHT], alpha = 0.9)
-    plt.xticks(fontsize=15)  # Set x-axis fontsize
-    plt.ylim(0, 170)         # Increased slightly to fit labels
-    plt.grid(False)
-    # Add labels to A-Level bars
-    counter = 0
-    for bar in bars2:
-        counter = counter +1
-        yval = bar.get_height()
-        if (counter == 1):
-            plt.text(bar.get_x() + bar.get_width()/2, 3 , yval, ha='center', va='bottom', fontsize=15)
-        else:
-            plt.text(bar.get_x() + bar.get_width()/2, yval/2, yval, ha='center', va='bottom', fontsize=15)
-    #thick_axes(top = True)
-    # Save the complete figure
-    plt.savefig('/Users/gregcooke/python_output/A-Level_Number_of_Scientists.png', bbox_inches = 'tight')
+def _run_script():
+    """Command-line pipeline: load stats, save combined JSON, generate figures."""
+    os.makedirs(FIGURES_DIR, exist_ok=True)
+    ks5 = prepare_key_stage("ks5")
+    ks4 = prepare_key_stage("ks4")
+
+    print_all_distinct_scientists(ks5["scientists"], ks4["scientists"])
+    plot_key_stage_figures(ks5)
+    plot_key_stage_figures(ks4)
+    plot_combined_figures(ks4, ks5)
 
 
 

@@ -1,0 +1,9 @@
+# Local specification PDFs (not part of the counted paper statistics)
+Specs/
+
+.DS_Store
+Python/__pycache__/
+Python/.ipynb_checkpoints/
+Python/.virtual_documents/
+.virtual_documents/
+.venv_streamlit/

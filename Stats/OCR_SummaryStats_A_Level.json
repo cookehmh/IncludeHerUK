@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 12,
+                "male": 13,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 83,
+            "male": 84,
             "female": 1
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 1
         },
         "unique": {
-            "male": 83,
+            "male": 84,
             "female": 2,
             "region": {
-                "europe": 70,
+                "europe": 71,
                 "north america": 11,
                 "europe-north america": 3,
                 "asia-north america": 1
@@ -331,6 +331,12 @@
         "christian bohr": {
             "gender": "male",
             "nationality": "danish",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "frederick sanger": {
+            "gender": "male",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         },

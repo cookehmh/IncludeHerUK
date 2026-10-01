@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 2,
+                "male": 4,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 41,
+            "male": 43,
             "female": 0
         },
         "scientist": {
@@ -71,7 +71,7 @@
             "female": 0
         },
         "unique": {
-            "male": 41,
+            "male": 42,
             "female": 0,
             "region": {
                 "europe": 32,
@@ -79,8 +79,7 @@
                 "africa": 2,
                 "oceania": 1,
                 "north american": 1,
-                "asia-north america": 1,
-                "nan": 1
+                "asia-north america": 1
             }
         }
     },
@@ -158,7 +157,7 @@
             "number of mentions": 1
         },
         "stanley rossiter benedict": {
-            "gender": "nan",
+            "gender": "male",
             "nationality": "american",
             "region": "north american",
             "number of mentions": 1
@@ -336,12 +335,6 @@
             "nationality": "english",
             "region": "europe",
             "number of mentions": 1
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
-            "number of mentions": 5
         }
     }
 }

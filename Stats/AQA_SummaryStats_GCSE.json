@@ -75,8 +75,7 @@
             "female": 0,
             "region": {
                 "europe": 19,
-                "north america": 3,
-                "nan": 1
+                "north america": 3
             }
         }
     },
@@ -211,12 +210,6 @@
             "gender": "male",
             "nationality": "english",
             "region": "europe",
-            "number of mentions": 1
-        },
-        "nan": {
-            "gender": "nan",
-            "nationality": "nan",
-            "region": "nan",
             "number of mentions": 1
         }
     }

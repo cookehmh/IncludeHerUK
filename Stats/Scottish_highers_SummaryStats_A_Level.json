@@ -16,7 +16,7 @@
                 "female": 0
             },
             "scientist": {
-                "male": 3,
+                "male": 2,
                 "female": 0
             }
         },
@@ -67,7 +67,7 @@
             "female": 0
         },
         "scientist": {
-            "male": 10,
+            "male": 9,
             "female": 1
         },
         "unique": {
@@ -116,7 +116,7 @@
             "gender": "male",
             "nationality": "german",
             "region": "europe",
-            "number of mentions": 2
+            "number of mentions": 1
         },
         "heinrich wilhelm matthias olbers": {
             "gender": "male",
