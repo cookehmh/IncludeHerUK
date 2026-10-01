@@ -69,7 +69,9 @@ To put it online with a public link (recommended: [Streamlit Community Cloud](ht
 
 1. Push this repo to GitHub (if it is not already).
 2. Sign in at https://share.streamlit.io and click **New app**.
-3. Select the repo, set **Main file path** to `Python/streamlit_app.py`, and set **Python requirements** to `Python/requirements-streamlit.txt`.
+3. Select the repo, set **Main file path** to `Python/streamlit_app.py`.
+   Streamlit Cloud installs **`Python/requirements.txt`** automatically
+   (that file must list `streamlit`, `plotly`, etc.).
 4. Deploy — you get a URL like `https://….streamlit.app` that anyone can open.
 
 **Note on `cookehmh.github.io`:** GitHub Pages only serves static HTML/JS. It cannot run Streamlit or Voila. Add a button/link on your site (e.g. Work page) that opens the Streamlit URL. That is the usual pattern.

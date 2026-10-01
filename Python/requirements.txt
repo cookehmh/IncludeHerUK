@@ -1,4 +1,10 @@
+# Core analysis + Streamlit cloud app
+# Streamlit Community Cloud installs this file automatically when
+# Main file path is Python/streamlit_app.py
 pandas>=2.0
 matplotlib>=3.7
 numpy>=1.24
 pypdf>=4.0
+streamlit>=1.62,<2
+starlette>=0.40,<1.4
+plotly>=5.0

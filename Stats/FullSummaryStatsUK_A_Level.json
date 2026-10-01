@@ -1,70 +1,4 @@
 {
-    "biology": {
-        "concept": {
-            "AQA": {
-                "male": 16,
-                "female": 0,
-                "both": 16
-            },
-            "CCEA": {
-                "male": 21,
-                "female": 0,
-                "both": 21
-            },
-            "Edexcel": {
-                "male": 13,
-                "female": 0,
-                "both": 13
-            },
-            "OCR": {
-                "male": 13,
-                "female": 0,
-                "both": 13
-            },
-            "Scottish highers": {
-                "male": 19,
-                "female": 0,
-                "both": 19
-            },
-            "WJEC": {
-                "male": 18,
-                "female": 0,
-                "both": 18
-            }
-        },
-        "scientist": {
-            "AQA": {
-                "male": 0,
-                "female": 0,
-                "both": 0
-            },
-            "CCEA": {
-                "male": 0,
-                "female": 0,
-                "both": 0
-            },
-            "Edexcel": {
-                "male": 0,
-                "female": 0,
-                "both": 0
-            },
-            "OCR": {
-                "male": 3,
-                "female": 0,
-                "both": 3
-            },
-            "Scottish highers": {
-                "male": 7,
-                "female": 1,
-                "both": 8
-            },
-            "WJEC": {
-                "male": 2,
-                "female": 0,
-                "both": 2
-            }
-        }
-    },
     "astronomy": {
         "concept": {
             "AQA": {
@@ -197,6 +131,72 @@
             }
         }
     },
+    "physics": {
+        "concept": {
+            "AQA": {
+                "male": 52,
+                "female": 0,
+                "both": 52
+            },
+            "CCEA": {
+                "male": 22,
+                "female": 0,
+                "both": 22
+            },
+            "Edexcel": {
+                "male": 26,
+                "female": 0,
+                "both": 26
+            },
+            "OCR": {
+                "male": 35,
+                "female": 0,
+                "both": 35
+            },
+            "Scottish highers": {
+                "male": 37,
+                "female": 0,
+                "both": 37
+            },
+            "WJEC": {
+                "male": 28,
+                "female": 0,
+                "both": 28
+            }
+        },
+        "scientist": {
+            "AQA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "CCEA": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Edexcel": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "OCR": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "Scottish highers": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            },
+            "WJEC": {
+                "male": 0,
+                "female": 0,
+                "both": 0
+            }
+        }
+    },
     "environmental science": {
         "concept": {
             "AQA": {
@@ -263,37 +263,37 @@
             }
         }
     },
-    "physics": {
+    "biology": {
         "concept": {
             "AQA": {
-                "male": 52,
+                "male": 16,
                 "female": 0,
-                "both": 52
+                "both": 16
             },
             "CCEA": {
-                "male": 22,
+                "male": 21,
                 "female": 0,
-                "both": 22
+                "both": 21
             },
             "Edexcel": {
-                "male": 26,
+                "male": 13,
                 "female": 0,
-                "both": 26
+                "both": 13
             },
             "OCR": {
-                "male": 35,
+                "male": 13,
                 "female": 0,
-                "both": 35
+                "both": 13
             },
             "Scottish highers": {
-                "male": 37,
+                "male": 19,
                 "female": 0,
-                "both": 37
+                "both": 19
             },
             "WJEC": {
-                "male": 28,
+                "male": 18,
                 "female": 0,
-                "both": 28
+                "both": 18
             }
         },
         "scientist": {
@@ -313,19 +313,19 @@
                 "both": 0
             },
             "OCR": {
-                "male": 0,
+                "male": 3,
                 "female": 0,
-                "both": 0
+                "both": 3
             },
             "Scottish highers": {
-                "male": 0,
-                "female": 0,
-                "both": 0
+                "male": 7,
+                "female": 1,
+                "both": 8
             },
             "WJEC": {
-                "male": 0,
+                "male": 2,
                 "female": 0,
-                "both": 0
+                "both": 2
             }
         }
     },
@@ -397,14 +397,6 @@
     },
     "overall": {
         "subjects": {
-            "biology": {
-                "concept": 100,
-                "scientist": 13,
-                "total": 113,
-                "% of total mentions": 22.83,
-                "% of total concept mentions": 21.51,
-                "% of total scientist mentions": 43.33
-            },
             "astronomy": {
                 "concept": 0,
                 "scientist": 0,
@@ -421,6 +413,14 @@
                 "% of total concept mentions": 25.16,
                 "% of total scientist mentions": 6.67
             },
+            "physics": {
+                "concept": 200,
+                "scientist": 0,
+                "total": 200,
+                "% of total mentions": 40.4,
+                "% of total concept mentions": 43.01,
+                "% of total scientist mentions": 0.0
+            },
             "environmental science": {
                 "concept": 15,
                 "scientist": 0,
@@ -429,13 +429,13 @@
                 "% of total concept mentions": 3.23,
                 "% of total scientist mentions": 0.0
             },
-            "physics": {
-                "concept": 200,
-                "scientist": 0,
-                "total": 200,
-                "% of total mentions": 40.4,
-                "% of total concept mentions": 43.01,
-                "% of total scientist mentions": 0.0
+            "biology": {
+                "concept": 100,
+                "scientist": 13,
+                "total": 113,
+                "% of total mentions": 22.83,
+                "% of total concept mentions": 21.51,
+                "% of total scientist mentions": 43.33
             },
             "geology": {
                 "concept": 33,
