@@ -30,9 +30,13 @@ CONCEPT_COLOUR = COLOURS[3]
 SCIENTIST_COLOUR = COLOURS[2]
 REGION_COLOURS = pf.REGION_DONUT_COLOURS
 
+ALL_BOARDS = "All exam boards"
+STAGE_BOTH = "both"
+
 KEY_STAGE_OPTIONS = {
     "KS5 — A-Level / Scottish Highers (ages 16–18)": "ks5",
     "KS4 — GCSE / NQ5 (ages 14–16)": "ks4",
+    "Both — compare KS4 and KS5": STAGE_BOTH,
 }
 
 VIEW_OPTIONS = [
@@ -41,7 +45,6 @@ VIEW_OPTIONS = [
     "Concept vs scientist mentions",
     "Scientists by region",
     "Scientists by nationality",
-    "KS4 vs KS5 region comparison",
 ]
 
 DEMOGRAPHIC_OPTIONS = {
@@ -58,6 +61,27 @@ SUBJECT_LABELS = {
     "geology": "Geology",
     "astronomy": "Astronomy",
 }
+
+SUBJECT_ORDER = [
+    "physics",
+    "chemistry",
+    "biology",
+    "environmental science",
+    "geology",
+    "astronomy",
+]
+
+# Comparable exam-board groups when viewing both key stages.
+# OCR at KS4 is two specifications (A and B); Scottish names differ by stage.
+COMPARE_BOARD_MAP = {
+    "AQA": {"ks4": ["AQA"], "ks5": ["AQA"]},
+    "CCEA": {"ks4": ["CCEA"], "ks5": ["CCEA"]},
+    "Edexcel": {"ks4": ["Edexcel"], "ks5": ["Edexcel"]},
+    "OCR": {"ks4": ["OCR A", "OCR B"], "ks5": ["OCR"]},
+    "Scottish": {"ks4": ["Scottish NQ5"], "ks5": ["Scottish highers"]},
+    "WJEC": {"ks4": ["WJEC"], "ks5": ["WJEC"]},
+}
+COMPARE_BOARD_ORDER = ["AQA", "CCEA", "Edexcel", "OCR", "Scottish", "WJEC"]
 
 
 st.set_page_config(
@@ -141,6 +165,32 @@ def display_board_name(data, stage_key, board):
     return board_labels(data, stage_key).get(board, board)
 
 
+def board_options(data, stage_key):
+    if stage_key == STAGE_BOTH:
+        return [ALL_BOARDS] + COMPARE_BOARD_ORDER
+    return [ALL_BOARDS] + list(stage_cfg(data, stage_key)["boards_display"])
+
+
+def resolve_boards(data, stage_key, board_sel):
+    if board_sel in (None, ALL_BOARDS):
+        return list(stage_cfg(data, stage_key)["boards_display"])
+    if board_sel in COMPARE_BOARD_MAP:
+        return list(COMPARE_BOARD_MAP[board_sel][stage_key])
+    return [board_sel]
+
+
+def scope_label(data, stage_key, board_sel):
+    if board_sel in (None, ALL_BOARDS):
+        return "all exam boards"
+    if stage_key == STAGE_BOTH:
+        extra = {
+            "OCR": "OCR (KS5 vs OCR A & B at KS4)",
+            "Scottish": "Scottish (NQ5 vs Highers)",
+        }
+        return extra.get(board_sel, board_sel)
+    return display_board_name(data, stage_key, board_sel)
+
+
 def subjects_for_board(data, stage_key, board_display):
     dataset = stage_dataset(data, stage_key)
     board_key = board_file_key(data, stage_key, board_display)
@@ -156,33 +206,116 @@ def subjects_for_board(data, stage_key, board_display):
     ]
 
 
-def merge_scientists(data, stage_key, board_display=None):
+def subjects_for_boards(data, stage_key, boards):
+    seen = []
+    for board in boards:
+        for subject in subjects_for_board(data, stage_key, board):
+            if subject not in seen:
+                seen.append(subject)
+    ordered = [s for s in SUBJECT_ORDER if s in seen]
+    return ordered + [s for s in seen if s not in SUBJECT_ORDER]
+
+
+def merge_scientists(data, stage_key, board_sel=ALL_BOARDS):
     dataset = stage_dataset(data, stage_key)
-    boards = stage_cfg(data, stage_key)["boards_display"]
-    if board_display is not None:
-        boards = [board_display]
+    boards = resolve_boards(data, stage_key, board_sel)
     merged = {}
     for board in boards:
         board_key = board_file_key(data, stage_key, board)
         for name, info in dataset[board_key]["names"].items():
             if not pf.is_valid_scientist_name(name):
                 continue
+            label = display_board_name(data, stage_key, board)
             if name not in merged:
                 merged[name] = {
                     "gender": info.get("gender", "unknown"),
                     "region": info.get("region", "unknown"),
                     "nationality": info.get("nationality", "unknown"),
                     "mentions": info.get("number of mentions", 0),
-                    "boards": [display_board_name(data, stage_key, board)],
+                    "boards": [label],
                 }
             else:
-                label = display_board_name(data, stage_key, board)
                 if label not in merged[name]["boards"]:
                     merged[name]["boards"].append(label)
                 merged[name]["mentions"] = max(
                     merged[name]["mentions"], info.get("number of mentions", 0)
                 )
     return merged
+
+
+def merge_both_stages(data, board_sel=ALL_BOARDS):
+    merged = {}
+    for stage_key, tag in (("ks4", "KS4"), ("ks5", "KS5")):
+        for name, info in merge_scientists(data, stage_key, board_sel).items():
+            boards = [f"{board} ({tag})" for board in info.get("boards") or []]
+            if name not in merged:
+                merged[name] = {
+                    "gender": info.get("gender", "unknown"),
+                    "region": info.get("region", "unknown"),
+                    "nationality": info.get("nationality", "unknown"),
+                    "mentions": info.get("mentions", 0),
+                    "boards": boards,
+                }
+            else:
+                for board in boards:
+                    if board not in merged[name]["boards"]:
+                        merged[name]["boards"].append(board)
+                merged[name]["mentions"] = max(
+                    merged[name]["mentions"], info.get("mentions", 0)
+                )
+    return merged
+
+
+def scientists_for_filters(data, stage_key, board_sel):
+    if stage_key == STAGE_BOTH:
+        return merge_both_stages(data, board_sel)
+    return merge_scientists(data, stage_key, board_sel)
+
+
+def unique_gender_counts(scientists):
+    male = sum(
+        1 for s in scientists.values() if str(s.get("gender", "")).lower() == "male"
+    )
+    female = sum(
+        1
+        for s in scientists.values()
+        if str(s.get("gender", "")).lower() == "female"
+    )
+    return male, female
+
+
+def subject_mention_totals(data, stage_key, board_sel):
+    boards = resolve_boards(data, stage_key, board_sel)
+    dataset = stage_dataset(data, stage_key)
+    totals = {}
+    for board in boards:
+        board_key = board_file_key(data, stage_key, board)
+        for subject, info in dataset[board_key]["subjects"].items():
+            bucket = totals.setdefault(
+                subject,
+                {
+                    "concept": {"male": 0, "female": 0},
+                    "scientist": {"male": 0, "female": 0},
+                },
+            )
+            for kind in ("concept", "scientist"):
+                cat = info.get(kind, {"male": 0, "female": 0})
+                bucket[kind]["male"] += cat.get("male", 0)
+                bucket[kind]["female"] += cat.get("female", 0)
+    subjects = subjects_for_boards(data, stage_key, boards)
+    return subjects, totals
+
+
+def mention_type_counts(data, stage_key, board_sel):
+    boards = resolve_boards(data, stage_key, board_sel)
+    dataset = stage_dataset(data, stage_key)
+    concept = 0
+    scientist = 0
+    for board in boards:
+        overall = dataset[board_file_key(data, stage_key, board)]["overall"]
+        concept += overall["concept"]["male"] + overall["concept"]["female"]
+        scientist += overall["scientist"]["male"] + overall["scientist"]["female"]
+    return concept, scientist
 
 
 def filter_scientists(scientists, gender=None, region=None, nationality=None):
@@ -274,20 +407,14 @@ def pie_figure(labels, counts, display_labels, hover, title, colours=None):
     return fig
 
 
-def subject_figure(data, stage_key, board_display):
-    dataset = stage_dataset(data, stage_key)
-    board_key = board_file_key(data, stage_key, board_display)
-    subjects = subjects_for_board(data, stage_key, board_display)
+def subject_figure(data, stage_key, board_sel):
+    subjects, totals = subject_mention_totals(data, stage_key, board_sel)
     y_labels = [SUBJECT_LABELS.get(sb, sb.title()) for sb in subjects]
     male_c, female_c, male_s, female_s = [], [], [], []
     hover_c, hover_s = [], []
     for sb in subjects:
-        cat_c = dataset[board_key]["subjects"][sb].get(
-            "concept", {"male": 0, "female": 0}
-        )
-        cat_s = dataset[board_key]["subjects"][sb].get(
-            "scientist", {"male": 0, "female": 0}
-        )
+        cat_c = totals[sb]["concept"]
+        cat_s = totals[sb]["scientist"]
         mc, fc = cat_c.get("male", 0), cat_c.get("female", 0)
         ms, fs = cat_s.get("male", 0), cat_s.get("female", 0)
         male_c.append(mc)
@@ -367,13 +494,12 @@ def subject_figure(data, stage_key, board_display):
     fig.update_layout(
         barmode="stack",
         title=dict(
-            text=f"Subject breakdown — {display_board_name(data, stage_key, board_display)}",
+            text=f"Subject breakdown — {scope_label(data, stage_key, board_sel)}",
             x=0.02,
             xanchor="left",
         ),
         height=max(460, 60 * len(subjects) + 180),
         margin=dict(t=110, l=160, r=40, b=90),
-        # Keep Men/Women clear of the subplot titles ("Concept mentions", etc.).
         legend=dict(
             orientation="h",
             yanchor="top",
@@ -384,19 +510,15 @@ def subject_figure(data, stage_key, board_display):
         ),
     )
     fig.update_xaxes(title_text="Mentions")
-    # Give subplot titles a bit more room under the main title.
     for annotation in fig.layout.annotations:
         if annotation.text in ("Concept mentions", "Scientist mentions"):
             annotation.update(yshift=8)
     return fig
 
 
-def gender_figure(data, stage_key, board_display):
-    dataset = stage_dataset(data, stage_key)
-    board_key = board_file_key(data, stage_key, board_display)
-    unique = dataset[board_key]["overall"]["unique"]
-    male = unique.get("male", 0)
-    female = unique.get("female", 0)
+def gender_figure(data, stage_key, board_sel):
+    scientists = merge_scientists(data, stage_key, board_sel)
+    male, female = unique_gender_counts(scientists)
     total = male + female or 1
     labels = ["male", "female"]
     counts = [male, female]
@@ -410,17 +532,13 @@ def gender_figure(data, stage_key, board_display):
         counts,
         display_labels,
         hover,
-        f"Unique named scientists by gender — {display_board_name(data, stage_key, board_display)}",
+        f"Unique named scientists by gender — {scope_label(data, stage_key, board_sel)}",
         colours=[MALE_COLOUR, FEMALE_COLOUR],
     )
 
 
-def mention_type_figure(data, stage_key, board_display):
-    dataset = stage_dataset(data, stage_key)
-    board_key = board_file_key(data, stage_key, board_display)
-    overall = dataset[board_key]["overall"]
-    concept = overall["concept"]["male"] + overall["concept"]["female"]
-    scientist = overall["scientist"]["male"] + overall["scientist"]["female"]
+def mention_type_figure(data, stage_key, board_sel):
+    concept, scientist = mention_type_counts(data, stage_key, board_sel)
     total = concept + scientist or 1
     labels = ["concept", "scientist"]
     counts = [concept, scientist]
@@ -434,37 +552,29 @@ def mention_type_figure(data, stage_key, board_display):
         counts,
         display_labels,
         hover,
-        f"Mention type — {display_board_name(data, stage_key, board_display)}",
+        f"Mention type — {scope_label(data, stage_key, board_sel)}",
         colours=[CONCEPT_COLOUR, SCIENTIST_COLOUR],
     )
 
 
-def region_figure(data, stage_key, board_display=None):
-    scientists = merge_scientists(data, stage_key, board_display)
+def region_figure(data, stage_key, board_sel=ALL_BOARDS):
+    scientists = merge_scientists(data, stage_key, board_sel)
     labels, counts, display_labels, hover, _ = demographic_counts(scientists, "region")
-    scope = (
-        "all exam boards"
-        if board_display is None
-        else display_board_name(data, stage_key, board_display)
-    )
     return pie_figure(
-        labels, counts, display_labels, hover, f"Scientists by region — {scope}"
+        labels,
+        counts,
+        display_labels,
+        hover,
+        f"Scientists by region — {scope_label(data, stage_key, board_sel)}",
     )
 
 
-def nationality_figure(data, stage_key, board_display=None):
-    scientists = merge_scientists(data, stage_key, board_display)
+def nationality_figure(data, stage_key, board_sel=ALL_BOARDS):
+    scientists = merge_scientists(data, stage_key, board_sel)
     labels, counts, display_labels, hover, total = demographic_counts(
         scientists, "nationality"
     )
-    scope = (
-        "all exam boards"
-        if board_display is None
-        else display_board_name(data, stage_key, board_display)
-    )
-    # Many nationalities: a horizontal bar chart avoids clipped pie labels.
     colours = [REGION_COLOURS[i % len(REGION_COLOURS)] for i in range(len(counts))]
-    # Plot largest at top (demographic_counts is already largest-first).
     fig = go.Figure(
         data=[
             go.Bar(
@@ -475,9 +585,7 @@ def nationality_figure(data, stage_key, board_display=None):
                 hovertext=hover[::-1],
                 hoverinfo="text",
                 customdata=labels[::-1],
-                text=[
-                    f"{c} ({c / total * 100:.1f}%)" for c in counts[::-1]
-                ],
+                text=[f"{c} ({c / total * 100:.1f}%)" for c in counts[::-1]],
                 textposition="outside",
                 cliponaxis=False,
             )
@@ -485,7 +593,7 @@ def nationality_figure(data, stage_key, board_display=None):
     )
     fig.update_layout(
         title=dict(
-            text=f"Scientists by nationality — {scope}",
+            text=f"Scientists by nationality — {scope_label(data, stage_key, board_sel)}",
             x=0.02,
             xanchor="left",
         ),
@@ -497,88 +605,257 @@ def nationality_figure(data, stage_key, board_display=None):
     return fig
 
 
-def region_comparison_figure(data):
-    scientists_g = merge_scientists(data, "ks4")
-    scientists_a = merge_scientists(data, "ks5")
-    regions_g = Counter(
-        str(v.get("region", "unknown")).lower() for v in scientists_g.values()
-    )
-    regions_a = Counter(
-        str(v.get("region", "unknown")).lower() for v in scientists_a.values()
-    )
-    all_regions = sorted(
-        set(regions_g) | set(regions_a),
-        key=lambda r: regions_g.get(r, 0) + regions_a.get(r, 0),
-        reverse=True,
-    )
-    total_g = sum(regions_g.values()) or 1
-    total_a = sum(regions_a.values()) or 1
-    pct_g = [regions_g.get(r, 0) / total_g * 100 for r in all_regions]
-    pct_a = [regions_a.get(r, 0) / total_a * 100 for r in all_regions]
-    y_labels = [prettify(r) for r in all_regions]
-    hover_g = [
-        f"KS4 — {prettify(r)}<br>Scientists: {regions_g.get(r, 0)}"
-        f"<br>Share: {regions_g.get(r, 0) / total_g * 100:.1f}%"
-        for r in all_regions
-    ]
-    hover_a = [
-        f"KS5 — {prettify(r)}<br>Scientists: {regions_a.get(r, 0)}"
-        f"<br>Share: {regions_a.get(r, 0) / total_a * 100:.1f}%"
-        for r in all_regions
-    ]
+def grouped_stage_bars(
+    y_labels,
+    ks4_x,
+    ks5_x,
+    hover_g,
+    hover_a,
+    customdata,
+    title,
+    xaxis_title,
+    height,
+):
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
             y=y_labels,
-            x=pct_g,
+            x=ks4_x,
             name="KS4 (GCSE / NQ5)",
             orientation="h",
             marker_color=pf.PURPLE,
             hovertext=hover_g,
             hoverinfo="text",
-            customdata=all_regions,
+            customdata=customdata,
         )
     )
     fig.add_trace(
         go.Bar(
             y=y_labels,
-            x=pct_a,
+            x=ks5_x,
             name="KS5 (A-Level / Highers)",
             orientation="h",
             marker_color=pf.PURPLE_LIGHT,
             hovertext=hover_a,
             hoverinfo="text",
-            customdata=all_regions,
+            customdata=customdata,
         )
     )
     fig.update_layout(
         barmode="group",
-        title=dict(
-            text="Regional representation — KS4 vs KS5 (% of unique scientists)",
-            x=0.02,
-            xanchor="left",
-        ),
-        xaxis_title="Percentage (%)",
-        height=max(480, 48 * len(all_regions) + 160),
+        title=dict(text=title, x=0.02, xanchor="left"),
+        xaxis_title=xaxis_title,
+        height=height,
         margin=dict(l=180, t=80, r=40, b=50),
         legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
     )
     return fig
 
 
-def build_figure(data, stage_key, board_display, view_name):
+def subject_comparison_figure(data, board_sel):
+    subjects_g, totals_g = subject_mention_totals(data, "ks4", board_sel)
+    subjects_a, totals_a = subject_mention_totals(data, "ks5", board_sel)
+    subjects = [s for s in SUBJECT_ORDER if s in set(subjects_g) | set(subjects_a)]
+    extras = [
+        s
+        for s in list(dict.fromkeys(subjects_g + subjects_a))
+        if s not in SUBJECT_ORDER
+    ]
+    subjects = subjects + extras
+    y_labels = [SUBJECT_LABELS.get(sb, sb.title()) for sb in subjects]
+
+    def gender_split(totals, subject, kind):
+        cat = totals.get(subject, {}).get(kind, {"male": 0, "female": 0})
+        return cat.get("male", 0), cat.get("female", 0)
+
+    fig = make_subplots(
+        rows=1,
+        cols=2,
+        subplot_titles=("Concept mentions", "Scientist mentions"),
+        horizontal_spacing=0.12,
+    )
+    for col, kind in ((1, "concept"), (2, "scientist")):
+        ks4_totals = []
+        ks5_totals = []
+        hover_g = []
+        hover_a = []
+        for sb in subjects:
+            mc, fc = gender_split(totals_g, sb, kind)
+            ms, fs = gender_split(totals_a, sb, kind)
+            ks4_totals.append(mc + fc)
+            ks5_totals.append(ms + fs)
+            hover_g.append(
+                f"KS4 {kind} mentions<br>Total: {mc + fc}<br>Men: {mc}<br>Women: {fc}"
+            )
+            hover_a.append(
+                f"KS5 {kind} mentions<br>Total: {ms + fs}<br>Men: {ms}<br>Women: {fs}"
+            )
+        fig.add_trace(
+            go.Bar(
+                y=y_labels,
+                x=ks4_totals,
+                name="KS4 (GCSE / NQ5)",
+                orientation="h",
+                marker_color=pf.PURPLE,
+                hovertext=hover_g,
+                hoverinfo="text",
+                showlegend=col == 1,
+            ),
+            row=1,
+            col=col,
+        )
+        fig.add_trace(
+            go.Bar(
+                y=y_labels,
+                x=ks5_totals,
+                name="KS5 (A-Level / Highers)",
+                orientation="h",
+                marker_color=pf.PURPLE_LIGHT,
+                hovertext=hover_a,
+                hoverinfo="text",
+                showlegend=col == 1,
+            ),
+            row=1,
+            col=col,
+        )
+    fig.update_layout(
+        barmode="group",
+        title=dict(
+            text=f"Subject breakdown — KS4 vs KS5 ({scope_label(data, STAGE_BOTH, board_sel)})",
+            x=0.02,
+            xanchor="left",
+        ),
+        height=max(480, 70 * len(subjects) + 180),
+        margin=dict(t=110, l=160, r=40, b=90),
+        legend=dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.14,
+            x=0.5,
+            xanchor="center",
+            bgcolor="rgba(255,255,255,0.9)",
+        ),
+    )
+    fig.update_xaxes(title_text="Mentions")
+    for annotation in fig.layout.annotations:
+        if annotation.text in ("Concept mentions", "Scientist mentions"):
+            annotation.update(yshift=8)
+    return fig
+
+
+def gender_comparison_figure(data, board_sel):
+    male_g, female_g = unique_gender_counts(merge_scientists(data, "ks4", board_sel))
+    male_a, female_a = unique_gender_counts(merge_scientists(data, "ks5", board_sel))
+    y_labels = ["Women", "Men"]
+    return grouped_stage_bars(
+        y_labels,
+        [female_g, male_g],
+        [female_a, male_a],
+        [
+            f"KS4 women<br>Count: {female_g}",
+            f"KS4 men<br>Count: {male_g}",
+        ],
+        [
+            f"KS5 women<br>Count: {female_a}",
+            f"KS5 men<br>Count: {male_a}",
+        ],
+        ["female", "male"],
+        f"Unique named scientists by gender — KS4 vs KS5 ({scope_label(data, STAGE_BOTH, board_sel)})",
+        "Unique scientists",
+        420,
+    )
+
+
+def mention_type_comparison_figure(data, board_sel):
+    concept_g, scientist_g = mention_type_counts(data, "ks4", board_sel)
+    concept_a, scientist_a = mention_type_counts(data, "ks5", board_sel)
+    y_labels = ["Scientist", "Concept"]
+    return grouped_stage_bars(
+        y_labels,
+        [scientist_g, concept_g],
+        [scientist_a, concept_a],
+        [
+            f"KS4 scientist mentions<br>Count: {scientist_g}",
+            f"KS4 concept mentions<br>Count: {concept_g}",
+        ],
+        [
+            f"KS5 scientist mentions<br>Count: {scientist_a}",
+            f"KS5 concept mentions<br>Count: {concept_a}",
+        ],
+        ["scientist", "concept"],
+        f"Mention type — KS4 vs KS5 ({scope_label(data, STAGE_BOTH, board_sel)})",
+        "Mentions",
+        420,
+    )
+
+
+def composition_comparison_figure(data, board_sel, dimension, title_prefix):
+    scientists_g = merge_scientists(data, "ks4", board_sel)
+    scientists_a = merge_scientists(data, "ks5", board_sel)
+    counts_g = Counter(
+        str(v.get(dimension, "unknown")).lower() for v in scientists_g.values()
+    )
+    counts_a = Counter(
+        str(v.get(dimension, "unknown")).lower() for v in scientists_a.values()
+    )
+    all_keys = sorted(
+        set(counts_g) | set(counts_a),
+        key=lambda k: counts_g.get(k, 0) + counts_a.get(k, 0),
+        reverse=True,
+    )
+    total_g = sum(counts_g.values()) or 1
+    total_a = sum(counts_a.values()) or 1
+    y_labels = [prettify(k) for k in all_keys]
+    hover_g = [
+        f"KS4 — {prettify(k)}<br>Scientists: {counts_g.get(k, 0)}"
+        f"<br>Share: {counts_g.get(k, 0) / total_g * 100:.1f}%"
+        for k in all_keys
+    ]
+    hover_a = [
+        f"KS5 — {prettify(k)}<br>Scientists: {counts_a.get(k, 0)}"
+        f"<br>Share: {counts_a.get(k, 0) / total_a * 100:.1f}%"
+        for k in all_keys
+    ]
+    return grouped_stage_bars(
+        y_labels,
+        [counts_g.get(k, 0) / total_g * 100 for k in all_keys],
+        [counts_a.get(k, 0) / total_a * 100 for k in all_keys],
+        hover_g,
+        hover_a,
+        all_keys,
+        f"{title_prefix} — KS4 vs KS5 (% of unique scientists, {scope_label(data, STAGE_BOTH, board_sel)})",
+        "Percentage (%)",
+        max(480, 48 * len(all_keys) + 160),
+    )
+
+
+def build_figure(data, stage_key, board_sel, view_name):
+    if stage_key == STAGE_BOTH:
+        if view_name == "Subject breakdown (by gender)":
+            return subject_comparison_figure(data, board_sel)
+        if view_name == "Unique scientists by gender":
+            return gender_comparison_figure(data, board_sel)
+        if view_name == "Concept vs scientist mentions":
+            return mention_type_comparison_figure(data, board_sel)
+        if view_name == "Scientists by region":
+            return composition_comparison_figure(
+                data, board_sel, "region", "Regional representation"
+            )
+        if view_name == "Scientists by nationality":
+            return composition_comparison_figure(
+                data, board_sel, "nationality", "Nationality"
+            )
+        raise ValueError(view_name)
     if view_name == "Subject breakdown (by gender)":
-        return subject_figure(data, stage_key, board_display)
+        return subject_figure(data, stage_key, board_sel)
     if view_name == "Unique scientists by gender":
-        return gender_figure(data, stage_key, board_display)
+        return gender_figure(data, stage_key, board_sel)
     if view_name == "Concept vs scientist mentions":
-        return mention_type_figure(data, stage_key, board_display)
+        return mention_type_figure(data, stage_key, board_sel)
     if view_name == "Scientists by region":
-        return region_figure(data, stage_key, board_display)
+        return region_figure(data, stage_key, board_sel)
     if view_name == "Scientists by nationality":
-        return nationality_figure(data, stage_key, board_display)
-    if view_name == "KS4 vs KS5 region comparison":
-        return region_comparison_figure(data)
+        return nationality_figure(data, stage_key, board_sel)
     raise ValueError(view_name)
 
 
@@ -596,6 +873,19 @@ def _count_line(label: str, stats: dict) -> str:
 def _women_line(label: str, stats: dict) -> str:
     names = ", ".join(_title_case_name(n) for n in stats["women"]) or "(none)"
     return f"{label}: {names}"
+
+
+def _render_table(rows, demo_display, demo_label):
+    st.caption(
+        f"**{demo_display}** ({demo_label.lower()}) — "
+        f"{len(rows)} scientist{'s' if len(rows) != 1 else ''}"
+    )
+    st.dataframe(
+        scientists_table(rows),
+        use_container_width=True,
+        hide_index=True,
+        height=420,
+    )
 
 
 def main() -> None:
@@ -625,29 +915,42 @@ def main() -> None:
 """,
         unsafe_allow_html=True,
     )
-    comparison_label = "KS4 vs KS5 region comparison"
 
-    # Desktop / laptop layout: filters in the sidebar, chart + table in the main pane.
     with st.sidebar:
         st.header("Filters")
-        stage_label = st.selectbox("Key stage", list(KEY_STAGE_OPTIONS.keys()))
+        stage_label = st.selectbox(
+            "Key stage",
+            list(KEY_STAGE_OPTIONS.keys()),
+            index=0,
+        )
         stage_key = KEY_STAGE_OPTIONS[stage_label]
-        boards = stage_cfg(data, stage_key)["boards_display"]
-        board = st.selectbox("Exam board", boards)
+        boards = board_options(data, stage_key)
+        board = st.selectbox(
+            "Exam board",
+            boards,
+            index=0,
+            key=f"exam_board_{stage_key}",
+        )
         view_name = st.selectbox("Chart view", VIEW_OPTIONS)
-        comparison = view_name == comparison_label
-        if comparison:
-            st.caption("Exam board is ignored for the KS4 vs KS5 comparison view.")
+        comparing = stage_key == STAGE_BOTH
+        if comparing:
+            st.caption(
+                "Charts compare KS4 with KS5 for the selected exam board. "
+                "OCR at KS4 combines OCR A and OCR B; Scottish compares NQ5 with Highers."
+            )
+        elif board == ALL_BOARDS:
+            st.caption(
+                "Unique scientists are pooled across boards so the same person "
+                "is counted once. Mention charts add every specification together."
+            )
 
         st.divider()
         st.header("Demographic explorer")
         st.caption("List every named scientist in a group.")
         demo_label = st.selectbox("Explore by", list(DEMOGRAPHIC_OPTIONS.keys()))
         dimension = DEMOGRAPHIC_OPTIONS[demo_label]
-        values = demographic_values(
-            merge_scientists(data, stage_key, None if comparison else board),
-            dimension,
-        )
+        scientists = scientists_for_filters(data, stage_key, board)
+        values = demographic_values(scientists, dimension)
         demo_options = [(prettify(v), v) for v in values] or [("Unknown", "unknown")]
         demo_display = st.selectbox(
             "Group",
@@ -655,7 +958,6 @@ def main() -> None:
         )
         raw_value = dict(demo_options)[demo_display]
 
-    scientists = merge_scientists(data, stage_key, None if comparison else board)
     total = len(scientists)
     women = sum(
         1 for s in scientists.values() if str(s.get("gender", "")).lower() == "female"
@@ -664,26 +966,26 @@ def main() -> None:
         1 for s in scientists.values() if str(s.get("gender", "")).lower() == "male"
     )
     pct_women = women / total * 100 if total else 0
+    board_title = scope_label(data, stage_key, board)
 
-    if comparison:
-        st.info("Comparing regional representation across both key stages.")
-        m1, m2, m3 = st.columns(3)
-        m1.metric("View", "KS4 vs KS5")
-        m2.metric("KS4 unique scientists", len(merge_scientists(data, "ks4")))
-        m3.metric("KS5 unique scientists", len(merge_scientists(data, "ks5")))
+    if comparing:
+        st.info(
+            f"Comparing KS4 with KS5 for {board_title}. Combined unique people "
+            "count someone named at both stages only once."
+        )
+        m1, m2, m3, m4 = st.columns(4)
+        m1.metric("Exam board", board_title)
+        m2.metric("KS4 unique", len(merge_scientists(data, "ks4", board)))
+        m3.metric("KS5 unique", len(merge_scientists(data, "ks5", board)))
+        m4.metric("Combined unique", total)
     else:
         m1, m2, m3, m4 = st.columns(4)
-        m1.metric("Exam board", display_board_name(data, stage_key, board))
+        m1.metric("Exam board", board_title)
         m2.metric("Unique scientists", total)
         m3.metric("Women", f"{women} ({pct_women:.1f}%)")
         m4.metric("Men", men)
 
-    fig = build_figure(
-        data,
-        stage_key,
-        board if not comparison else boards[0],
-        view_name,
-    )
+    fig = build_figure(data, stage_key, board, view_name)
     st.plotly_chart(
         fig,
         use_container_width=True,
@@ -696,47 +998,37 @@ def main() -> None:
     )
 
     st.subheader("Scientists in selected group")
-    if comparison:
-        tabs = st.tabs(["KS4", "KS5", "Current key stage"])
-        for tab, sk in zip(tabs[:2], ("ks4", "ks5")):
-            with tab:
-                rows = filter_scientists(
-                    merge_scientists(data, sk),
-                    **{dimension: raw_value},
-                )
-                st.caption(
-                    f"{demo_display} ({demo_label.lower()}) — {len(rows)} "
-                    f"scientist{'s' if len(rows) != 1 else ''}"
-                )
-                st.dataframe(
-                    scientists_table(rows),
-                    use_container_width=True,
-                    hide_index=True,
-                    height=420,
-                )
-        with tabs[2]:
-            rows = filter_scientists(scientists, **{dimension: raw_value})
-            st.caption(
-                f"{demo_display} ({demo_label.lower()}) — {len(rows)} "
-                f"scientist{'s' if len(rows) != 1 else ''}"
+    if comparing:
+        tabs = st.tabs(["Combined", "KS4", "KS5"])
+        with tabs[0]:
+            _render_table(
+                filter_scientists(scientists, **{dimension: raw_value}),
+                demo_display,
+                demo_label,
             )
-            st.dataframe(
-                scientists_table(rows),
-                use_container_width=True,
-                hide_index=True,
-                height=420,
+        with tabs[1]:
+            _render_table(
+                filter_scientists(
+                    merge_scientists(data, "ks4", board),
+                    **{dimension: raw_value},
+                ),
+                demo_display,
+                demo_label,
+            )
+        with tabs[2]:
+            _render_table(
+                filter_scientists(
+                    merge_scientists(data, "ks5", board),
+                    **{dimension: raw_value},
+                ),
+                demo_display,
+                demo_label,
             )
     else:
-        rows = filter_scientists(scientists, **{dimension: raw_value})
-        st.caption(
-            f"**{demo_display}** ({demo_label.lower()}) — "
-            f"{len(rows)} scientist{'s' if len(rows) != 1 else ''}"
-        )
-        st.dataframe(
-            scientists_table(rows),
-            use_container_width=True,
-            hide_index=True,
-            height=420,
+        _render_table(
+            filter_scientists(scientists, **{dimension: raw_value}),
+            demo_display,
+            demo_label,
         )
 
     st.divider()
