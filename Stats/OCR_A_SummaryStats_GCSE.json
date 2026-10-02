@@ -22,7 +22,7 @@
         },
         "biology": {
             "concept": {
-                "male": 2,
+                "male": 6,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 23,
+            "male": 27,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 21,
+            "male": 25,
             "female": 0,
             "region": {
-                "europe": 19,
+                "europe": 23,
                 "oceania": 1,
                 "europe-oceania": 1
             }
@@ -176,6 +176,30 @@
             "nationality": "german",
             "region": "europe",
             "number of mentions": 2
+        },
+        "william bowman": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "friedrich gustav jakob henle": {
+            "gender": "male",
+            "nationality": "german",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "joseph priestley": {
+            "gender": "male",
+            "nationality": "english",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "jan ingenhousz": {
+            "gender": "male",
+            "nationality": "dutch-british",
+            "region": "europe",
+            "number of mentions": 1
         },
         "john dalton": {
             "gender": "male",

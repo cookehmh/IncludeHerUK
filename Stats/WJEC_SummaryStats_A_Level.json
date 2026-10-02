@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 28,
+                "male": 29,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 82,
+            "male": 83,
             "female": 0
         },
         "scientist": {
@@ -71,10 +71,10 @@
             "female": 0
         },
         "unique": {
-            "male": 72,
+            "male": 73,
             "female": 0,
             "region": {
-                "europe": 59,
+                "europe": 60,
                 "north america": 12,
                 "europe-north america": 1
             }
@@ -204,6 +204,12 @@
         "daniel bernoulli": {
             "gender": "male",
             "nationality": "swiss",
+            "region": "europe",
+            "number of mentions": 1
+        },
+        "georg simon ohm": {
+            "gender": "male",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 1
         },

@@ -67,6 +67,26 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+st.markdown(
+    """
+    <style>
+    [data-testid="stSidebar"] {
+        background-color: #ae86d9;
+    }
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .stCaption {
+        color: #1a1a1a;
+    }
+    h1, [data-testid="stHeading"] h1 {
+        color: #411e66 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 @st.cache_data(show_spinner="Loading IncludeHer UK data…")
 def load_data() -> dict:
@@ -136,7 +156,7 @@ def merge_scientists(data, stage_key, board_display=None):
     for board in boards:
         board_key = board_file_key(data, stage_key, board)
         for name, info in dataset[board_key]["names"].items():
-            if not pf._is_valid_scientist_name(name):
+            if not pf.is_valid_scientist_name(name):
                 continue
             if name not in merged:
                 merged[name] = {
@@ -553,14 +573,49 @@ def build_figure(data, stage_key, board_display, view_name):
     raise ValueError(view_name)
 
 
+def _title_case_name(name: str) -> str:
+    return " ".join(word.capitalize() for word in str(name).split())
+
+
+def _count_line(label: str, stats: dict) -> str:
+    return (
+        f"{label}: {stats['total']} unique scientists "
+        f"({stats['male']} male, {stats['female']} female)"
+    )
+
+
+def _women_line(label: str, stats: dict) -> str:
+    names = ", ".join(_title_case_name(n) for n in stats["women"]) or "(none)"
+    return f"{label}: {names}"
+
+
 def main() -> None:
-    st.title("IncludeHer UK")
+    st.markdown(
+        '<h1 style="color:#411e66;">IncludeHer UK</h1>',
+        unsafe_allow_html=True,
+    )
     st.markdown(
         "Explore gender, mention type, subject, and regional representation of "
         "named scientists in UK science exam specifications (ages 14–18)."
     )
 
     data = load_data()
+    summary = pf.unique_scientist_summary(
+        data["ks5"]["scientists"], data["ks4"]["scientists"]
+    )
+    st.markdown(
+        f"""
+<div style="height:4px;width:100%;background:{pf.TEAL};border-radius:2px;margin:4px 0 16px;"></div>
+<div style="font-size:15px;line-height:1.75;color:#1a1a1a;">
+{_count_line("A-Level / KS5", summary["ks5"])}<br>
+{_count_line("GCSE / KS4", summary["ks4"])}<br>
+{_count_line("KS4 + KS5 combined", summary["combined"])}<br>
+{_women_line("KS5 women", summary["ks5"])}<br>
+{_women_line("KS4 women", summary["ks4"])}
+</div>
+""",
+        unsafe_allow_html=True,
+    )
     comparison_label = "KS4 vs KS5 region comparison"
 
     # Desktop / laptop layout: filters in the sidebar, chart + table in the main pane.

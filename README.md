@@ -110,13 +110,13 @@ Rows with semicolon-separated values in `Name of Scientist`, `Gender`, `National
 
 ### Headline unique-scientist counts
 
-These are **distinct named individuals**, not mention rows. A person named many times (e.g. Newton) counts once within a key stage. Combined unique counts a person once even if they appear in both KS4 and KS5.
+These are **distinct named individuals**, not mention rows. A person named many times (e.g. Newton) counts once within a key stage. Combined unique counts a person once even if they appear in both KS4 and KS5. James Ussher appears in WJEC GCSE Geology syllabus wording for Deep Time but is not counted as a scientist.
 
 | Scope | Unique people | Male | Female | Women named |
 |-------|---------------|------|--------|-------------|
-| KS5 (A-Level / Scottish Highers) | **179** | 176 | 3 | Rosalind Franklin, Inge Lehmann, Marie Tharp |
-| KS4 (GCSE / Scottish NQ5) | **83** | 82 | 1 | Rosalind Franklin |
-| KS4 + KS5 combined | **224** | 221 | 3 | Franklin, Lehmann, Tharp |
+| KS5 (A-Level / Scottish Highers) | **181** | 178 | 3 | Rosalind Franklin, Inge Lehmann, Marie Tharp |
+| KS4 (GCSE / Scottish NQ5) | **86** | 85 | 1 | Rosalind Franklin |
+| KS4 + KS5 combined | **226** | 223 | 3 | Franklin, Lehmann, Tharp |
 
 Rebuild after editing CSVs (`process_data_csv_to_json_UK.py` then `Plot_Figures_UK.py` or the notebook). The notebook prints these totals after the KS4 and KS5 data cells.
 

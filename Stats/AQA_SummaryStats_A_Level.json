@@ -32,7 +32,7 @@
         },
         "environmental science": {
             "concept": {
-                "male": 9,
+                "male": 11,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 99,
+            "male": 101,
             "female": 0
         },
         "scientist": {
@@ -71,11 +71,11 @@
             "female": 0
         },
         "unique": {
-            "male": 85,
+            "male": 87,
             "female": 0,
             "region": {
                 "europe": 66,
-                "north america": 17,
+                "north america": 19,
                 "oceania": 1,
                 "europe-north america": 1
             }
@@ -590,6 +590,18 @@
             "gender": "male",
             "nationality": "swedish",
             "region": "europe",
+            "number of mentions": 1
+        },
+        "mario molina": {
+            "gender": "male",
+            "nationality": "mexican",
+            "region": "north america",
+            "number of mentions": 1
+        },
+        "frank rowland": {
+            "gender": "male",
+            "nationality": "american",
+            "region": "north america",
             "number of mentions": 1
         }
     }
