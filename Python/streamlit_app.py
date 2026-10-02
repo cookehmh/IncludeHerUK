@@ -71,7 +71,7 @@ st.markdown(
     """
     <style>
     [data-testid="stSidebar"] {
-        background-color: #ae86d9;
+        background-color: #b991db;
     }
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p,
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] h2,
@@ -88,8 +88,17 @@ st.markdown(
 )
 
 
+def _stats_mtime() -> float:
+    times = [
+        os.path.getmtime(os.path.join(pf.STATS_DIR, name))
+        for name in os.listdir(pf.STATS_DIR)
+        if name.endswith(".json")
+    ]
+    return max(times) if times else 0.0
+
+
 @st.cache_data(show_spinner="Loading IncludeHer UK data…")
-def load_data() -> dict:
+def load_data(_mtime: float) -> dict:
     with contextlib.redirect_stdout(io.StringIO()):
         return {
             "ks5": pf.prepare_key_stage("ks5"),
@@ -599,7 +608,7 @@ def main() -> None:
         "named scientists in UK science exam specifications (ages 14–18)."
     )
 
-    data = load_data()
+    data = load_data(_stats_mtime())
     summary = pf.unique_scientist_summary(
         data["ks5"]["scientists"], data["ks4"]["scientists"]
     )
