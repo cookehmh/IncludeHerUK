@@ -1,8 +1,11 @@
 # IncludeHer UK — code and analysis
 
-This repository contains the data and analysis code for the **IncludeHer UK** study: an investigation into the presence of named scientists in UK science education syllabi for students aged **14–18** (Key Stage 4 and Key Stage 5). The work examines who is named in exam board specifications, how often they appear, whether they are credited as a **concept** (e.g. *Newton's laws*) or as a **scientist** (a named individual), and the gender, nationality, and regional background of those individuals.
+This repository contains the data and analysis code for the **IncludeHer UK** study: an investigation into the presence of named scientists in UK science education syllabi for students aged **14–18** (Key Stage 4 and Key Stage 5 or equivalent levels). Exam boards in England, Wales, Northern Ireland, and Scotland are all investigated. The work examines who is named in exam board specifications, how often they appear, whether they are credited as a **concept** (e.g. *Newton's laws*) or as a **scientist** (a named individual), and the gender, nationality, and regional background of those individuals.
 
-A journal article will be submitted alongside this code.
+
+A journal article entitled *The Absence of Women’s Scientific Contributions in Core UK Pre‑University Science Qualifications* will be published in the British Educational Research Journal.
+
+To explore the data interactively, please visit [https://includeheruk.streamlit.app/](https://includeheruk.streamlit.app/)
 
 ---
 
@@ -12,6 +15,7 @@ A journal article will be submitted alongside this code.
 IncludeHerUK/
 ├── A_Level/          # Raw CSV data for KS5 (A-Level / Scottish Highers)
 ├── GCSE/             # Raw CSV data for KS4 (GCSE / Scottish NQ5)
+├── GCSE/             # Raw data for BTEC qualifications
 ├── Stats/            # Processed JSON summary statistics (generated from CSVs)
 ├── Figures/          # Static figures produced by the plotting scripts
 ├── Specs/            # Optional local PDFs (gitignored; not used for paper counts)
@@ -19,12 +23,11 @@ IncludeHerUK/
 └── README.md
 ```
 
-| Folder | Role |
+| Folder | Description |
 |--------|------|
-| `A_Level/`, `GCSE/` | **Source data** — one CSV per exam board, edited by hand |
+| `A_Level/`, `GCSE/`, `BTEC/` | **Source data** — one CSV per exam board, edited by hand |
 | `Stats/` | **Generated** — per-board JSON stats; do not edit by hand |
 | `Figures/` | **Generated** — PNG plots for the paper |
-| `Specs/` | **Optional local PDFs** — name-search checks only; gitignored |
 | `Python/` | Scripts and notebooks that drive the pipeline |
 
 ---
@@ -57,25 +60,6 @@ For the interactive browser dashboard (local Voila):
 pip install -r requirements-voila.txt
 voila Interactive_IncludeHer_UK.ipynb
 ```
-
-For a shareable web app (Streamlit — visitors do **not** need Python):
-
-```bash
-pip install -r requirements-streamlit.txt
-streamlit run streamlit_app.py
-```
-
-To put it online with a public link (recommended: [Streamlit Community Cloud](https://share.streamlit.io)):
-
-1. Push this repo to GitHub (if it is not already).
-2. Sign in at https://share.streamlit.io and click **New app**.
-3. Select the repo, set **Main file path** to `Python/streamlit_app.py`.
-   Streamlit Cloud installs **`Python/requirements.txt`** automatically
-   (that file must list `streamlit`, `plotly`, etc.).
-4. Deploy — you get a URL like `https://….streamlit.app` that anyone can open.
-
-**Note on `cookehmh.github.io`:** GitHub Pages only serves static HTML/JS. It cannot run Streamlit or Voila. Add a button/link on your site (e.g. Work page) that opens the Streamlit URL. That is the usual pattern.
-
 
 ---
 
@@ -154,35 +138,6 @@ Each file contains:
 | `FullSummaryStatsUK_GCSE.json` | Aggregated KS4 statistics across all exam boards |
 
 These are written by `Plot_Figures_UK.py` / `Plot_Figures_UK.ipynb` when the plotting pipeline runs.
-
----
-
-## Specification PDFs (`Specs/`) — optional, not in GitHub
-
-Paper statistics come **only** from the CSVs. Specification PDFs are a local checking aid and are gitignored so they are not uploaded.
-
-If you keep a local `Specs/` folder, the optional notebook cell can search it. Set `RUN_PDF_SEARCH = False` (the default) when running all cells. Names found in PDFs are **not** added to the counted list.
-
-To search PDFs locally:
-
-```python
-import Plot_Figures_UK as pf
-
-pdf_files = pf.list_spec_pdfs()                          # all PDFs in Specs/
-counted = pf.counted_scientist_names()                   # names from KS4/KS5 CSVs
-extras = list(pf.DEFAULT_EXTRA_SEARCH_NAMES)             # additional surnames to check
-
-pf.report_pdf_search(
-    pf.search_names_in_pdfs(pdf_files, counted_names=counted, extra_names=extras)
-)
-```
-
-**Counted names** come from the CSV pipeline. **Extra names** (e.g. Curie, Lovelace, Meitner) are searched separately and never merged into the counted list. If an extra name's surname already appears in the counted data, it is skipped to avoid duplicate reporting.
-
-Matches are reported as:
-
-- **Full name** — the complete name appears in the PDF text
-- **Surname / eponym** — only the surname appears (e.g. *Newton*, *Joule*), which may refer to a law or unit rather than a biographical mention
 
 ---
 
@@ -277,23 +232,6 @@ If you encounter errors:
 
 ```bash
 voila Interactive_IncludeHer_UK.ipynb --show_tracebacks=True
-```
-
----
-
-## Typical workflow
-
-```
-Edit CSVs in A_Level/ or GCSE/
-        ↓
-python process_data_csv_to_json_UK.py     →  Stats/*.json (per board)
-        ↓
-python Plot_Figures_UK.py                 →  Figures/*.png
-   or  Plot_Figures_UK.ipynb                  Stats/FullSummaryStatsUK_*.json
-        ↓
-(Optional) local PDF search in notebook   →  Specs/ if present, not counted
-        ↓
-voila Interactive_IncludeHer_UK.ipynb   →  Interactive browser dashboard
 ```
 
 ---
