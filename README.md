@@ -13,8 +13,8 @@ To explore the data interactively, please visit [https://includeheruk.streamlit.
 
 ```
 IncludeHerUK/
-├── A_Level/          # Raw CSV data for KS5 (A-Level / Scottish Highers)
-├── GCSE/             # Raw CSV data for KS4 (GCSE / Scottish NQ5)
+├── A_Level/          # Raw CSV data for KS5 (A-Level / SQ Adv + Highers)
+├── GCSE/             # Raw CSV data for KS4 (GCSE / SQ5)
 ├── GCSE/             # Raw data for BTEC qualifications
 ├── Stats/            # Processed JSON summary statistics (generated from CSVs)
 ├── Figures/          # Static figures produced by the plotting scripts
@@ -71,8 +71,8 @@ The CSV files are the **primary source data** for counted statistics. Each file 
 
 | Folder | Qualification | Age range | Exam boards |
 |--------|---------------|-----------|-------------|
-| `A_Level/` | A-Level and Scottish Highers | 16–18 (KS5) | AQA, CCEA, Edexcel, OCR, Scottish_highers, WJEC |
-| `GCSE/` | GCSE and Scottish NQ5 | 14–16 (KS4) | AQA, CCEA, Edexcel, OCR_A, OCR_B, Scottish, WJEC |
+| `A_Level/` | A-Level and SQ Adv + Highers | 16–18 (KS5) | AQA, CCEA, Edexcel, Cambridge OCR (`OCR.csv`), SQ Adv + Highers (`Scottish_highers.csv`), WJEC |
+| `GCSE/` | GCSE and SQ5 | 14–16 (KS4) | AQA, CCEA, Edexcel, Cambridge OCR (`OCR_A.csv`, `OCR_B.csv`), SQ5 (`Scottish.csv`), WJEC |
 
 Each row corresponds to **one mention** in the syllabus — for example, *Newton's 2nd law* crediting Sir Isaac Newton, or *James Chadwick* named as a scientist in a physics topic.
 
@@ -98,8 +98,8 @@ These are **distinct named individuals**, not mention rows. A person named many 
 
 | Scope | Unique people | Male | Female | Women named |
 |-------|---------------|------|--------|-------------|
-| KS5 (A-Level / Scottish Highers) | **181** | 178 | 3 | Rosalind Franklin, Inge Lehmann, Marie Tharp |
-| KS4 (GCSE / Scottish NQ5) | **86** | 85 | 1 | Rosalind Franklin |
+| KS5 (A-Level / SQ Adv + Highers) | **181** | 178 | 3 | Rosalind Franklin, Inge Lehmann, Marie Tharp |
+| KS4 (GCSE / SQ5) | **86** | 85 | 1 | Rosalind Franklin |
 | KS4 + KS5 combined | **226** | 223 | 3 | Franklin, Lehmann, Tharp |
 
 Rebuild after editing CSVs (`process_data_csv_to_json_UK.py` then `Plot_Figures_UK.py` or the notebook). The notebook prints these totals after the KS4 and KS5 data cells.

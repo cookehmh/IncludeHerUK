@@ -34,8 +34,8 @@ ALL_BOARDS = "All exam boards"
 STAGE_BOTH = "both"
 
 KEY_STAGE_OPTIONS = {
-    "KS5 — A-Level / Scottish Highers (ages 16–18)": "ks5",
-    "KS4 — GCSE / NQ5 (ages 14–16)": "ks4",
+    "KS5 — A-Level / SQ Adv + Highers (ages 16–18)": "ks5",
+    "KS4 — GCSE / SQ5 (ages 14–16)": "ks4",
     "Both — compare KS4 and KS5": STAGE_BOTH,
 }
 
@@ -72,7 +72,7 @@ SUBJECT_ORDER = [
 ]
 
 # Comparable exam-board groups when viewing both key stages.
-# OCR at KS4 is two specifications (A and B); Scottish names differ by stage.
+# Cambridge OCR at KS4 is two specifications (A and B); SQ names differ by stage.
 COMPARE_BOARD_MAP = {
     "AQA": {"ks4": ["AQA"], "ks5": ["AQA"]},
     "CCEA": {"ks4": ["CCEA"], "ks5": ["CCEA"]},
@@ -82,6 +82,10 @@ COMPARE_BOARD_MAP = {
     "WJEC": {"ks4": ["WJEC"], "ks5": ["WJEC"]},
 }
 COMPARE_BOARD_ORDER = ["AQA", "CCEA", "Edexcel", "OCR", "Scottish", "WJEC"]
+COMPARE_BOARD_LABELS = {
+    "OCR": "Cambridge OCR",
+    "Scottish": "SQ",
+}
 
 
 st.set_page_config(
@@ -165,6 +169,14 @@ def display_board_name(data, stage_key, board):
     return board_labels(data, stage_key).get(board, board)
 
 
+def format_board_option(data, stage_key, value):
+    if value == ALL_BOARDS:
+        return ALL_BOARDS
+    if stage_key == STAGE_BOTH:
+        return COMPARE_BOARD_LABELS.get(value, value)
+    return display_board_name(data, stage_key, value)
+
+
 def board_options(data, stage_key):
     if stage_key == STAGE_BOTH:
         return [ALL_BOARDS] + COMPARE_BOARD_ORDER
@@ -184,8 +196,8 @@ def scope_label(data, stage_key, board_sel):
         return "all exam boards"
     if stage_key == STAGE_BOTH:
         extra = {
-            "OCR": "OCR (KS5 vs OCR A & B at KS4)",
-            "Scottish": "Scottish (NQ5 vs Highers)",
+            "OCR": "Cambridge OCR (KS5 vs A & B at KS4)",
+            "Scottish": "SQ (SQ5 vs SQ Adv + Highers)",
         }
         return extra.get(board_sel, board_sel)
     return display_board_name(data, stage_key, board_sel)
@@ -621,7 +633,7 @@ def grouped_stage_bars(
         go.Bar(
             y=y_labels,
             x=ks4_x,
-            name="KS4 (GCSE / NQ5)",
+            name="KS4 (GCSE / SQ5)",
             orientation="h",
             marker_color=pf.PURPLE,
             hovertext=hover_g,
@@ -633,7 +645,7 @@ def grouped_stage_bars(
         go.Bar(
             y=y_labels,
             x=ks5_x,
-            name="KS5 (A-Level / Highers)",
+            name="KS5 (A-Level / SQ Adv + Highers)",
             orientation="h",
             marker_color=pf.PURPLE_LIGHT,
             hovertext=hover_a,
@@ -694,7 +706,7 @@ def subject_comparison_figure(data, board_sel):
             go.Bar(
                 y=y_labels,
                 x=ks4_totals,
-                name="KS4 (GCSE / NQ5)",
+                name="KS4 (GCSE / SQ5)",
                 orientation="h",
                 marker_color=pf.PURPLE,
                 hovertext=hover_g,
@@ -708,7 +720,7 @@ def subject_comparison_figure(data, board_sel):
             go.Bar(
                 y=y_labels,
                 x=ks5_totals,
-                name="KS5 (A-Level / Highers)",
+                name="KS5 (A-Level / SQ Adv + Highers)",
                 orientation="h",
                 marker_color=pf.PURPLE_LIGHT,
                 hovertext=hover_a,
@@ -906,8 +918,8 @@ def main() -> None:
         f"""
 <div style="height:4px;width:100%;background:{pf.TEAL};border-radius:2px;margin:4px 0 16px;"></div>
 <div style="font-size:15px;line-height:1.75;color:#1a1a1a;">
-{_count_line("A-Level / KS5", summary["ks5"])}<br>
-{_count_line("GCSE / KS4", summary["ks4"])}<br>
+{_count_line("A-Level / SQ Adv + Highers", summary["ks5"])}<br>
+{_count_line("GCSE / SQ5", summary["ks4"])}<br>
 {_count_line("KS4 + KS5 combined", summary["combined"])}<br>
 {_women_line("KS5 women", summary["ks5"])}<br>
 {_women_line("KS4 women", summary["ks4"])}
@@ -930,13 +942,15 @@ def main() -> None:
             boards,
             index=0,
             key=f"exam_board_{stage_key}",
+            format_func=lambda value: format_board_option(data, stage_key, value),
         )
         view_name = st.selectbox("Chart view", VIEW_OPTIONS)
         comparing = stage_key == STAGE_BOTH
         if comparing:
             st.caption(
                 "Charts compare KS4 with KS5 for the selected exam board. "
-                "OCR at KS4 combines OCR A and OCR B; Scottish compares NQ5 with Highers."
+                "Cambridge OCR at KS4 combines specifications A and B; "
+                "SQ compares SQ5 with SQ Adv + Highers."
             )
         elif board == ALL_BOARDS:
             st.caption(

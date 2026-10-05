@@ -184,7 +184,9 @@ def collect_region_data(boards_display, boards_map, dataset):
     labels = [f"{wrap(r)}\n({v/total*100:.1f}%)" for r, v in zip(regions, vals)]
     return regions, vals, labels
 
-def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_suffix):
+def plot_subject_breakdown(
+    boards_display, boards_map, dataset, out_path, label_suffix, board_labels=None
+):
     core = {"physics", "chemistry", "biology"}
 
     subjects_per_board = [
@@ -228,8 +230,12 @@ def plot_subject_breakdown(boards_display, boards_map, dataset, out_path, label_
             if ii != len(boards_display) - 1:
                 axs[ii, col].tick_params(labelbottom=False)
 
-        axs[ii, 1].text(1.05, 0.5, board, rotation=90, ha='left', va='center',
-                        fontsize=20, transform=axs[ii, 1].transAxes)
+        axs[ii, 1].text(
+            1.05, 0.5, _board_axis_label(board, board_labels),
+            rotation=90, ha='left', va='center',
+            fontsize=20, transform=axs[ii, 1].transAxes,
+            linespacing=1.05,
+        )
 
     axs[-1, 0].set_xlabel("Mentions of Concept",   labelpad=10)
     axs[-1, 1].set_xlabel("Mentions of Scientist", labelpad=10)
@@ -286,7 +292,10 @@ KEY_STAGES = {
             "AQA": "AQA", "CCEA": "CCEA", "Edexcel": "Edexcel", "OCR": "OCR",
             "Scottish highers": "Scottish_highers", "WJEC": "WJEC",
         },
-        "board_labels": {"Scottish highers": "Scottish Highers"},
+        "board_labels": {
+            "OCR": "Cambridge OCR",
+            "Scottish highers": "SQ Adv + Highers",
+        },
         "figures": {
             "subjects": "summary_subjects_A_Level_UK.png",
             "gender": "summary_male_vs_female_UK_A_Level.png",
@@ -303,7 +312,11 @@ KEY_STAGES = {
             "AQA": "AQA", "CCEA": "CCEA", "Edexcel": "Edexcel",
             "OCR A": "OCR_A", "OCR B": "OCR_B", "Scottish NQ5": "Scottish", "WJEC": "WJEC",
         },
-        "board_labels": {"Scottish NQ5": "Scottish NQ5"},
+        "board_labels": {
+            "OCR A": "Cambridge OCR A",
+            "OCR B": "Cambridge OCR B",
+            "Scottish NQ5": "SQ5",
+        },
         "figures": {
             "subjects": "summary_subjects_GCSE_UK.png",
             "gender": "summary_male_vs_female_UK_GCSE.png",
@@ -471,8 +484,8 @@ def print_all_distinct_scientists(scientists_a, scientists_g):
         "\n=== Unique scientist counts ===",
         "Each person is counted once per key stage, then once across both stages "
         "if the Name of Scientist string matches.",
-        _unique_count_line("A-Level / KS5", scientists_a),
-        _unique_count_line("GCSE / KS4", scientists_g),
+        _unique_count_line("A-Level / SQ Adv + Highers", scientists_a),
+        _unique_count_line("GCSE / SQ5", scientists_g),
         _unique_count_line("KS4 + KS5 combined (each person counted once)", summary["combined"]["scientists"]),
         f"KS5 women: {', '.join(summary['ks5']['women']) if summary['ks5']['women'] else '(none)'}",
         f"KS4 women: {', '.join(summary['ks4']['women']) if summary['ks4']['women'] else '(none)'}",
@@ -510,8 +523,16 @@ def prepare_key_stage(stage_key):
     }
 
 
-def _board_axis_label(board, board_labels):
-    return board_labels.get(board, board)
+def _board_axis_label(board, board_labels=None):
+    """Pretty exam-board name for figures. Longer names wrap onto two lines."""
+    label = (board_labels or {}).get(board, board)
+    if label.startswith("OCR"):
+        label = "Cambridge " + label
+    if label.startswith("Cambridge ") and "OCR" in label:
+        return "Cambridge\n" + label[len("Cambridge "):]
+    if label == "SQ Adv + Highers":
+        return "SQ Adv +\nHighers"
+    return label
 
 
 def plot_subjects_ks5(result, colours=None):
@@ -571,6 +592,7 @@ def plot_subjects_ks5(result, colours=None):
         axs[ii, 1].text(
             1.05, 0.5, _board_axis_label(board, cfg["board_labels"]),
             rotation=90, ha="left", va="center", fontsize=20, transform=axs[ii, 1].transAxes,
+            linespacing=1.05,
         )
     axs[-1, 0].set_xlabel("Mentions of Concept", labelpad=10)
     axs[-1, 1].set_xlabel("Mentions of Scientist", labelpad=10)
@@ -631,6 +653,7 @@ def plot_subjects_ks4(result, colours=None):
         axs[ii, 1].text(
             1.05, 0.5, _board_axis_label(board, cfg["board_labels"]),
             rotation=90, ha="left", va="center", fontsize=20, transform=axs[ii, 1].transAxes,
+            linespacing=1.05,
         )
         if ii != len(exam_boards) - 1:
             axs[ii, 0].tick_params(labelbottom=False)
@@ -669,14 +692,14 @@ def plot_gender_pies(result, colours=None, suptitle=None, save_name=None, pie_gr
                 autopct="%1.1f%%", pctdistance=0.7,
                 textprops={"fontsize": 15 if ncols == 3 else 16, "color": "white"},
             )
-        ax[jj].set_xlabel(_board_axis_label(board, cfg["board_labels"]))
+        ax[jj].set_xlabel(_board_axis_label(board, cfg["board_labels"]), linespacing=1.05)
     for kk in range(len(exam_boards), len(ax)):
         ax[kk].axis("off")
     plt.figlegend(
         ["Male", "Female"], bbox_to_anchor=legend_anchor, bbox_transform=fig.transFigure,
         ncol=1, borderaxespad=0.0, handletextpad=0.5, columnspacing=1,
     )
-    plt.subplots_adjust(wspace=0.01, hspace=0.1, left=0.05, right=0.95, top=0.95, bottom=0.05)
+    plt.subplots_adjust(wspace=0.01, hspace=0.18, left=0.05, right=0.95, top=0.92, bottom=0.08)
     plt.suptitle(suptitle or cfg.get("title_gender", "Key Stage"), fontsize=20, weight="bold" if ncols == 3 else None)
     out = os.path.join(FIGURES_DIR, save_name or cfg["figures"]["gender"])
     plt.savefig(out, dpi=100, bbox_inches="tight")
@@ -706,14 +729,14 @@ def plot_mention_type_pies(result, colours=None, suptitle=None, save_name=None, 
                 val, colors=[colours[3], colours[2]], startangle=80, wedgeprops=dict(width=0.6),
                 autopct="%1.1f%%", pctdistance=0.7, textprops={"fontsize": 15, "color": "white"},
             )
-        ax[jj].set_xlabel(_board_axis_label(board, cfg["board_labels"]))
+        ax[jj].set_xlabel(_board_axis_label(board, cfg["board_labels"]), linespacing=1.05)
     for kk in range(len(exam_boards), len(ax)):
         ax[kk].axis("off")
     plt.figlegend(
         ["Concept", "Scientist"], bbox_to_anchor=legend_anchor, bbox_transform=fig.transFigure,
         ncol=1, borderaxespad=0.0, handletextpad=0.5, columnspacing=1,
     )
-    plt.subplots_adjust(wspace=0.01, hspace=0.2, left=0.05, right=0.95, top=0.95, bottom=0.05)
+    plt.subplots_adjust(wspace=0.01, hspace=0.18, left=0.05, right=0.95, top=0.92, bottom=0.08)
     plt.suptitle(suptitle or cfg.get("title_mention", "Key Stage"), fontsize=20)
     out = os.path.join(FIGURES_DIR, save_name or cfg["figures"]["mention_type"])
     plt.savefig(out, dpi=100, bbox_inches="tight")
@@ -735,7 +758,7 @@ def plot_region_donut_notebook(result, colours=None):
         labels, bbox_to_anchor=legend_anchor, bbox_transform=fig.transFigure,
         ncol=legend_ncol, borderaxespad=0.0, handletextpad=0.5, columnspacing=1, fontsize=legend_font,
     )
-    title = "Ages 16-18 years (A-Level / Scottish Highers)" if cfg["suffix"] == "A_Level" else "Ages 14-16 years (GCSE / NQ5)"
+    title = "Ages 16-18 years (A-Level / SQ Adv + Highers)" if cfg["suffix"] == "A_Level" else "Ages 14-16 years (GCSE / SQ5)"
     plt.suptitle(title, fontsize=20, weight="bold" if cfg["suffix"] == "A_Level" else None, y=0.85 if cfg["suffix"] == "GCSE" else None)
     plt.tight_layout()
     out = os.path.join(FIGURES_DIR, cfg["figures"]["region"])
@@ -797,6 +820,7 @@ def plot_key_stage_figures(result, colours=None):
         list(boards), boards, result["dataset"],
         os.path.join(FIGURES_DIR, cfg["figures"]["subjects"]),
         cfg["suffix"],
+        board_labels=cfg.get("board_labels"),
     )
     if cfg["suffix"] == "A_Level":
         plot_gender_pies(
@@ -812,12 +836,12 @@ def plot_key_stage_figures(result, colours=None):
     else:
         plot_gender_pies(
             result, colours,
-            suptitle="Ages 14-16 years (GCSE / NQ5)",
+            suptitle="Ages 14-16 years (GCSE / SQ5)",
             pie_grid=(2, 4), legend_anchor=(0.93, 0.33),
         )
         plot_mention_type_pies(
             result, colours,
-            suptitle="Ages 14-16 years (GCSE / NQ5)",
+            suptitle="Ages 14-16 years (GCSE / SQ5)",
             pie_grid=(2, 4), legend_anchor=(0.93, 0.33),
         )
     plot_region_donut_notebook(result, colours)
@@ -1095,8 +1119,8 @@ def plot_overall_gender_bar(scientists_ks4, scientists_ks5):
     import matplotlib.gridspec as gridspec
 
     panels = [
-        ("Ages 14 - 16 (GCSE / NQ5)", *_gender_totals(scientists_ks4)),
-        ("Ages 16 - 18 (A-Level / Scottish Highers)", *_gender_totals(scientists_ks5)),
+        ("Ages 14 - 16 (GCSE / SQ5)", *_gender_totals(scientists_ks4)),
+        ("Ages 16 - 18 (A-Level / SQ Adv + Highers)", *_gender_totals(scientists_ks5)),
     ]
 
     fig = plt.figure(figsize=(14, 7))
