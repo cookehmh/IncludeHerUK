@@ -214,7 +214,7 @@ def plot_subject_breakdown(
             axs[ii, col].barh(y, fs, left=ms, color=TEAL, alpha=0.9, height=0.7)
             axs[ii, col].set_xlim(0, xlim)
 
-        bars(0, "concept",   52)
+        bars(0, "concept",   60)
         bars(1, "scientist", 15)
 
         axs[ii, 0].set_yticks(y)
@@ -576,7 +576,7 @@ def plot_subjects_ks5(result, colours=None):
         axs[ii, 0].barh(y, female_c, left=male_c, color=colours[0], alpha=0.9, height=0.7)
         axs[ii, 0].set_yticks(y)
         axs[ii, 0].set_yticklabels([SUBJECT_DISPLAY_NAMES.get(sb, sb) for sb in subjects_here])
-        axs[ii, 0].set_xlim(0, 50)
+        axs[ii, 0].set_xlim(0, 60)
         axs[ii, 1].barh(y, male_s, color=colours[1], alpha=0.9, height=0.7)
         axs[ii, 1].barh(y, female_s, left=male_s, color=colours[0], alpha=0.9, height=0.7)
         axs[ii, 1].set_xlim(0, 11)
@@ -638,7 +638,7 @@ def plot_subjects_ks4(result, colours=None):
         axs[ii, 0].barh(y, female_c, left=male_c, color=colours[0], alpha=0.9)
         axs[ii, 0].set_yticks(y)
         axs[ii, 0].set_yticklabels([sb.capitalize() for sb in subjects_here])
-        axs[ii, 0].set_xlim(0, 25)
+        axs[ii, 0].set_xlim(0, 60)
         male_s, female_s = [], []
         for sb in subjects_here:
             cat = dataset[EXAMBOARDS[board]]["subjects"][sb].get("scientist")
