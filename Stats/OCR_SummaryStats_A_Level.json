@@ -74,8 +74,8 @@
             "male": 84,
             "female": 2,
             "region": {
-                "europe": 71,
-                "north america": 11,
+                "europe": 69,
+                "north america": 13,
                 "europe-north america": 3,
                 "asia-north america": 1
             }
@@ -280,7 +280,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "jan evangelista purkyn?": {
+        "jan evangelista purkyn\u011b": {
             "gender": "male",
             "nationality": "czech",
             "region": "europe",
@@ -288,7 +288,7 @@
         },
         "edward hugh simpson": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -336,7 +336,7 @@
         },
         "frederick sanger": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
@@ -349,7 +349,7 @@
         "linus pauling": {
             "gender": "male",
             "nationality": "american",
-            "region": "europe",
+            "region": "north america",
             "number of mentions": 1
         },
         "germain hess": {
@@ -415,7 +415,7 @@
         "josiah willard gibbs": {
             "gender": "male",
             "nationality": "american",
-            "region": "europe",
+            "region": "north america",
             "number of mentions": 1
         },
         "friedrich august kekul\u00e9": {
@@ -427,13 +427,13 @@
         "charles friedel": {
             "gender": "male",
             "nationality": "french",
-            "region": "north america",
+            "region": "europe",
             "number of mentions": 1
         },
         "james crafts": {
             "gender": "male",
             "nationality": "american",
-            "region": "europe",
+            "region": "north america",
             "number of mentions": 1
         },
         "bernhard tollens": {
@@ -462,7 +462,7 @@
         },
         "herbert harold read": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
@@ -498,19 +498,19 @@
         },
         "charles lyell": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "scottish",
             "region": "europe",
             "number of mentions": 1
         },
         "james hutton": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "scottish",
             "region": "europe",
             "number of mentions": 4
         },
         "william smith": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
@@ -538,7 +538,7 @@
             "region": "europe-north america",
             "number of mentions": 1
         },
-        "andrija mohorovi?i?": {
+        "andrija mohorovi\u010di\u0107": {
             "gender": "male",
             "nationality": "croatian",
             "region": "europe",
@@ -546,7 +546,7 @@
         },
         "george barrow": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
@@ -562,7 +562,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "hugo benioff": {
+        "victor hugo benioff": {
             "gender": "male",
             "nationality": "american",
             "region": "north america",

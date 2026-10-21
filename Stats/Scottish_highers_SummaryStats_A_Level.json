@@ -108,7 +108,7 @@
         },
         "georges henri joseph \u00e9douard lema\u00eetre": {
             "gender": "male",
-            "nationality": "beligian",
+            "nationality": "belgian",
             "region": "europe",
             "number of mentions": 1
         },
@@ -256,9 +256,9 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "erwin chargraff": {
+        "erwin chargaff": {
             "gender": "male",
-            "nationality": "austria-hungary-american",
+            "nationality": "austro-hungarian-american",
             "region": "north america",
             "number of mentions": 1
         },
@@ -330,7 +330,7 @@
         },
         "hans krebs": {
             "gender": "male",
-            "nationality": "german and british",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -558,7 +558,7 @@
         },
         "edward hugh simpson": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         }

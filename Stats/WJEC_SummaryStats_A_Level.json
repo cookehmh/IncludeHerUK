@@ -74,8 +74,8 @@
             "male": 73,
             "female": 0,
             "region": {
-                "europe": 60,
-                "north america": 12,
+                "europe": 59,
+                "north america": 13,
                 "europe-north america": 1
             }
         }
@@ -114,7 +114,7 @@
         "edwin hubble": {
             "gender": "male",
             "nationality": "american",
-            "region": "europe",
+            "region": "north america",
             "number of mentions": 1
         },
         "albert einstein": {
@@ -233,7 +233,7 @@
         },
         "hans krebs": {
             "gender": "male",
-            "nationality": "german and british",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -257,7 +257,7 @@
         },
         "edward hugh simpson": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -291,7 +291,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "jan evangelista purkyn?": {
+        "jan evangelista purkyn\u011b": {
             "gender": "male",
             "nationality": "czech",
             "region": "europe",
@@ -359,7 +359,7 @@
         },
         "max born": {
             "gender": "male",
-            "nationality": "british and german",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -405,7 +405,7 @@
             "region": "north america",
             "number of mentions": 1
         },
-        "andrija mohorovi?i?": {
+        "andrija mohorovi\u010di\u0107": {
             "gender": "male",
             "nationality": "croatian",
             "region": "europe",
@@ -425,7 +425,7 @@
         },
         "charles spearman": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },

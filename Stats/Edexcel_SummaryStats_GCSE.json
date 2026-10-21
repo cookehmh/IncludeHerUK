@@ -75,10 +75,9 @@
             "female": 0,
             "region": {
                 "europe": 32,
-                "north america": 5,
+                "north america": 6,
                 "africa": 2,
                 "oceania": 1,
-                "north american": 1,
                 "asia-north america": 1
             }
         }
@@ -152,14 +151,14 @@
         },
         "richard leakey": {
             "gender": "male",
-            "nationality": "kenya",
+            "nationality": "kenyan",
             "region": "africa",
             "number of mentions": 1
         },
         "stanley rossiter benedict": {
             "gender": "male",
             "nationality": "american",
-            "region": "north american",
+            "region": "north america",
             "number of mentions": 1
         },
         "alfred russel wallace": {

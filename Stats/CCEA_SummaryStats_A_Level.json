@@ -118,7 +118,7 @@
         },
         "edwin hubble": {
             "gender": "male",
-            "nationality": "ameriacan",
+            "nationality": "american",
             "region": "north america",
             "number of mentions": 2
         },
@@ -178,7 +178,7 @@
         },
         "pythagoras of samos": {
             "gender": "male",
-            "nationality": "greece",
+            "nationality": "greek",
             "region": "europe",
             "number of mentions": 1
         },
@@ -202,7 +202,7 @@
         },
         "max born": {
             "gender": "male",
-            "nationality": "british and german",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -256,7 +256,7 @@
         },
         "wilhelm his jr.": {
             "gender": "male",
-            "nationality": "german and british",
+            "nationality": "swiss",
             "region": "europe",
             "number of mentions": 1
         },
@@ -268,7 +268,7 @@
         },
         "hans krebs": {
             "gender": "male",
-            "nationality": "german and british",
+            "nationality": "german-british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -286,7 +286,7 @@
         },
         "edward hugh simpson": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "british",
             "region": "europe",
             "number of mentions": 1
         },
@@ -302,7 +302,7 @@
             "region": "europe",
             "number of mentions": 1
         },
-        "jan evangelista purkyn?": {
+        "jan evangelista purkyn\u011b": {
             "gender": "male",
             "nationality": "czech",
             "region": "europe",

@@ -83,13 +83,13 @@
     "names": {
         "sir isaac newton": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 3
         },
         "robert hooke": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 2
         },
@@ -119,7 +119,7 @@
         },
         "james chadwick": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },
@@ -155,13 +155,13 @@
         },
         "robert bunsen": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "german",
             "region": "europe",
             "number of mentions": 2
         },
         "john langdon down": {
             "gender": "male",
-            "nationality": "british",
+            "nationality": "english",
             "region": "europe",
             "number of mentions": 1
         },

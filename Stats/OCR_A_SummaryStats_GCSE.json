@@ -105,7 +105,7 @@
             "region": "oceania",
             "number of mentions": 2
         },
-        "sir joseph john \"j. j.\" thomson": {
+        "j. j. thomson": {
             "gender": "male",
             "nationality": "english",
             "region": "europe",
@@ -125,7 +125,7 @@
         },
         "ernest marsden": {
             "gender": "male",
-            "nationality": "english-new zealand",
+            "nationality": "new zealand-english",
             "region": "europe-oceania",
             "number of mentions": 2
         },
@@ -209,7 +209,7 @@
         },
         "amedeo avogadro": {
             "gender": "male",
-            "nationality": "italy",
+            "nationality": "italian",
             "region": "europe",
             "number of mentions": 2
         },
