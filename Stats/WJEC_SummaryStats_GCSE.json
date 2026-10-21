@@ -2,7 +2,7 @@
     "subjects": {
         "physics": {
             "concept": {
-                "male": 6,
+                "male": 7,
                 "female": 0
             },
             "scientist": {
@@ -63,7 +63,7 @@
     },
     "overall": {
         "concept": {
-            "male": 11,
+            "male": 12,
             "female": 0
         },
         "scientist": {
@@ -196,7 +196,7 @@
         },
         "lord kelvin": {
             "gender": "male",
-            "nationality": "english",
+            "nationality": "scottish",
             "region": "europe",
             "number of mentions": 1
         },
